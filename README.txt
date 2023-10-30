@@ -1,19 +1,19 @@
 // FIRST PROMPTING CONVO.
-## Create me a Java class for a Product that has private fields for price, quantity, and name using precise numeric types
-To create a Java class for a Product with private fields for price, quantity, and name, we can use the BigDecimal class for the price field, as it provides operations for arithmetic, scale manipulation, rounding, comparison, and format conversion. The quantity can be represented by an integer, as it's generally a whole number. The name can be a String.
+## Create me a Java class for a GUI.Product that has private fields for price, quantity, and name using precise numeric types
+To create a Java class for a GUI.Product with private fields for price, quantity, and name, we can use the BigDecimal class for the price field, as it provides operations for arithmetic, scale manipulation, rounding, comparison, and format conversion. The quantity can be represented by an integer, as it's generally a whole number. The name can be a String.
 
 Here is a simple example of such a class:
 
 ```java
 import java.math.BigDecimal;
 
-public class Product {
+public class GUI.Product {
     private BigDecimal price;
     private int quantity;
     private String name;
 
     // Constructor
-    public Product(BigDecimal price, int quantity, String name) {
+    public GUI.Product(BigDecimal price, int quantity, String name) {
         this.price = price;
         this.quantity = quantity;
         this.name = name;
@@ -51,13 +51,13 @@ In this class, we have a constructor that initializes the price, quantity, and n
 When creating instances of this class, you would use the BigDecimal class for the price, like so:
 
 ```java
-Product product = new Product(new BigDecimal("19.99"), 10, "Sample Product");
+GUI.Product product = new GUI.Product(new BigDecimal("19.99"), 10, "Sample GUI.Product");
 ```
 
-This will create a product with a price of 19.99, a quantity of 10, and a name of "Sample Product".
+This will create a product with a price of 19.99, a quantity of 10, and a name of "Sample GUI.Product".
 
 ## add a method for updating the price
-To add a method for updating the price of the product in the `Product` class, you would use the `setPrice` method. This method accepts a `BigDecimal` argument and assigns it to the `price` field. 
+To add a method for updating the price of the product in the `GUI.Product` class, you would use the `setPrice` method. This method accepts a `BigDecimal` argument and assigns it to the `price` field.
 
 Here is how the `setPrice` method looks:
 
@@ -70,26 +70,26 @@ public void setPrice(BigDecimal price) {
 This method can be used to update the price of a product. For example:
 
 ```java
-Product product = new Product(new BigDecimal("19.99"), 10, "Sample Product");
+GUI.Product product = new GUI.Product(new BigDecimal("19.99"), 10, "Sample GUI.Product");
 System.out.println(product.getPrice()); // Outputs 19.99
 
 product.setPrice(new BigDecimal("29.99"));
 System.out.println(product.getPrice()); // Outputs 29.99
 ```
 
-In the above example, we first create a `Product` with a price of 19.99. We then use the `setPrice` method to update the price to 29.99. When we print the price after updating it, it outputs 29.99, indicating that the price was updated successfully [Source 3](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/math/BigDecimal.html).
+In the above example, we first create a `GUI.Product` with a price of 19.99. We then use the `setPrice` method to update the price to 29.99. When we print the price after updating it, it outputs 29.99, indicating that the price was updated successfully [Source 3](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/math/BigDecimal.html).
 
 Note that it's important to use the `BigDecimal` class for the price field and not a primitive type like `double`, because `BigDecimal` can handle very precise decimal values, which is important for monetary values [Source 13](https://www.javatpoint.com/java-bigdecimal).
 
 ## given that the quantity field is also bigdecimal, give me a method for decrementing/ incrementing it by a certain value
-To add methods for incrementing and decrementing the quantity field of the `Product` class, you would use the `add` and `subtract` methods of the `BigDecimal` class. These methods return a new `BigDecimal` object that represents the result of the operation.
+To add methods for incrementing and decrementing the quantity field of the `GUI.Product` class, you would use the `add` and `subtract` methods of the `BigDecimal` class. These methods return a new `BigDecimal` object that represents the result of the operation.
 
-Here is how you can add the `incrementQuantity` and `decrementQuantity` methods to the `Product` class:
+Here is how you can add the `incrementQuantity` and `decrementQuantity` methods to the `GUI.Product` class:
 
 ```java
 import java.math.BigDecimal;
 
-public class Product {
+public class GUI.Product {
     // ...
 
     // Other fields and methods ...
@@ -110,7 +110,7 @@ In these methods, `incrementValue` and `decrementValue` are the values by which 
 You can use these methods to increment or decrement the quantity of a product. For example:
 
 ```java
-Product product = new Product(new BigDecimal("19.99"), new BigDecimal("10"), "Sample Product");
+GUI.Product product = new GUI.Product(new BigDecimal("19.99"), new BigDecimal("10"), "Sample GUI.Product");
 System.out.println(product.getQuantity()); // Outputs 10
 
 product.incrementQuantity(new BigDecimal("5"));
@@ -119,15 +119,15 @@ System.out.println(product.getQuantity()); // Outputs 15
 product.decrementQuantity(new BigDecimal("3"));
 System.out.println(product.getQuantity()); // Outputs 12
 ```
-In the above example, we first create a `Product` with a quantity of 10. We then use the `incrementQuantity` method to increase the quantity by 5, and the `decrementQuantity` method to decrease the quantity by 3 [Source 0](https://stackoverflow.com/questions/42407236/how-can-i-increment-bigdecimal-in-java-through-for-loop), [Source 2](https://www.geeksforgeeks.org/bigdecimal-class-java/).
+In the above example, we first create a `GUI.Product` with a quantity of 10. We then use the `incrementQuantity` method to increase the quantity by 5, and the `decrementQuantity` method to decrease the quantity by 3 [Source 0](https://stackoverflow.com/questions/42407236/how-can-i-increment-bigdecimal-in-java-through-for-loop), [Source 2](https://www.geeksforgeeks.org/bigdecimal-class-java/).
 
 Remember that the `BigDecimal` class is immutable, which means that its value cannot be changed once it's created. Therefore, when you call `add` or `subtract`, you must assign the result back to `quantity` to update its value [Source 12](https://dev.to/argen666/how-to-use-bigdecimal-in-java-accurately-1ken).
 
-## "Create a class named ProductInventory to manage the list of available products.
+## "Create a class named GUI.ProductInventory to manage the list of available products.
 Implement methods to add new products to the inventory.
 Implement methods to update product details.
 Implement methods to remove products from the inventory."
-To create a `ProductInventory` class to manage a list of products, we can use a `List` to store the products. We'll add methods for adding, updating, and removing products.
+To create a `GUI.ProductInventory` class to manage a list of products, we can use a `List` to store the products. We'll add methods for adding, updating, and removing products.
 
 Here is a simple example of such a class:
 
@@ -136,29 +136,29 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ProductInventory {
-    private List<Product> inventory;
+public class GUI.ProductInventory {
+    private List<GUI.Product> inventory;
 
     // Constructor
-    public ProductInventory() {
+    public GUI.ProductInventory() {
         this.inventory = new ArrayList<>();
     }
 
     // Method to add a new product to the inventory
     public void addProduct(BigDecimal price, BigDecimal quantity, String name) {
-        Product product = new Product(price, quantity, name);
+        GUI.Product product = new GUI.Product(price, quantity, name);
         this.inventory.add(product);
     }
 
     // Method to update a product in the inventory
     public void updateProduct(int index, BigDecimal price, BigDecimal quantity, String name) {
         if (index >= 0 && index < inventory.size()) {
-            Product product = inventory.get(index);
+            GUI.Product product = inventory.get(index);
             product.setPrice(price);
             product.setQuantity(quantity);
             product.setName(name);
         } else {
-            System.out.println("Product not found in inventory.");
+            System.out.println("GUI.Product not found in inventory.");
         }
     }
 
@@ -167,87 +167,87 @@ public class ProductInventory {
         if (index >= 0 && index < inventory.size()) {
             inventory.remove(index);
         } else {
-            System.out.println("Product not found in inventory.");
+            System.out.println("GUI.Product not found in inventory.");
         }
     }
 }
 ```
 In this class:
 
-- The `addProduct` method creates a new `Product` and adds it to the `inventory` list.
-- The `updateProduct` method updates the `price`, `quantity`, and `name` of a `Product` at a specific index in the `inventory` list.
-- The `removeProduct` method removes a `Product` at a specific index from the `inventory` list.
+- The `addProduct` method creates a new `GUI.Product` and adds it to the `inventory` list.
+- The `updateProduct` method updates the `price`, `quantity`, and `name` of a `GUI.Product` at a specific index in the `inventory` list.
+- The `removeProduct` method removes a `GUI.Product` at a specific index from the `inventory` list.
 
-The `index` parameter in the `updateProduct` and `removeProduct` methods represents the position of the `Product` in the `inventory` list, starting from 0 for the first product. If the index is out of range (negative or greater than or equal to the number of products), the methods print an error message [Source 1](https://www.w3resource.com/java-exercises/oop/java-oop-exercise-13.php), [Source 7](https://www.daniweb.com/programming/software-development/threads/502589/removing-products-from-list), [Source 12](https://bytes.com/topic/java/answers/593811-inventory-program-java).
+The `index` parameter in the `updateProduct` and `removeProduct` methods represents the position of the `GUI.Product` in the `inventory` list, starting from 0 for the first product. If the index is out of range (negative or greater than or equal to the number of products), the methods print an error message [Source 1](https://www.w3resource.com/java-exercises/oop/java-oop-exercise-13.php), [Source 7](https://www.daniweb.com/programming/software-development/threads/502589/removing-products-from-list), [Source 12](https://bytes.com/topic/java/answers/593811-inventory-program-java).
 
 ## I don't want to remove them by index but rather by product id (assume product id is a private string attribute)
-To manage products by their unique id, you need to modify the `ProductInventory` class. This involves changing the `List<Product>` to a `Map<String, Product>`, where the key is the product id and the value is the product itself. This allows for easy retrieval and removal of products using their id. 
+To manage products by their unique id, you need to modify the `GUI.ProductInventory` class. This involves changing the `List<GUI.Product>` to a `Map<String, GUI.Product>`, where the key is the product id and the value is the product itself. This allows for easy retrieval and removal of products using their id.
 
-Here is how you can modify the `ProductInventory` class:
+Here is how you can modify the `GUI.ProductInventory` class:
 
 ```java
 import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ProductInventory {
-    private Map<String, Product> inventory;
+public class GUI.ProductInventory {
+    private Map<String, GUI.Product> inventory;
 
     // Constructor
-    public ProductInventory() {
+    public GUI.ProductInventory() {
         this.inventory = new HashMap<>();
     }
 
     // Method to add a new product to the inventory
     public void addProduct(String id, BigDecimal price, BigDecimal quantity, String name) {
-        Product product = new Product(id, price, quantity, name);
+        GUI.Product product = new GUI.Product(id, price, quantity, name);
         this.inventory.put(id, product);
     }
 
     // Method to update a product in the inventory
     public void updateProduct(String id, BigDecimal price, BigDecimal quantity, String name) {
-        Product product = inventory.get(id);
+        GUI.Product product = inventory.get(id);
         if (product != null) {
             product.setPrice(price);
             product.setQuantity(quantity);
             product.setName(name);
         } else {
-            System.out.println("Product not found in inventory.");
+            System.out.println("GUI.Product not found in inventory.");
         }
     }
 
     // Method to remove a product from the inventory
     public void removeProduct(String id) {
-        Product removedProduct = inventory.remove(id);
+        GUI.Product removedProduct = inventory.remove(id);
         if (removedProduct == null) {
-            System.out.println("Product not found in inventory.");
+            System.out.println("GUI.Product not found in inventory.");
         }
     }
 }
 ```
 In this class:
 
-- The `addProduct` method creates a new `Product` and adds it to the `inventory` map with the product id as the key.
-- The `updateProduct` method updates the `price`, `quantity`, and `name` of a `Product` with a specific id in the `inventory` map.
-- The `removeProduct` method removes a `Product` with a specific id from the `inventory` map.
+- The `addProduct` method creates a new `GUI.Product` and adds it to the `inventory` map with the product id as the key.
+- The `updateProduct` method updates the `price`, `quantity`, and `name` of a `GUI.Product` with a specific id in the `inventory` map.
+- The `removeProduct` method removes a `GUI.Product` with a specific id from the `inventory` map.
 
-The `id` parameter in the `addProduct`, `updateProduct`, and `removeProduct` methods represents the unique id of the `Product` [Source 12](https://codereview.stackexchange.com/questions/148821/inventory-of-objects-with-item-types-and-quantities), [Source 7](https://codereview.stackexchange.com/questions/194784/simple-product-inventory-project).
+The `id` parameter in the `addProduct`, `updateProduct`, and `removeProduct` methods represents the unique id of the `GUI.Product` [Source 12](https://codereview.stackexchange.com/questions/148821/inventory-of-objects-with-item-types-and-quantities), [Source 7](https://codereview.stackexchange.com/questions/194784/simple-product-inventory-project).
 
-Please ensure that the `Product` class also has an `id` field and its corresponding getter and setter methods. The `id` field should be a unique identifier for each `Product` instance [Source 10](https://www.daniweb.com/programming/software-development/threads/502589/removing-products-from-list).
+Please ensure that the `GUI.Product` class also has an `id` field and its corresponding getter and setter methods. The `id` field should be a unique identifier for each `GUI.Product` instance [Source 10](https://www.daniweb.com/programming/software-development/threads/502589/removing-products-from-list).
 
 ## should I make the inventory field final? why or why not and what implications does that have?
-Declaring the `inventory` field as `final` in the `ProductInventory` class would mean that it can only be assigned once, and the reference cannot be changed to point to another object. This is a feature of Java known as immutability. You can initialize a `final` field when it is declared or in the constructor of a class.
+Declaring the `inventory` field as `final` in the `GUI.ProductInventory` class would mean that it can only be assigned once, and the reference cannot be changed to point to another object. This is a feature of Java known as immutability. You can initialize a `final` field when it is declared or in the constructor of a class.
 
-In the context of the `ProductInventory` class, declaring `inventory` as `final` would be appropriate because you only need to initialize it once and you won't need to reassign it to another object afterwards. The `inventory` map will be used to store and manage products throughout the lifetime of the `ProductInventory` instance.
+In the context of the `GUI.ProductInventory` class, declaring `inventory` as `final` would be appropriate because you only need to initialize it once and you won't need to reassign it to another object afterwards. The `inventory` map will be used to store and manage products throughout the lifetime of the `GUI.ProductInventory` instance.
 
 Here's how you can declare the `inventory` field as `final`:
 
 ```java
-public class ProductInventory {
-    private final Map<String, Product> inventory;
+public class GUI.ProductInventory {
+    private final Map<String, GUI.Product> inventory;
 
     // Constructor
-    public ProductInventory() {
+    public GUI.ProductInventory() {
         this.inventory = new HashMap<>();
     }
 
@@ -257,67 +257,67 @@ public class ProductInventory {
 
 However, note that declaring `inventory` as `final` only prevents reassigning the `inventory` reference to another object. It does not prevent modification of the `Map` object that `inventory` refers to. This means you can still add, update, and remove products from the `inventory` map [Source 7](https://stackoverflow.com/questions/1249917/final-keyword-in-java).
 
-The implication of making `inventory` `final` is that it provides a guarantee that the `inventory` field will always refer to the same `Map` object throughout the lifetime of the `ProductInventory` instance. This can be useful in concurrent programming where multiple threads might be accessing the `ProductInventory` instance, because it provides a level of thread safety [Source 9](https://stackoverflow.com/questions/500508/why-should-i-use-the-keyword-final-on-a-method-parameter-in-java). However, for the actual modification of the `Map` object (adding, updating, removing products), additional synchronization might be needed if multiple threads are involved.
+The implication of making `inventory` `final` is that it provides a guarantee that the `inventory` field will always refer to the same `Map` object throughout the lifetime of the `GUI.ProductInventory` instance. This can be useful in concurrent programming where multiple threads might be accessing the `GUI.ProductInventory` instance, because it provides a level of thread safety [Source 9](https://stackoverflow.com/questions/500508/why-should-i-use-the-keyword-final-on-a-method-parameter-in-java). However, for the actual modification of the `Map` object (adding, updating, removing products), additional synchronization might be needed if multiple threads are involved.
 
 ## create a searchByProductId method
 To create a method that searches for a product by its id, you can utilize the `get` method of the `Map` interface in Java. This method retrieves the value mapped to the specified key in the map. 
 
-In the context of the `ProductInventory` class, the `searchByProductId` method would look like this:
+In the context of the `GUI.ProductInventory` class, the `searchByProductId` method would look like this:
 
 ```java
-public class ProductInventory {
+public class GUI.ProductInventory {
     // ...
 
     // Other fields and methods ...
 
     // Method to search for a product by its id
-    public Product searchByProductId(String id) {
+    public GUI.Product searchByProductId(String id) {
         return this.inventory.get(id);
     }
 }
 ```
 
-This `searchByProductId` method returns the `Product` with the specified id. If no product with the specified id exists in the inventory, the `get` method will return `null` [Source 1](https://www.baeldung.com/java-hashmap).
+This `searchByProductId` method returns the `GUI.Product` with the specified id. If no product with the specified id exists in the inventory, the `get` method will return `null` [Source 1](https://www.baeldung.com/java-hashmap).
 
 You can use this method to search for a product by its id. For example:
 
 ```java
-ProductInventory inventory = new ProductInventory();
-inventory.addProduct("1", new BigDecimal("19.99"), new BigDecimal("10"), "Sample Product 1");
+GUI.ProductInventory inventory = new GUI.ProductInventory();
+inventory.addProduct("1", new BigDecimal("19.99"), new BigDecimal("10"), "Sample GUI.Product 1");
 
-Product product = inventory.searchByProductId("1");
+GUI.Product product = inventory.searchByProductId("1");
 if (product != null) {
     System.out.println(product.getName());
 } else {
-    System.out.println("Product not found in inventory.");
+    System.out.println("GUI.Product not found in inventory.");
 }
 ```
 
 In the above example, the `searchByProductId` method finds the product with id "1" and prints its name [Source 5](https://docs.oracle.com/javase/8/docs/api/java/util/HashMap.html).
 
-## "Create a ShoppingCart class.
+## "Create a GUI.ShoppingCart class.
 Implement methods to add products to the cart.
 Implement methods to remove products from the cart.
 Implement a method to calculate the total cost of items in the cart."
-To create a `ShoppingCart` class, you need to maintain a list of products in the cart. Each product should also have a quantity. In this case, a `Map<Product, BigDecimal>` can be used where the key is the `Product` and the value is the quantity. You will also need methods to add and remove products, as well as a method to calculate the total cost of items in the cart.
+To create a `GUI.ShoppingCart` class, you need to maintain a list of products in the cart. Each product should also have a quantity. In this case, a `Map<GUI.Product, BigDecimal>` can be used where the key is the `GUI.Product` and the value is the quantity. You will also need methods to add and remove products, as well as a method to calculate the total cost of items in the cart.
 
-Here is a simple example of a `ShoppingCart` class:
+Here is a simple example of a `GUI.ShoppingCart` class:
 
 ```java
 import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ShoppingCart {
-    private Map<Product, BigDecimal> cartItems;
+public class GUI.ShoppingCart {
+    private Map<GUI.Product, BigDecimal> cartItems;
 
     // Constructor
-    public ShoppingCart() {
+    public GUI.ShoppingCart() {
         this.cartItems = new HashMap<>();
     }
 
     // Method to add a product to the cart
-    public void addProduct(Product product, BigDecimal quantity) {
+    public void addProduct(GUI.Product product, BigDecimal quantity) {
         BigDecimal existingQuantity = this.cartItems.get(product);
         if (existingQuantity != null) {
             quantity = quantity.add(existingQuantity);
@@ -326,14 +326,14 @@ public class ShoppingCart {
     }
 
     // Method to remove a product from the cart
-    public void removeProduct(Product product) {
+    public void removeProduct(GUI.Product product) {
         this.cartItems.remove(product);
     }
 
     // Method to calculate the total cost of items in the cart
     public BigDecimal calculateTotal() {
         BigDecimal total = BigDecimal.ZERO;
-        for (Map.Entry<Product, BigDecimal> entry : this.cartItems.entrySet()) {
+        for (Map.Entry<GUI.Product, BigDecimal> entry : this.cartItems.entrySet()) {
             BigDecimal price = entry.getKey().getPrice();
             BigDecimal quantity = entry.getValue();
             total = total.add(price.multiply(quantity));
@@ -351,10 +351,10 @@ In this class:
 You can use this class to manage a shopping cart. For example:
 
 ```java
-Product product1 = new Product("1", new BigDecimal("19.99"), new BigDecimal("10"), "Sample Product 1");
-Product product2 = new Product("2", new BigDecimal("29.99"), new BigDecimal("5"), "Sample Product 2");
+GUI.Product product1 = new GUI.Product("1", new BigDecimal("19.99"), new BigDecimal("10"), "Sample GUI.Product 1");
+GUI.Product product2 = new GUI.Product("2", new BigDecimal("29.99"), new BigDecimal("5"), "Sample GUI.Product 2");
 
-ShoppingCart cart = new ShoppingCart();
+GUI.ShoppingCart cart = new GUI.ShoppingCart();
 cart.addProduct(product1, new BigDecimal("2"));
 cart.addProduct(product2, new BigDecimal("3"));
 
@@ -368,28 +368,28 @@ System.out.println(total); // Outputs 89.97
 ```
 In the above example, we first add two products to the cart and calculate the total cost. We then remove one product and calculate the new total cost [Source 1](https://codereview.stackexchange.com/questions/195570/total-cost-calculator-for-shopping-cart), [Source 7](https://softwareengineering.stackexchange.com/questions/347505/how-to-design-the-classes-for-a-simple-shopping-cart-example-using-strategy-desi).
 
-## "Create a Cashier class.
+## "Create a GUI.Cashier class.
 Implement methods to add products to a sale transaction.
 Implement a method to calculate the total cost of the sale transaction."
-To create a `Cashier` class, you can use a `Map<Product, BigDecimal>` to store the products in the sale transaction and their quantities. You will need methods to add products to the sale transaction and calculate the total cost of the sale transaction.
+To create a `GUI.Cashier` class, you can use a `Map<GUI.Product, BigDecimal>` to store the products in the sale transaction and their quantities. You will need methods to add products to the sale transaction and calculate the total cost of the sale transaction.
 
-Here is a simple example of a `Cashier` class:
+Here is a simple example of a `GUI.Cashier` class:
 
 ```java
 import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Cashier {
-    private Map<Product, BigDecimal> saleItems;
+public class GUI.Cashier {
+    private Map<GUI.Product, BigDecimal> saleItems;
 
     // Constructor
-    public Cashier() {
+    public GUI.Cashier() {
         this.saleItems = new HashMap<>();
     }
 
     // Method to add a product to the sale transaction
-    public void addProductToSale(Product product, BigDecimal quantity) {
+    public void addProductToSale(GUI.Product product, BigDecimal quantity) {
         BigDecimal existingQuantity = this.saleItems.get(product);
         if (existingQuantity != null) {
             quantity = quantity.add(existingQuantity);
@@ -400,7 +400,7 @@ public class Cashier {
     // Method to calculate the total cost of the sale transaction
     public BigDecimal calculateTotalSale() {
         BigDecimal total = BigDecimal.ZERO;
-        for (Map.Entry<Product, BigDecimal> entry : this.saleItems.entrySet()) {
+        for (Map.Entry<GUI.Product, BigDecimal> entry : this.saleItems.entrySet()) {
             BigDecimal price = entry.getKey().getPrice();
             BigDecimal quantity = entry.getValue();
             total = total.add(price.multiply(quantity));
@@ -417,10 +417,10 @@ In this class:
 You can use this class to manage a sale transaction. For example:
 
 ```java
-Product product1 = new Product("1", new BigDecimal("19.99"), new BigDecimal("10"), "Sample Product 1");
-Product product2 = new Product("2", new BigDecimal("29.99"), new BigDecimal("5"), "Sample Product 2");
+GUI.Product product1 = new GUI.Product("1", new BigDecimal("19.99"), new BigDecimal("10"), "Sample GUI.Product 1");
+GUI.Product product2 = new GUI.Product("2", new BigDecimal("29.99"), new BigDecimal("5"), "Sample GUI.Product 2");
 
-Cashier cashier = new Cashier();
+GUI.Cashier cashier = new GUI.Cashier();
 cashier.addProductToSale(product1, new BigDecimal("2"));
 cashier.addProductToSale(product2, new BigDecimal("3"));
 
@@ -429,25 +429,25 @@ System.out.println(total); // Outputs 119.95
 ```
 In the above example, we first add two products to the sale transaction and calculate the total cost [Source 1](https://codereview.stackexchange.com/questions/195570/total-cost-calculator-for-shopping-cart), [Source 13](https://www.javatpoint.com/java-program-for-shopping-bill).
 
-## but I feel like this class does almost the same thing as the previous ShoppingCart class
-Your observation is correct. The `Cashier` class and the `ShoppingCart` class have similar functionality. Both classes involve adding products to a collection and calculating the total cost. 
+## but I feel like this class does almost the same thing as the previous GUI.ShoppingCart class
+Your observation is correct. The `GUI.Cashier` class and the `GUI.ShoppingCart` class have similar functionality. Both classes involve adding products to a collection and calculating the total cost.
 
-The main difference between a `Cashier` and a `ShoppingCart` class would typically be in their responsibilities:
+The main difference between a `GUI.Cashier` and a `GUI.ShoppingCart` class would typically be in their responsibilities:
 
-- A `ShoppingCart` is usually responsible for keeping track of what a customer wants to purchase. It's like a temporary storage for the customer's chosen products before they decide to check out.
+- A `GUI.ShoppingCart` is usually responsible for keeping track of what a customer wants to purchase. It's like a temporary storage for the customer's chosen products before they decide to check out.
 
-- A `Cashier` or `Sale` class, on the other hand, is usually responsible for finalizing the purchase. This includes applying discounts, taxes, handling payments, and generating receipts.
+- A `GUI.Cashier` or `Sale` class, on the other hand, is usually responsible for finalizing the purchase. This includes applying discounts, taxes, handling payments, and generating receipts.
 
-Given this, you might want to consider integrating the two classes or refactoring them to better delineate their responsibilities. The `ShoppingCart` class could be used to add and remove products, while the `Cashier` class could take a `ShoppingCart` as input and calculate the total cost, apply discounts, taxes, etc.
+Given this, you might want to consider integrating the two classes or refactoring them to better delineate their responsibilities. The `GUI.ShoppingCart` class could be used to add and remove products, while the `GUI.Cashier` class could take a `GUI.ShoppingCart` as input and calculate the total cost, apply discounts, taxes, etc.
 
-Here is a simple example of how the `Cashier` class could look like:
+Here is a simple example of how the `GUI.Cashier` class could look like:
 
 ```java
-public class Cashier {
-    private ShoppingCart cart;
+public class GUI.Cashier {
+    private GUI.ShoppingCart cart;
 
     // Constructor
-    public Cashier(ShoppingCart cart) {
+    public GUI.Cashier(GUI.ShoppingCart cart) {
         this.cart = cart;
     }
 
@@ -458,35 +458,35 @@ public class Cashier {
 }
 ```
 
-In this example, the `Cashier` class takes a `ShoppingCart` as input in its constructor. The `calculateTotalSale` method simply calls the `calculateTotal` method of the `ShoppingCart`, which calculates the total cost of the items in the cart [Source 5](https://www.daniweb.com/programming/software-development/threads/407618/simple-shopping-cart-not-so-simple), [Source 13](https://gist.github.com/yaswanthrajyadiki/f9b2ec5fbbc1368a54de), [Source 14](https://codereview.stackexchange.com/questions/71527/shopping-list-application). 
+In this example, the `GUI.Cashier` class takes a `GUI.ShoppingCart` as input in its constructor. The `calculateTotalSale` method simply calls the `calculateTotal` method of the `GUI.ShoppingCart`, which calculates the total cost of the items in the cart [Source 5](https://www.daniweb.com/programming/software-development/threads/407618/simple-shopping-cart-not-so-simple), [Source 13](https://gist.github.com/yaswanthrajyadiki/f9b2ec5fbbc1368a54de), [Source 14](https://codereview.stackexchange.com/questions/71527/shopping-list-application).
 
-Further functionalities such as applying discounts, taxes, handling payments, and generating receipts can be added to the `Cashier` class as needed.
+Further functionalities such as applying discounts, taxes, handling payments, and generating receipts can be added to the `GUI.Cashier` class as needed.
 
-## "Implement methods in the Cashier class to handle cash payments.
+## "Implement methods in the GUI.Cashier class to handle cash payments.
 Implement methods to handle credit card payments.
 Implement methods to handle mobile payments."
 but first define payments as enum
-First, let's define a `PaymentMethod` enum to represent the different types of payments that can be made. This enum can have three values: `CASH`, `CREDIT_CARD`, and `MOBILE_PAYMENT`.
+First, let's define a `GUI.PaymentMethod` enum to represent the different types of payments that can be made. This enum can have three values: `CASH`, `CREDIT_CARD`, and `MOBILE_PAYMENT`.
 
 ```java
-public enum PaymentMethod {
+public enum GUI.PaymentMethod {
     CASH,
     CREDIT_CARD,
     MOBILE_PAYMENT
 }
 ```
 
-Now, let's modify the `Cashier` class to handle different types of payments. We'll add a `paymentMethod` field and a `processPayment` method that accepts a `PaymentMethod` parameter. 
+Now, let's modify the `GUI.Cashier` class to handle different types of payments. We'll add a `paymentMethod` field and a `processPayment` method that accepts a `GUI.PaymentMethod` parameter.
 
 In this example, we'll just print a message indicating the type of payment. In a real-world application, you would likely need to integrate with a payment gateway to actually process the payment.
 
 ```java
-public class Cashier {
-    private ShoppingCart cart;
-    private PaymentMethod paymentMethod;
+public class GUI.Cashier {
+    private GUI.ShoppingCart cart;
+    private GUI.PaymentMethod paymentMethod;
 
     // Constructor
-    public Cashier(ShoppingCart cart, PaymentMethod paymentMethod) {
+    public GUI.Cashier(GUI.ShoppingCart cart, GUI.PaymentMethod paymentMethod) {
         this.cart = cart;
         this.paymentMethod = paymentMethod;
     }
@@ -515,23 +515,23 @@ public class Cashier {
 
 In this class:
 
-- The `calculateTotalSale` method calculates the total cost of the items in the cart by calling the `calculateTotal` method of the `ShoppingCart`.
+- The `calculateTotalSale` method calculates the total cost of the items in the cart by calling the `calculateTotal` method of the `GUI.ShoppingCart`.
 - The `processPayment` method processes the payment based on the `paymentMethod` field. It uses a switch statement to handle each type of payment. In this example, it just prints a message indicating the type of payment. In a real-world application, you would likely need to integrate with a payment gateway to actually process the payment [Source 12](https://help.hcltechsw.com/commerce/7.0.0/com.ibm.commerce.payments.developer.doc/concepts/cpycashr.html), [Source 14](https://www.javaworld.com/article/2076814/java-tip-120--implement-enumerated-types-in-java.html).
 
 ## why should I or shouldnt i make the attributes here final?
-Declaring the `cart` and `paymentMethod` fields as `final` in the `Cashier` class would mean that they can only be assigned once, and the reference cannot be changed to point to another object. This is a feature of Java known as immutability. You can initialize a `final` field when it is declared or in the constructor of a class.
+Declaring the `cart` and `paymentMethod` fields as `final` in the `GUI.Cashier` class would mean that they can only be assigned once, and the reference cannot be changed to point to another object. This is a feature of Java known as immutability. You can initialize a `final` field when it is declared or in the constructor of a class.
 
-In the context of the `Cashier` class, declaring `cart` and `paymentMethod` as `final` would be appropriate because you only need to initialize them once and you won't need to reassign them to another object afterwards. The `cart` and `paymentMethod` will be used to store and manage the sale transaction throughout the lifetime of the `Cashier` instance.
+In the context of the `GUI.Cashier` class, declaring `cart` and `paymentMethod` as `final` would be appropriate because you only need to initialize them once and you won't need to reassign them to another object afterwards. The `cart` and `paymentMethod` will be used to store and manage the sale transaction throughout the lifetime of the `GUI.Cashier` instance.
 
 Here's how you can declare the `cart` and `paymentMethod` fields as `final`:
 
 ```java
-public class Cashier {
-    private final ShoppingCart cart;
-    private final PaymentMethod paymentMethod;
+public class GUI.Cashier {
+    private final GUI.ShoppingCart cart;
+    private final GUI.PaymentMethod paymentMethod;
 
     // Constructor
-    public Cashier(ShoppingCart cart, PaymentMethod paymentMethod) {
+    public GUI.Cashier(GUI.ShoppingCart cart, GUI.PaymentMethod paymentMethod) {
         this.cart = cart;
         this.paymentMethod = paymentMethod;
     }
@@ -540,35 +540,35 @@ public class Cashier {
 }
 ```
 
-However, note that declaring `cart` and `paymentMethod` as `final` only prevents reassigning these fields to another object. It does not prevent modification of the `ShoppingCart` and `PaymentMethod` objects that `cart` and `paymentMethod` refer to. This means you can still add, update, and remove products from the `cart`, or change the value of `paymentMethod` [Source 2](https://stackoverflow.com/questions/5582011/setting-a-final-class-attribute).
+However, note that declaring `cart` and `paymentMethod` as `final` only prevents reassigning these fields to another object. It does not prevent modification of the `GUI.ShoppingCart` and `GUI.PaymentMethod` objects that `cart` and `paymentMethod` refer to. This means you can still add, update, and remove products from the `cart`, or change the value of `paymentMethod` [Source 2](https://stackoverflow.com/questions/5582011/setting-a-final-class-attribute).
 
-The implication of making `cart` and `paymentMethod` `final` is that it provides a guarantee that these fields will always refer to the same `ShoppingCart` and `PaymentMethod` objects throughout the lifetime of the `Cashier` instance. This can be useful in concurrent programming where multiple threads might be accessing the `Cashier` instance, because it provides a level of thread safety [Source 2](https://stackoverflow.com/questions/5582011/setting-a-final-class-attribute). However, for the actual modification of the `ShoppingCart` and `PaymentMethod` objects, additional synchronization might be needed if multiple threads are involved.
+The implication of making `cart` and `paymentMethod` `final` is that it provides a guarantee that these fields will always refer to the same `GUI.ShoppingCart` and `GUI.PaymentMethod` objects throughout the lifetime of the `GUI.Cashier` instance. This can be useful in concurrent programming where multiple threads might be accessing the `GUI.Cashier` instance, because it provides a level of thread safety [Source 2](https://stackoverflow.com/questions/5582011/setting-a-final-class-attribute). However, for the actual modification of the `GUI.ShoppingCart` and `GUI.PaymentMethod` objects, additional synchronization might be needed if multiple threads are involved.
 
-## Can I still modify the contents of the `ShoppingCart` and `PaymentMethod` objects even if they are declared as `final`?
-Yes, you can still modify the contents of the `ShoppingCart` and `PaymentMethod` objects even if they are declared as `final`. 
+## Can I still modify the contents of the `GUI.ShoppingCart` and `GUI.PaymentMethod` objects even if they are declared as `final`?
+Yes, you can still modify the contents of the `GUI.ShoppingCart` and `GUI.PaymentMethod` objects even if they are declared as `final`.
 
 When you declare an object as `final`, it means that the reference cannot be changed to point to a different object. However, it does not make the object itself immutable. This means that if the object has methods that change its state, you can still call those methods after the object is declared as `final`.
 
-For example, if `ShoppingCart` has methods to add or remove products, and `PaymentMethod` has methods to change its value, you can still call those methods after declaring `cart` and `paymentMethod` as `final`.
+For example, if `GUI.ShoppingCart` has methods to add or remove products, and `GUI.PaymentMethod` has methods to change its value, you can still call those methods after declaring `cart` and `paymentMethod` as `final`.
 
 Here's an example:
 
 ```java
-public class Cashier {
-    private final ShoppingCart cart;
-    private final PaymentMethod paymentMethod;
+public class GUI.Cashier {
+    private final GUI.ShoppingCart cart;
+    private final GUI.PaymentMethod paymentMethod;
 
     // Constructor
-    public Cashier(ShoppingCart cart, PaymentMethod paymentMethod) {
+    public GUI.Cashier(GUI.ShoppingCart cart, GUI.PaymentMethod paymentMethod) {
         this.cart = cart;
         this.paymentMethod = paymentMethod;
     }
 
-    public void addProduct(Product product, BigDecimal quantity) {
+    public void addProduct(GUI.Product product, BigDecimal quantity) {
         this.cart.addProduct(product, quantity);
     }
 
-    public void changePaymentMethod(PaymentMethod newPaymentMethod) {
+    public void changePaymentMethod(GUI.PaymentMethod newPaymentMethod) {
         this.paymentMethod = newPaymentMethod;
     }
 }
@@ -576,12 +576,12 @@ public class Cashier {
 
 In this example, the `addProduct` method adds a product to the `cart`, and the `changePaymentMethod` method changes the `paymentMethod`. Both methods modify the `cart` and `paymentMethod` objects, respectively [Source 6](https://www.javatpoint.com/final-object-in-java), [Source 8](https://www.w3docs.com/snippets/java/how-does-the-final-keyword-in-java-work-i-can-still-modify-an-object.html).
 
-However, note that the `changePaymentMethod` method will not compile because it tries to reassign a `final` field. Once a `final` field is assigned, it cannot be reassigned. If you need to change the `paymentMethod` after the `Cashier` is created, you should not declare `paymentMethod` as `final`.
+However, note that the `changePaymentMethod` method will not compile because it tries to reassign a `final` field. Once a `final` field is assigned, it cannot be reassigned. If you need to change the `paymentMethod` after the `GUI.Cashier` is created, you should not declare `paymentMethod` as `final`.
 
-## "Create a Receipt class.
+## "Create a GUI.Receipt class.
 Implement methods to generate a receipt with itemized details.
 Include payment information (payment method, total amount) on the receipt."
-To create a `Receipt` class, you could include the `ShoppingCart` and `PaymentMethod` as fields. You would also need methods to generate the receipt with itemized details and include payment information.
+To create a `GUI.Receipt` class, you could include the `GUI.ShoppingCart` and `GUI.PaymentMethod` as fields. You would also need methods to generate the receipt with itemized details and include payment information.
 
 Here is a simple example of such a class:
 
@@ -589,22 +589,22 @@ Here is a simple example of such a class:
 import java.math.BigDecimal;
 import java.util.Map;
 
-public class Receipt {
-    private ShoppingCart cart;
-    private PaymentMethod paymentMethod;
+public class GUI.Receipt {
+    private GUI.ShoppingCart cart;
+    private GUI.PaymentMethod paymentMethod;
 
     // Constructor
-    public Receipt(ShoppingCart cart, PaymentMethod paymentMethod) {
+    public GUI.Receipt(GUI.ShoppingCart cart, GUI.PaymentMethod paymentMethod) {
         this.cart = cart;
         this.paymentMethod = paymentMethod;
     }
 
     // Method to generate the receipt
     public void generateReceipt() {
-        System.out.println("Receipt:");
+        System.out.println("GUI.Receipt:");
         System.out.println("Payment Method: " + this.paymentMethod);
         System.out.println("-----------------------------");
-        for (Map.Entry<Product, BigDecimal> entry : this.cart.getCartItems().entrySet()) {
+        for (Map.Entry<GUI.Product, BigDecimal> entry : this.cart.getCartItems().entrySet()) {
             System.out.println(entry.getKey().getName() + ": " + entry.getValue());
         }
         System.out.println("-----------------------------");
@@ -620,30 +620,30 @@ In this class:
 You can use this class to generate a receipt. For example:
 
 ```java
-Product product1 = new Product("1", new BigDecimal("19.99"), new BigDecimal("10"), "Sample Product 1");
-Product product2 = new Product("2", new BigDecimal("29.99"), new BigDecimal("5"), "Sample Product 2");
+GUI.Product product1 = new GUI.Product("1", new BigDecimal("19.99"), new BigDecimal("10"), "Sample GUI.Product 1");
+GUI.Product product2 = new GUI.Product("2", new BigDecimal("29.99"), new BigDecimal("5"), "Sample GUI.Product 2");
 
-ShoppingCart cart = new ShoppingCart();
+GUI.ShoppingCart cart = new GUI.ShoppingCart();
 cart.addProduct(product1, new BigDecimal("2"));
 cart.addProduct(product2, new BigDecimal("3"));
 
-Cashier cashier = new Cashier(cart, PaymentMethod.CASH);
-Receipt receipt = new Receipt(cart, PaymentMethod.CASH);
+GUI.Cashier cashier = new GUI.Cashier(cart, GUI.PaymentMethod.CASH);
+GUI.Receipt receipt = new GUI.Receipt(cart, GUI.PaymentMethod.CASH);
 receipt.generateReceipt();
 ```
 
-In the above example, we first add two products to the cart, create a `Cashier` and a `Receipt`, and generate the receipt [Source 2](https://codeguid.com/2019/08/16/create-generate-invoice-bill-receipt/), [Source 4](https://www.codeblah.com/java-program-invoice-class/).
+In the above example, we first add two products to the cart, create a `GUI.Cashier` and a `GUI.Receipt`, and generate the receipt [Source 2](https://codeguid.com/2019/08/16/create-generate-invoice-bill-receipt/), [Source 4](https://www.codeblah.com/java-program-invoice-class/).
 
 ## throws an error... paymentMethod is final and hence cannot reassign
 The `final` keyword in Java means that once a final variable has been assigned, it always contains the same value. It cannot be reassigned. This applies to both primitive types and reference types.
 
 In the case of reference types, the `final` keyword means that the reference itself cannot be changed to point to a different object. However, it does not prevent the state of the object from being changed. If the object has methods that can change its state, you can still call those methods after the object is declared as `final`.
 
-In the `Receipt` class, `paymentMethod` is declared as `final`, which means that it cannot be reassigned to refer to a different `PaymentMethod` object. However, if `PaymentMethod` had methods to change its state, you could still call those methods after declaring `paymentMethod` as `final`.
+In the `GUI.Receipt` class, `paymentMethod` is declared as `final`, which means that it cannot be reassigned to refer to a different `GUI.PaymentMethod` object. However, if `GUI.PaymentMethod` had methods to change its state, you could still call those methods after declaring `paymentMethod` as `final`.
 
-However, in your case, `PaymentMethod` is an `enum`, and `enum` values are constants. Once a `final` variable has been assigned an `enum` value, it cannot be reassigned to a different `enum` value. This is why you're getting an error when you try to reassign `paymentMethod`.
+However, in your case, `GUI.PaymentMethod` is an `enum`, and `enum` values are constants. Once a `final` variable has been assigned an `enum` value, it cannot be reassigned to a different `enum` value. This is why you're getting an error when you try to reassign `paymentMethod`.
 
-If you need to change the `paymentMethod` after the `Receipt` is created, you should not declare `paymentMethod` as `final`. If you want to ensure that the `paymentMethod` cannot be changed after the `Receipt` is created, you should handle this in the methods that modify the `paymentMethod` [Source 4](https://stackoverflow.com/questions/13845174/assign-a-value-to-a-final-variable), [Source 7](https://www.geeksforgeeks.org/final-variables-in-java/), [Source 9](https://www.baeldung.com/java-final), [Source 14](https://www.tutorialspoint.com/final-variables-in-Java).
+If you need to change the `paymentMethod` after the `GUI.Receipt` is created, you should not declare `paymentMethod` as `final`. If you want to ensure that the `paymentMethod` cannot be changed after the `GUI.Receipt` is created, you should handle this in the methods that modify the `paymentMethod` [Source 4](https://stackoverflow.com/questions/13845174/assign-a-value-to-a-final-variable), [Source 7](https://www.geeksforgeeks.org/final-variables-in-java/), [Source 9](https://www.baeldung.com/java-final), [Source 14](https://www.tutorialspoint.com/final-variables-in-Java).
 
 ## can you format the generateReceipt such that it is comprised of two columns "Item" and "Total Price" and that the two columns are left aligned
 To format the `generateReceipt` method such that it is comprised of two columns "Item" and "Total Price", and that the two columns are left aligned, you can use the `System.out.printf` method in Java. This method allows you to format and print data.
@@ -651,23 +651,23 @@ To format the `generateReceipt` method such that it is comprised of two columns 
 Here is how you can modify the `generateReceipt` method:
 
 ```java
-public class Receipt {
-    private ShoppingCart cart;
-    private PaymentMethod paymentMethod;
+public class GUI.Receipt {
+    private GUI.ShoppingCart cart;
+    private GUI.PaymentMethod paymentMethod;
 
     // Constructor
-    public Receipt(ShoppingCart cart, PaymentMethod paymentMethod) {
+    public GUI.Receipt(GUI.ShoppingCart cart, GUI.PaymentMethod paymentMethod) {
         this.cart = cart;
         this.paymentMethod = paymentMethod;
     }
 
     // Method to generate the receipt
     public void generateReceipt() {
-        System.out.println("Receipt:");
+        System.out.println("GUI.Receipt:");
         System.out.println("Payment Method: " + this.paymentMethod);
         System.out.println("-----------------------------");
         System.out.printf("%-20s%-15s%n", "Item", "Total Price");
-        for (Map.Entry<Product, BigDecimal> entry : this.cart.getCartItems().entrySet()) {
+        for (Map.Entry<GUI.Product, BigDecimal> entry : this.cart.getCartItems().entrySet()) {
             System.out.printf("%-20s%-15s%n", entry.getKey().getName(), entry.getValue());
         }
         System.out.println("-----------------------------");
@@ -684,38 +684,38 @@ In this method:
 You can use this class to generate a receipt. For example:
 
 ```java
-Product product1 = new Product("1", new BigDecimal("19.99"), new BigDecimal("10"), "Sample Product 1");
-Product product2 = new Product("2", new BigDecimal("29.99"), new BigDecimal("5"), "Sample Product 2");
+GUI.Product product1 = new GUI.Product("1", new BigDecimal("19.99"), new BigDecimal("10"), "Sample GUI.Product 1");
+GUI.Product product2 = new GUI.Product("2", new BigDecimal("29.99"), new BigDecimal("5"), "Sample GUI.Product 2");
 
-ShoppingCart cart = new ShoppingCart();
+GUI.ShoppingCart cart = new GUI.ShoppingCart();
 cart.addProduct(product1, new BigDecimal("2"));
 cart.addProduct(product2, new BigDecimal("3"));
 
-Cashier cashier = new Cashier(cart, PaymentMethod.CASH);
-Receipt receipt = new Receipt(cart, PaymentMethod.CASH);
+GUI.Cashier cashier = new GUI.Cashier(cart, GUI.PaymentMethod.CASH);
+GUI.Receipt receipt = new GUI.Receipt(cart, GUI.PaymentMethod.CASH);
 receipt.generateReceipt();
 ```
 
-In the above example, we first add two products to the cart, create a `Cashier` and a `Receipt`, and generate the receipt [Source 2](https://stackoverflow.com/questions/39312589/aligning-columns), [Source 3](https://stackoverflow.com/questions/27559683/java-using-printf-to-both-left-justify-and-right-justify-on-same-line), [Source 6](https://stackoverflow.com/questions/43034015/how-do-i-properly-align-using-string-format-in-java), [Source 8](https://www.baeldung.com/java-printstream-printf).
+In the above example, we first add two products to the cart, create a `GUI.Cashier` and a `GUI.Receipt`, and generate the receipt [Source 2](https://stackoverflow.com/questions/39312589/aligning-columns), [Source 3](https://stackoverflow.com/questions/27559683/java-using-printf-to-both-left-justify-and-right-justify-on-same-line), [Source 6](https://stackoverflow.com/questions/43034015/how-do-i-properly-align-using-string-format-in-java), [Source 8](https://www.baeldung.com/java-printstream-printf).
 
 ## why should I compose the cashier class of the receipt class?
-Composing the `Cashier` class with the `Receipt` class means that the `Cashier` class has a `Receipt` object as a field. This allows the `Cashier` to generate a receipt whenever a sale is made. 
+Composing the `GUI.Cashier` class with the `GUI.Receipt` class means that the `GUI.Cashier` class has a `GUI.Receipt` object as a field. This allows the `GUI.Cashier` to generate a receipt whenever a sale is made.
 
-The `Receipt` class encapsulates the details of a receipt, such as the items purchased and the total price. By composing the `Cashier` class with the `Receipt` class, you can ensure that the receipt is generated in a consistent manner that adheres to the specifications of the `Receipt` class.
+The `GUI.Receipt` class encapsulates the details of a receipt, such as the items purchased and the total price. By composing the `GUI.Cashier` class with the `GUI.Receipt` class, you can ensure that the receipt is generated in a consistent manner that adheres to the specifications of the `GUI.Receipt` class.
 
-Here is how you can modify the `Cashier` class to include a `Receipt` object:
+Here is how you can modify the `GUI.Cashier` class to include a `GUI.Receipt` object:
 
 ```java
-public class Cashier {
-    private ShoppingCart cart;
-    private PaymentMethod paymentMethod;
-    private Receipt receipt;
+public class GUI.Cashier {
+    private GUI.ShoppingCart cart;
+    private GUI.PaymentMethod paymentMethod;
+    private GUI.Receipt receipt;
 
     // Constructor
-    public Cashier(ShoppingCart cart, PaymentMethod paymentMethod) {
+    public GUI.Cashier(GUI.ShoppingCart cart, GUI.PaymentMethod paymentMethod) {
         this.cart = cart;
         this.paymentMethod = paymentMethod;
-        this.receipt = new Receipt(cart, paymentMethod);
+        this.receipt = new GUI.Receipt(cart, paymentMethod);
     }
 
     // Method to calculate the total cost of the sale transaction
@@ -748,67 +748,67 @@ In this class:
 You can use this class to process a payment and generate a receipt. For example:
 
 ```java
-Product product1 = new Product("1", new BigDecimal("19.99"), new BigDecimal("10"), "Sample Product 1");
-Product product2 = new Product("2", new BigDecimal("29.99"), new BigDecimal("5"), "Sample Product 2");
+GUI.Product product1 = new GUI.Product("1", new BigDecimal("19.99"), new BigDecimal("10"), "Sample GUI.Product 1");
+GUI.Product product2 = new GUI.Product("2", new BigDecimal("29.99"), new BigDecimal("5"), "Sample GUI.Product 2");
 
-ShoppingCart cart = new ShoppingCart();
+GUI.ShoppingCart cart = new GUI.ShoppingCart();
 cart.addProduct(product1, new BigDecimal("2"));
 cart.addProduct(product2, new BigDecimal("3"));
 
-Cashier cashier = new Cashier(cart, PaymentMethod.CASH);
+GUI.Cashier cashier = new GUI.Cashier(cart, GUI.PaymentMethod.CASH);
 cashier.processPaymentAndGenerateReceipt();
 ```
 
-In the above example, we first add two products to the cart, create a `Cashier`, and process a payment and generate a receipt [Source 1](https://codeguid.com/2019/12/22/create-and-print-receipt-in-java-netbeans/), [Source 4](https://www.coursera.org/projects/pos-java), [Source 6](https://www.reddit.com/r/learnprogramming/comments/rlwq46/create_simple_cashier_system_using_java/).
+In the above example, we first add two products to the cart, create a `GUI.Cashier`, and process a payment and generate a receipt [Source 1](https://codeguid.com/2019/12/22/create-and-print-receipt-in-java-netbeans/), [Source 4](https://www.coursera.org/projects/pos-java), [Source 6](https://www.reddit.com/r/learnprogramming/comments/rlwq46/create_simple_cashier_system_using_java/).
 
 ## ok... if paymentMethod and cart are both final in the receipt classs....
-what happens if the Cashier.changePaymentMethod method is invoked... will that new value be reflected in the receipt class or what?
-If the `paymentMethod` and `cart` fields are declared as `final` in the `Receipt` class, then the initial `paymentMethod` and `cart` values at the time of `Receipt` object creation will be fixed and cannot be changed. This means that if the `paymentMethod` or `cart` is changed in the `Cashier` class using the `changePaymentMethod` method, these changes will not be reflected in the `Receipt` object.
+what happens if the GUI.Cashier.changePaymentMethod method is invoked... will that new value be reflected in the receipt class or what?
+If the `paymentMethod` and `cart` fields are declared as `final` in the `GUI.Receipt` class, then the initial `paymentMethod` and `cart` values at the time of `GUI.Receipt` object creation will be fixed and cannot be changed. This means that if the `paymentMethod` or `cart` is changed in the `GUI.Cashier` class using the `changePaymentMethod` method, these changes will not be reflected in the `GUI.Receipt` object.
 
 Here's an example to illustrate this:
 
 ```java
-Product product1 = new Product("1", new BigDecimal("19.99"), new BigDecimal("10"), "Sample Product 1");
-Product product2 = new Product("2", new BigDecimal("29.99"), new BigDecimal("5"), "Sample Product 2");
+GUI.Product product1 = new GUI.Product("1", new BigDecimal("19.99"), new BigDecimal("10"), "Sample GUI.Product 1");
+GUI.Product product2 = new GUI.Product("2", new BigDecimal("29.99"), new BigDecimal("5"), "Sample GUI.Product 2");
 
-ShoppingCart cart = new ShoppingCart();
+GUI.ShoppingCart cart = new GUI.ShoppingCart();
 cart.addProduct(product1, new BigDecimal("2"));
 cart.addProduct(product2, new BigDecimal("3"));
 
-Cashier cashier = new Cashier(cart, PaymentMethod.CASH);
-Receipt receipt = new Receipt(cart, PaymentMethod.CASH);
+GUI.Cashier cashier = new GUI.Cashier(cart, GUI.PaymentMethod.CASH);
+GUI.Receipt receipt = new GUI.Receipt(cart, GUI.PaymentMethod.CASH);
 
 cashier.processPaymentAndGenerateReceipt(); // This will use the initial paymentMethod and cart
 
-cashier.changePaymentMethod(PaymentMethod.CREDIT_CARD);
+cashier.changePaymentMethod(GUI.PaymentMethod.CREDIT_CARD);
 
 cashier.processPaymentAndGenerateReceipt(); // This will still use the initial paymentMethod and cart
 ```
 
-In the above example, even though `paymentMethod` is changed in the `Cashier` class, the `Receipt` object still uses the initial `paymentMethod` value. The same applies to the `cart` [Source 7](https://techanand.wordpress.com/2014/07/21/change-final-variable-value-in-java/), [Source 8](https://www.geeksforgeeks.org/final-keyword-in-java/).
+In the above example, even though `paymentMethod` is changed in the `GUI.Cashier` class, the `GUI.Receipt` object still uses the initial `paymentMethod` value. The same applies to the `cart` [Source 7](https://techanand.wordpress.com/2014/07/21/change-final-variable-value-in-java/), [Source 8](https://www.geeksforgeeks.org/final-keyword-in-java/).
 
-If you want the changes in the `Cashier` class to be reflected in the `Receipt` class, you should not declare `paymentMethod` and `cart` as `final` in the `Receipt` class. Instead, you should create a new `Receipt` object whenever the `paymentMethod` or `cart` changes. However, this approach might not be practical or efficient if the `paymentMethod` and `cart` change frequently.
+If you want the changes in the `GUI.Cashier` class to be reflected in the `GUI.Receipt` class, you should not declare `paymentMethod` and `cart` as `final` in the `GUI.Receipt` class. Instead, you should create a new `GUI.Receipt` object whenever the `paymentMethod` or `cart` changes. However, this approach might not be practical or efficient if the `paymentMethod` and `cart` change frequently.
 
 ## how about whenever the payment method is changed in the cashier class i invoke the receipt class's payment method setter? wouldnt that ensure consistency?
-Invoking the `Receipt` class's `paymentMethod` setter whenever the `paymentMethod` is changed in the `Cashier` class would indeed ensure consistency between the two classes. This is because the `Receipt` class would always have the most up-to-date `paymentMethod`.
+Invoking the `GUI.Receipt` class's `paymentMethod` setter whenever the `paymentMethod` is changed in the `GUI.Cashier` class would indeed ensure consistency between the two classes. This is because the `GUI.Receipt` class would always have the most up-to-date `paymentMethod`.
 
-However, this approach comes with a caveat: the `paymentMethod` and `cart` fields in the `Receipt` class should not be declared as `final`. If they are `final`, you won't be able to change their values after the `Receipt` object is created.
+However, this approach comes with a caveat: the `paymentMethod` and `cart` fields in the `GUI.Receipt` class should not be declared as `final`. If they are `final`, you won't be able to change their values after the `GUI.Receipt` object is created.
 
-Here's how you can modify the `Receipt` class to include a `paymentMethod` setter:
+Here's how you can modify the `GUI.Receipt` class to include a `paymentMethod` setter:
 
 ```java
-public class Receipt {
-    private ShoppingCart cart;
-    private PaymentMethod paymentMethod;
+public class GUI.Receipt {
+    private GUI.ShoppingCart cart;
+    private GUI.PaymentMethod paymentMethod;
 
     // Constructor
-    public Receipt(ShoppingCart cart, PaymentMethod paymentMethod) {
+    public GUI.Receipt(GUI.ShoppingCart cart, GUI.PaymentMethod paymentMethod) {
         this.cart = cart;
         this.paymentMethod = paymentMethod;
     }
 
     // Setter for paymentMethod
-    public void setPaymentMethod(PaymentMethod paymentMethod) {
+    public void setPaymentMethod(GUI.PaymentMethod paymentMethod) {
         this.paymentMethod = paymentMethod;
     }
 
@@ -816,23 +816,23 @@ public class Receipt {
 }
 ```
 
-And here's how you can modify the `Cashier` class to invoke the `Receipt` class's `paymentMethod` setter:
+And here's how you can modify the `GUI.Cashier` class to invoke the `GUI.Receipt` class's `paymentMethod` setter:
 
 ```java
-public class Cashier {
-    private ShoppingCart cart;
-    private PaymentMethod paymentMethod;
-    private Receipt receipt;
+public class GUI.Cashier {
+    private GUI.ShoppingCart cart;
+    private GUI.PaymentMethod paymentMethod;
+    private GUI.Receipt receipt;
 
     // Constructor
-    public Cashier(ShoppingCart cart, PaymentMethod paymentMethod) {
+    public GUI.Cashier(GUI.ShoppingCart cart, GUI.PaymentMethod paymentMethod) {
         this.cart = cart;
         this.paymentMethod = paymentMethod;
-        this.receipt = new Receipt(cart, paymentMethod);
+        this.receipt = new GUI.Receipt(cart, paymentMethod);
     }
 
     // Method to change the payment method
-    public void changePaymentMethod(PaymentMethod newPaymentMethod) {
+    public void changePaymentMethod(GUI.PaymentMethod newPaymentMethod) {
         this.paymentMethod = newPaymentMethod;
         this.receipt.setPaymentMethod(newPaymentMethod);
     }
@@ -841,51 +841,51 @@ public class Cashier {
 }
 ```
 
-In this example, the `changePaymentMethod` method changes the `paymentMethod` in the `Cashier` class and also updates the `paymentMethod` in the `Receipt` class [Source 1](https://stackoverflow.com/questions/13845174/assign-a-value-to-a-final-variable), [Source 3](https://stackoverflow.com/questions/39312589/aligning-columns), [Source 4](https://www.coursera.org/projects/pos-java), [Source 8](https://www.geeksforgeeks.org/final-keyword-in-java/).
+In this example, the `changePaymentMethod` method changes the `paymentMethod` in the `GUI.Cashier` class and also updates the `paymentMethod` in the `GUI.Receipt` class [Source 1](https://stackoverflow.com/questions/13845174/assign-a-value-to-a-final-variable), [Source 3](https://stackoverflow.com/questions/39312589/aligning-columns), [Source 4](https://www.coursera.org/projects/pos-java), [Source 8](https://www.geeksforgeeks.org/final-keyword-in-java/).
 
 ## can you create a factory class that is responsible for the creation of products
 A factory class in Java is a design pattern that provides a way to encapsulate the instantiation of concrete types. This pattern is particularly useful when a class cannot anticipate the type of objects it needs to create, or when a class wants its subclasses to specify the objects it creates.
 
-In the context of creating `Product` objects, a factory class could provide methods to create different types of products. These methods could take parameters to customize the products.
+In the context of creating `GUI.Product` objects, a factory class could provide methods to create different types of products. These methods could take parameters to customize the products.
 
 Here is an example of a `ProductFactory` class:
 
 ```java
 public class ProductFactory {
     // Method to create a product
-    public Product createProduct(String id, BigDecimal price, BigDecimal quantity, String name) {
-        return new Product(id, price, quantity, name);
+    public GUI.Product createProduct(String id, BigDecimal price, BigDecimal quantity, String name) {
+        return new GUI.Product(id, price, quantity, name);
     }
 }
 ```
 
-In this example, the `createProduct` method takes parameters to create a `Product` object.
+In this example, the `createProduct` method takes parameters to create a `GUI.Product` object.
 
 You can use this factory class to create a product. For example:
 
 ```java
 ProductFactory productFactory = new ProductFactory();
-Product product = productFactory.createProduct("1", new BigDecimal("19.99"), new BigDecimal("10"), "Sample Product 1");
+GUI.Product product = productFactory.createProduct("1", new BigDecimal("19.99"), new BigDecimal("10"), "Sample GUI.Product 1");
 ```
 
-In this example, we create a `ProductFactory` and use it to create a `Product` [Source 1](https://www.geeksforgeeks.org/factory-method-design-pattern-in-java/), [Source 6](https://stackoverflow.com/questions/30304828/what-is-factory-method-in-java), [Source 7](https://stackoverflow.com/questions/29275248/why-use-a-factory-instead-of-new), [Source 11](https://stackoverflow.com/questions/13029261/design-patterns-factory-vs-factory-method-vs-abstract-factory).
+In this example, we create a `ProductFactory` and use it to create a `GUI.Product` [Source 1](https://www.geeksforgeeks.org/factory-method-design-pattern-in-java/), [Source 6](https://stackoverflow.com/questions/30304828/what-is-factory-method-in-java), [Source 7](https://stackoverflow.com/questions/29275248/why-use-a-factory-instead-of-new), [Source 11](https://stackoverflow.com/questions/13029261/design-patterns-factory-vs-factory-method-vs-abstract-factory).
 
-If you have different types of products that extend the `Product` class, you could modify the `createProduct` method to create different types of products based on the parameters or other conditions. For example, you could add a `type` parameter and use a switch statement or if-else statements to create different types of products.
+If you have different types of products that extend the `GUI.Product` class, you could modify the `createProduct` method to create different types of products based on the parameters or other conditions. For example, you could add a `type` parameter and use a switch statement or if-else statements to create different types of products.
 
 ## where is the constructor and all these class things
 A constructor in Java is a special method used to initialize objects. It's called when an object is instantiated. The purpose of a Java class constructor is to initialize the newly created object before it is used. 
 
-Here's an example of a constructor in a `Product` class:
+Here's an example of a constructor in a `GUI.Product` class:
 
 ```java
-public class Product {
+public class GUI.Product {
     private String id;
     private BigDecimal price;
     private BigDecimal quantity;
     private String name;
 
     // Constructor
-    public Product(String id, BigDecimal price, BigDecimal quantity, String name) {
+    public GUI.Product(String id, BigDecimal price, BigDecimal quantity, String name) {
         this.id = id;
         this.price = price;
         this.quantity = quantity;
@@ -896,9 +896,9 @@ public class Product {
 }
 ```
 
-In this example, the `Product` constructor takes four parameters: `id`, `price`, `quantity`, and `name`. These parameters are used to initialize the corresponding fields of the `Product` object [Source 1](https://www.geeksforgeeks.org/constructors-in-java/), [Source 2](https://www.programiz.com/java-programming/constructors), [Source 5](https://www.baeldung.com/java-constructors), [Source 10](https://www.golinuxcloud.com/java-class-constructor-examples/), [Source 14](https://www.geeksforgeeks.org/classes-objects-java/).
+In this example, the `GUI.Product` constructor takes four parameters: `id`, `price`, `quantity`, and `name`. These parameters are used to initialize the corresponding fields of the `GUI.Product` object [Source 1](https://www.geeksforgeeks.org/constructors-in-java/), [Source 2](https://www.programiz.com/java-programming/constructors), [Source 5](https://www.baeldung.com/java-constructors), [Source 10](https://www.golinuxcloud.com/java-class-constructor-examples/), [Source 14](https://www.geeksforgeeks.org/classes-objects-java/).
 
-A class in Java can contain data members (variables), methods (functions), constructors, nested classes, and interfaces. A class is a group of variables of different data types and a group of methods. An object is an instance of a class. For example, if `Product` is a class, then each individual product with its own id, price, quantity, and name would be an object of the `Product` class [Source 14](https://www.geeksforgeeks.org/classes-objects-java/).
+A class in Java can contain data members (variables), methods (functions), constructors, nested classes, and interfaces. A class is a group of variables of different data types and a group of methods. An object is an instance of a class. For example, if `GUI.Product` is a class, then each individual product with its own id, price, quantity, and name would be an object of the `GUI.Product` class [Source 14](https://www.geeksforgeeks.org/classes-objects-java/).
 
 In the context of the `ProductFactory` class, the `createProduct` method is a factory method. Factory methods are a type of creational method that deal with the problem of creating objects without specifying the exact class of object that will be created. This gives the program more flexibility in deciding which class to instantiate. In this case, the `createProduct` method is used to create different types of products [Source 1](https://www.geeksforgeeks.org/factory-method-design-pattern-in-java/), [Source 6](https://stackoverflow.com/questions/30304828/what-is-factory-method-in-java), [Source 7](https://stackoverflow.com/questions/29275248/why-use-a-factory-instead-of-new), [Source 11](https://stackoverflow.com/questions/13029261/design-patterns-factory-vs-factory-method-vs-abstract-factory).
 
@@ -912,9 +912,9 @@ public class ProductFactory {
     private static int productCount = 0;
 
     // Method to create a product
-    public Product createProduct(String id, BigDecimal price, BigDecimal quantity, String name) {
+    public GUI.Product createProduct(String id, BigDecimal price, BigDecimal quantity, String name) {
         productCount++;
-        return new Product(id, price, quantity, name);
+        return new GUI.Product(id, price, quantity, name);
     }
 
     // Method to get the product count
@@ -934,10 +934,10 @@ You can use this factory class to create a product and get the product count. Fo
 
 ```java
 ProductFactory productFactory = new ProductFactory();
-Product product = productFactory.createProduct("1", new BigDecimal("19.99"), new BigDecimal("10"), "Sample Product 1");
+GUI.Product product = productFactory.createProduct("1", new BigDecimal("19.99"), new BigDecimal("10"), "Sample GUI.Product 1");
 System.out.println(ProductFactory.getProductCount()); // Outputs 1
 
-Product product2 = productFactory.createProduct("2", new BigDecimal("29.99"), new BigDecimal("5"), "Sample Product 2");
+GUI.Product product2 = productFactory.createProduct("2", new BigDecimal("29.99"), new BigDecimal("5"), "Sample GUI.Product 2");
 System.out.println(ProductFactory.getProductCount()); // Outputs 2
 ```
 
@@ -957,13 +957,13 @@ public class ProductFactory {
     private static Set<String> productIds = new HashSet<>();
 
     // Method to create a product
-    public Product createProduct(String id, BigDecimal price, BigDecimal quantity, String name) {
+    public GUI.Product createProduct(String id, BigDecimal price, BigDecimal quantity, String name) {
         if (productIds.contains(id)) {
             throw new IllegalArgumentException("ID is already reserved: " + id);
         }
         productIds.add(id);
         productCount++;
-        return new Product(id, price, quantity, name);
+        return new GUI.Product(id, price, quantity, name);
     }
 
     // Method to get the product count
@@ -983,11 +983,11 @@ You can use this factory class to create a product and get the product count. Fo
 
 ```java
 ProductFactory productFactory = new ProductFactory();
-Product product = productFactory.createProduct("1", new BigDecimal("19.99"), new BigDecimal("10"), "Sample Product 1");
+GUI.Product product = productFactory.createProduct("1", new BigDecimal("19.99"), new BigDecimal("10"), "Sample GUI.Product 1");
 System.out.println(ProductFactory.getProductCount()); // Outputs 1
 
 try {
-    Product product2 = productFactory.createProduct("1", new BigDecimal("29.99"), new BigDecimal("5"), "Sample Product 2");
+    GUI.Product product2 = productFactory.createProduct("1", new BigDecimal("29.99"), new BigDecimal("5"), "Sample GUI.Product 2");
 } catch (IllegalArgumentException e) {
     System.out.println(e.getMessage()); // Outputs "ID is already reserved: 1"
 }
@@ -1009,8 +1009,8 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         ProductFactory productFactory = new ProductFactory();
-        ShoppingCart cart = new ShoppingCart();
-        Cashier cashier = new Cashier(cart, PaymentMethod.CASH);
+        GUI.ShoppingCart cart = new GUI.ShoppingCart();
+        GUI.Cashier cashier = new GUI.Cashier(cart, GUI.PaymentMethod.CASH);
 
         Scanner scanner = new Scanner(System.in);
 
@@ -1035,8 +1035,8 @@ public class Main {
                         System.out.print("Enter product price: ");
                         BigDecimal price = new BigDecimal(scanner.nextLine());
                         try {
-                            Product product = productFactory.createProduct(id, price, quantity, name);
-                            System.out.println("Product added successfully.");
+                            GUI.Product product = productFactory.createProduct(id, price, quantity, name);
+                            System.out.println("GUI.Product added successfully.");
                         } catch (IllegalArgumentException e) {
                             System.out.println(e.getMessage());
                         }
@@ -1067,19 +1067,19 @@ In this example:
 - If the user enters an invalid choice, the program prints an error message and continues with the next iteration of the `while` loop [Source 0](https://stackoverflow.com/questions/46864958/how-to-use-a-do-while-loop-that-continuously-prompts-a-user), [Source 2](https://www.programiz.com/java-programming/scanner), [Source 6](https://www.delftstack.com/howto/java/java-do-while-loop-with-user-input/), [Source 8](https://www.delftstack.com/howto/java/java-while-loop-user-input/), [Source 10](https://www.geeksforgeeks.org/java-do-while-loop-with-examples/), [Source 11](https://www.programiz.com/java-programming/do-while-loop), [Source 12](https://www.geeksforgeeks.org/switch-statement-in-java/).
 
 ## how do i guarantee that the product object is not instantiated outside the Productfactory class
-To prevent the `Product` object from being instantiated outside the `ProductFactory` class, you can make the `Product` constructor private. This way, the `Product` object can only be created inside the `ProductFactory` class.
+To prevent the `GUI.Product` object from being instantiated outside the `ProductFactory` class, you can make the `GUI.Product` constructor private. This way, the `GUI.Product` object can only be created inside the `ProductFactory` class.
 
-Here's how you can modify the `Product` class:
+Here's how you can modify the `GUI.Product` class:
 
 ```java
-public class Product {
+public class GUI.Product {
     private String id;
     private BigDecimal price;
     private BigDecimal quantity;
     private String name;
 
     // Private constructor
-    private Product(String id, BigDecimal price, BigDecimal quantity, String name) {
+    private GUI.Product(String id, BigDecimal price, BigDecimal quantity, String name) {
         this.id = id;
         this.price = price;
         this.quantity = quantity;
@@ -1090,9 +1090,9 @@ public class Product {
 }
 ```
 
-In this example, the `Product` constructor is private, so it can only be accessed from within the `Product` class.
+In this example, the `GUI.Product` constructor is private, so it can only be accessed from within the `GUI.Product` class.
 
-You can modify the `ProductFactory` class to create `Product` objects using the private constructor:
+You can modify the `ProductFactory` class to create `GUI.Product` objects using the private constructor:
 
 ```java
 public class ProductFactory {
@@ -1100,13 +1100,13 @@ public class ProductFactory {
     private static Set<String> productIds = new HashSet<>();
 
     // Method to create a product
-    public Product createProduct(String id, BigDecimal price, BigDecimal quantity, String name) {
+    public GUI.Product createProduct(String id, BigDecimal price, BigDecimal quantity, String name) {
         if (productIds.contains(id)) {
             throw new IllegalArgumentException("ID is already reserved: " + id);
         }
         productIds.add(id);
         productCount++;
-        return new Product(id, price, quantity, name); // Accessing the private constructor
+        return new GUI.Product(id, price, quantity, name); // Accessing the private constructor
     }
 
     // Method to get the product count
@@ -1116,7 +1116,7 @@ public class ProductFactory {
 }
 ```
 
-In this example, the `createProduct` method in the `ProductFactory` class creates a `Product` object using the private constructor of the `Product` class [Source 7](https://www.baeldung.com/java-factory-pattern), [Source 8](https://www.baeldung.com/java-constructors-vs-static-factory-methods), [Source 10](https://www.benchresources.net/singleton-design-pattern-restricting-all-4-ways-of-object-creation-in-java/), [Source 11](https://www.geeksforgeeks.org/factory-method-design-pattern-in-java/).
+In this example, the `createProduct` method in the `ProductFactory` class creates a `GUI.Product` object using the private constructor of the `GUI.Product` class [Source 7](https://www.baeldung.com/java-factory-pattern), [Source 8](https://www.baeldung.com/java-constructors-vs-static-factory-methods), [Source 10](https://www.benchresources.net/singleton-design-pattern-restricting-all-4-ways-of-object-creation-in-java/), [Source 11](https://www.geeksforgeeks.org/factory-method-design-pattern-in-java/).
 
 ## can you add more to the shopping logic, whereby you iterate over the inventory, displaying remaining names, quanitites, and prices?
 To add more to the shopping logic, we can iterate over the inventory of products, displaying the names, quantities, and prices of the products. We can also allow the user to choose products and quantities, along with their payment method, then confirm and make payment, displaying a thank you message.
@@ -1131,8 +1131,8 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         ProductFactory productFactory = new ProductFactory();
-        ShoppingCart cart = new ShoppingCart();
-        Cashier cashier = new Cashier(cart, PaymentMethod.CASH);
+        GUI.ShoppingCart cart = new GUI.ShoppingCart();
+        GUI.Cashier cashier = new GUI.Cashier(cart, GUI.PaymentMethod.CASH);
 
         Scanner scanner = new Scanner(System.in);
 
@@ -1146,11 +1146,11 @@ public class Main {
 
             switch (choice) {
                 case 1:
-                    // Product addition logic here...
+                    // GUI.Product addition logic here...
                     break;
                 case 2:
                     System.out.println("Inventory:");
-                    for (Product product : productFactory.getProducts()) {
+                    for (GUI.Product product : productFactory.getProducts()) {
                         System.out.println("ID: " + product.getId() + ", Name: " + product.getName() + ", Quantity: " + product.getQuantity() + ", Price: " + product.getPrice());
                     }
                     System.out.println("Choose products and quantities, along with your payment method, then confirm and make payment:");
@@ -1175,8 +1175,8 @@ In this example:
 - The `case 3` branch exits the program.
 - If the user enters an invalid choice, the program prints an error message and continues with the next iteration of the `while` loop [Source 0](https://stackoverflow.com/questions/46864958/how-to-use-a-do-while-loop-that-continuously-prompts-a-user), [Source 2](https://www.programiz.com/java-programming/scanner), [Source 6](https://www.delftstack.com/howto/java/java-do-while-loop-with-user-input/), [Source 8](https://www.delftstack.com/howto/java/java-while-loop-user-input/), [Source 10](https://www.geeksforgeeks.org/java-do-while-loop-with-examples/), [Source 11](https://www.programiz.com/java-programming/do-while-loop), [Source 12](https://www.geeksforgeeks.org/switch-statement-in-java/).
 
-## for the following Product constructor:
-public Product(String id, String name, BigDecimal quantity, BigDecimal price, BigDecimal taxRate){
+## for the following GUI.Product constructor:
+public GUI.Product(String id, String name, BigDecimal quantity, BigDecimal price, BigDecimal taxRate){
         this.id = id;
         this.name = name;
         this.quantity = quantity;
@@ -1186,12 +1186,12 @@ public Product(String id, String name, BigDecimal quantity, BigDecimal price, Bi
     }
 
 I would like to do error handling whereby the quantity and price can be non-negative and the taxrate between 0 and 1 (bigdecimal), otherwise throw an error
-To add error handling to the `Product` constructor, you can use `if` statements to check if the quantity, price, and tax rate are valid. If they are not valid, you can throw an `IllegalArgumentException`.
+To add error handling to the `GUI.Product` constructor, you can use `if` statements to check if the quantity, price, and tax rate are valid. If they are not valid, you can throw an `IllegalArgumentException`.
 
-Here's how you can modify the `Product` constructor:
+Here's how you can modify the `GUI.Product` constructor:
 
 ```java
-public class Product {
+public class GUI.Product {
     private String id;
     private String name;
     private BigDecimal quantity;
@@ -1199,7 +1199,7 @@ public class Product {
     private BigDecimal taxRate;
 
     // Constructor
-    public Product(String id, String name, BigDecimal quantity, BigDecimal price, BigDecimal taxRate) {
+    public GUI.Product(String id, String name, BigDecimal quantity, BigDecimal price, BigDecimal taxRate) {
         this.id = id;
         this.name = name;
 
@@ -1244,7 +1244,7 @@ Making the inventory static depends on the specific requirements of your applica
 // SECOND CONVO.
 ## reformat the following so to print headings once, make columns per each heading, and make the column values left aligned
 System.out.println("Printing Inventory Products\n");
-        for (Product product : this.getInventory().values()) {
+        for (GUI.Product product : this.getInventory().values()) {
             System.out.println("ID: " + product.getId() + ", Name: " + product.getName() + ", Quantity: " + product.getQuantity() + ", Price: " + product.getPrice() + ", Tax Rate: " + product.getTaxRate());
         }
 To reformat the given code to print headings once, create columns for each heading, and align the column values to the left, you can use the `System.out.format` method. This method allows you to format the output in a tabular structure, which can be more readable and organized.
@@ -1262,7 +1262,7 @@ In the above code, `%-10s`, `%-20s`, etc. are format specifiers. The number afte
 Next, print the product details in a tabular structure:
 
 ```java
-for (Product product : this.getInventory().values()) {
+for (GUI.Product product : this.getInventory().values()) {
     System.out.format("%-10s%-20s%-10s%-10s%-10s", product.getId(), product.getName(), product.getQuantity(), product.getPrice(), product.getTaxRate());
     System.out.println();
 }
@@ -1276,7 +1276,7 @@ The full code is:
 System.out.println("Printing Inventory Products\n");
 System.out.format("%-10s%-20s%-10s%-10s%-10s", "ID", "Name", "Quantity", "Price", "Tax Rate");
 System.out.println("\n------------------------------------------------------------------------------");
-for (Product product : this.getInventory().values()) {
+for (GUI.Product product : this.getInventory().values()) {
     System.out.format("%-10s%-20s%-10s%-10s%-10s", product.getId(), product.getName(), product.getQuantity(), product.getPrice(), product.getTaxRate());
     System.out.println();
 }
@@ -1376,7 +1376,7 @@ To handle this, you can provide a default constructor that doesn't take any argu
 Here's an example:
 
 ```java
-public class Product {
+public class GUI.Product {
     private String id;
     private String name;
     private int quantity;
@@ -1384,7 +1384,7 @@ public class Product {
     private double taxRate;
 
     // Parameterized constructor
-    public Product(String id, String name, int quantity, double price, double taxRate) {
+    public GUI.Product(String id, String name, int quantity, double price, double taxRate) {
         if (id == null || id.isEmpty()) {
             throw new IllegalArgumentException("ID cannot be null or empty");
         }
@@ -1408,13 +1408,13 @@ public class Product {
     }
 
     // Default constructor
-    public Product() {
+    public GUI.Product() {
         this("Default ID", "Default Name", 0, 0.0, 0.0);
     }
 }
 ```
 
-In the above code, the default constructor calls the parameterized constructor with default values ("Default ID" for `id`, "Default Name" for `name`, 0 for `quantity`, `price`, and `taxRate`). This ensures that when you press enter without providing any arguments, a `Product` object with default values will be created [Source 2](https://www.freecodecamp.org/news/default-constructor-in-java/).
+In the above code, the default constructor calls the parameterized constructor with default values ("Default ID" for `id`, "Default Name" for `name`, 0 for `quantity`, `price`, and `taxRate`). This ensures that when you press enter without providing any arguments, a `GUI.Product` object with default values will be created [Source 2](https://www.freecodecamp.org/news/default-constructor-in-java/).
 
 This way, you can handle empty arguments to a class constructor and prevent runtime errors. Please note that this is just one way to handle empty arguments to a class constructor. Depending on your specific requirements, you might need to handle empty arguments differently.
 
@@ -1458,7 +1458,7 @@ In the above code, if no arguments are provided (i.e., `args.length == 0`), a de
 This way, you can handle the case where no arguments are provided and prevent `ArrayIndexOutOfBoundsException` and `NumberFormatException` from being thrown. Please note that this is just one way to handle this case. Depending on your specific requirements, you might need to handle it differently.
 
 ## how do I modify the following method by adding a condition such that the found product's quantity is more than or equal to the desired quantity:
-public Product searchByProductId(String id, BigDecimal quantity){
+public GUI.Product searchByProductId(String id, BigDecimal quantity){
         return this.inventory.get(id);
     }
 To ensure that the quantity of the found product is more than or equal to the desired quantity, you can add a condition in your `searchByProductId` method to check this. If the quantity of the found product is less than the desired quantity, you can return `null` or throw an exception.
@@ -1466,8 +1466,8 @@ To ensure that the quantity of the found product is more than or equal to the de
 Here is how you can modify your method:
 
 ```java
-public Product searchByProductId(String id, BigDecimal quantity){
-    Product product = this.inventory.get(id);
+public GUI.Product searchByProductId(String id, BigDecimal quantity){
+    GUI.Product product = this.inventory.get(id);
     if (product != null && product.getQuantity().compareTo(quantity) >= 0) {
         return product;
     } else {
@@ -1488,31 +1488,31 @@ To handle the case where the quantity of the found product is less than the desi
 First, you need to create a custom exception. Here's an example:
 
 ```java
-public class InsufficientQuantityException extends Exception {
-    public InsufficientQuantityException(String message) {
+public class GUI.InsufficientQuantityException extends Exception {
+    public GUI.InsufficientQuantityException(String message) {
         super(message);
     }
 }
 ```
 
-In the above code, `InsufficientQuantityException` is a custom exception that has a constructor that takes a message as a parameter. This message will be used to describe the exception [Source 12](https://alvinalexander.com/java/java-custom-exception-create-throw-exception/).
+In the above code, `GUI.InsufficientQuantityException` is a custom exception that has a constructor that takes a message as a parameter. This message will be used to describe the exception [Source 12](https://alvinalexander.com/java/java-custom-exception-create-throw-exception/).
 
 Next, you can modify your `searchByProductId` method to throw this exception when the quantity of the found product is less than the desired quantity:
 
 ```java
-public Product searchByProductId(String id, BigDecimal quantity) throws InsufficientQuantityException {
-    Product product = this.inventory.get(id);
+public GUI.Product searchByProductId(String id, BigDecimal quantity) throws GUI.InsufficientQuantityException {
+    GUI.Product product = this.inventory.get(id);
     if (product == null) {
         return null;
     } else if (product.getQuantity().compareTo(quantity) < 0) {
-        throw new InsufficientQuantityException("The quantity of the product is not available");
+        throw new GUI.InsufficientQuantityException("The quantity of the product is not available");
     } else {
         return product;
     }
 }
 ```
 
-In the above code, if the quantity of the product is less than the desired quantity, an `InsufficientQuantityException` is thrown with a message indicating that the quantity of the product is not available. This ensures that the method only returns a product if its quantity is more than or equal to the desired quantity [Source 10](https://www.baeldung.com/java-exceptions).
+In the above code, if the quantity of the product is less than the desired quantity, an `GUI.InsufficientQuantityException` is thrown with a message indicating that the quantity of the product is not available. This ensures that the method only returns a product if its quantity is more than or equal to the desired quantity [Source 10](https://www.baeldung.com/java-exceptions).
 
 Please note that this is just one way to handle this case. Depending on your specific requirements, you might need to handle it differently. For example, you might want to return `null` instead of throwing an exception when the quantity of the product is less than the desired quantity.
 
@@ -1536,12 +1536,12 @@ In the above code, `scanner.nextLine()` is used to read the user input as a `Str
 
 Please note that this is a simple example and does not include any error handling. In a real-world application, you would want to add error handling to ensure that the user enters a valid payment method. You could do this by using a `while` loop to keep prompting the user until they enter a valid payment method.
 
-## but the payment method is defined as public enum PaymentMethod {
+## but the payment method is defined as public enum GUI.PaymentMethod {
     CASH,
     CREDIT_CARD,
     MOBILE_PAYMENT
 }
-To receive user input specifying a payment method from the `PaymentMethod` enum, you can use the `Scanner` class to get the user input and then convert it to the corresponding enum value. 
+To receive user input specifying a payment method from the `GUI.PaymentMethod` enum, you can use the `Scanner` class to get the user input and then convert it to the corresponding enum value.
 
 Here's how you can do it:
 
@@ -1555,7 +1555,7 @@ public class Main {
         String paymentMethodInput = scanner.nextLine();
 
         try {
-            PaymentMethod paymentMethod = PaymentMethod.valueOf(paymentMethodInput.toUpperCase());
+            GUI.PaymentMethod paymentMethod = GUI.PaymentMethod.valueOf(paymentMethodInput.toUpperCase());
             System.out.println("You entered: " + paymentMethod);
         } catch (IllegalArgumentException e) {
             System.out.println("Invalid payment method: " + paymentMethodInput);
@@ -1564,15 +1564,15 @@ public class Main {
 }
 ```
 
-In the above code, `scanner.nextLine()` is used to read the user input as a `String`. Then, `PaymentMethod.valueOf(paymentMethodInput.toUpperCase())` is used to convert the user input to the corresponding `PaymentMethod` enum value. The input string is converted to uppercase because enum constants are case-sensitive and their names are in uppercase [Source 0](https://stackoverflow.com/questions/30746635/java-use-user-input-to-determine-enum-value).
+In the above code, `scanner.nextLine()` is used to read the user input as a `String`. Then, `GUI.PaymentMethod.valueOf(paymentMethodInput.toUpperCase())` is used to convert the user input to the corresponding `GUI.PaymentMethod` enum value. The input string is converted to uppercase because enum constants are case-sensitive and their names are in uppercase [Source 0](https://stackoverflow.com/questions/30746635/java-use-user-input-to-determine-enum-value).
 
-If the user input does not match any of the `PaymentMethod` enum constants, `IllegalArgumentException` will be thrown. This exception is caught and an error message is printed [Source 1](https://stackoverflow.com/questions/16302376/how-to-set-the-value-of-an-enum-by-user-input).
+If the user input does not match any of the `GUI.PaymentMethod` enum constants, `IllegalArgumentException` will be thrown. This exception is caught and an error message is printed [Source 1](https://stackoverflow.com/questions/16302376/how-to-set-the-value-of-an-enum-by-user-input).
 
 Please note that this is a simple example and does not include any error handling for invalid inputs. In a real-world application, you would want to add error handling to ensure that the user enters a valid payment method. You could do this by using a `while` loop to keep prompting the user until they enter a valid payment method.
 
-## i want to give a default value here aymentMethod paymentMethod = new PaymentMethod();
+## i want to give a default value here aymentMethod paymentMethod = new GUI.PaymentMethod();
                     try{
-                        paymentMethod = PaymentMethod.valueOf(paymentMethodInput.toUpperCase());
+                        paymentMethod = GUI.PaymentMethod.valueOf(paymentMethodInput.toUpperCase());
 
                     }catch(IllegalArgumentException e){
                         System.out.println("Invalid payment method: " + paymentMethodInput);
@@ -1582,22 +1582,22 @@ To provide a default value for the `paymentMethod` variable, you can assign the 
 Here's how you can modify your code:
 
 ```java
-PaymentMethod paymentMethod = PaymentMethod.CASH; // Default value
+GUI.PaymentMethod paymentMethod = GUI.PaymentMethod.CASH; // Default value
 try {
-    paymentMethod = PaymentMethod.valueOf(paymentMethodInput.toUpperCase());
+    paymentMethod = GUI.PaymentMethod.valueOf(paymentMethodInput.toUpperCase());
 } catch (IllegalArgumentException e) {
     System.out.println("Invalid payment method: " + paymentMethodInput);
 }
 ```
 
-In the above code, `PaymentMethod.CASH` is assigned to `paymentMethod` before the `try-catch` block. If `PaymentMethod.valueOf(paymentMethodInput.toUpperCase())` throws an `IllegalArgumentException`, `paymentMethod` will retain its default value, which is `PaymentMethod.CASH` [Source 1](https://stackoverflow.com/questions/50843523/default-value-for-enum).
+In the above code, `GUI.PaymentMethod.CASH` is assigned to `paymentMethod` before the `try-catch` block. If `GUI.PaymentMethod.valueOf(paymentMethodInput.toUpperCase())` throws an `IllegalArgumentException`, `paymentMethod` will retain its default value, which is `GUI.PaymentMethod.CASH` [Source 1](https://stackoverflow.com/questions/50843523/default-value-for-enum).
 
 Please note that this is just one way to handle this case. Depending on your specific requirements, you might need to handle it differently. For example, you might want to throw an exception instead of using a default value when the user enters an invalid payment method.
 
 
 // THIRD CONVO: mimicking map functionality and making code readable
 ## As part of your Java assignment, you cannot use maps as you havent taken them in class currently. But your code already uses map. Therefore, you want to implement the map data structure (mimick it) via doing your custom class.
-private final Map<String, Product> inventory; You can use linked lists and complex objects to do the map class... Just use arrays and/or arraylists
+private final Map<String, GUI.Product> inventory; You can use linked lists and complex objects to do the map class... Just use arrays and/or arraylists
 To implement a map-like structure in Java using arrays or ArrayLists, you can use a custom class that internally uses two ArrayLists: one for keys and another for values. Each key-value pair will be stored at the same index in their respective lists. When a key is provided for retrieval or removal, its index in the key list is determined, and the corresponding value is accessed or removed from the value list.
 
 Here's a simple implementation:
@@ -1605,21 +1605,21 @@ Here's a simple implementation:
 ```java
 import java.util.ArrayList;
 
-public class CustomMap {
+public class GUI.CustomMap {
     private ArrayList<String> keys;
-    private ArrayList<Product> values;
+    private ArrayList<GUI.Product> values;
 
-    public CustomMap() {
+    public GUI.CustomMap() {
         keys = new ArrayList<>();
         values = new ArrayList<>();
     }
 
-    public void put(String key, Product value) {
+    public void put(String key, GUI.Product value) {
         keys.add(key);
         values.add(value);
     }
 
-    public Product get(String key) {
+    public GUI.Product get(String key) {
         int index = keys.indexOf(key);
         if (index != -1) {
             return values.get(index);
@@ -1640,58 +1640,58 @@ In this class, the `put` method takes a key and a value, then adds them to their
 
 This solution is straightforward and works well for small datasets. However, it's not efficient for larger datasets because the `indexOf` method has a time complexity of O(n), where n is the number of elements in the list. A more efficient data structure like a hash table would be more suitable for larger datasets, but since your assignment restricts the use of such structures, this solution should suffice.
 
-Remember to replace `Product` with the actual class you're using if it's different. And don't forget to handle null keys if necessary, as this implementation doesn't support them.
+Remember to replace `GUI.Product` with the actual class you're using if it's different. And don't forget to handle null keys if necessary, as this implementation doesn't support them.
 
 This approach is inspired by the custom map implementation described in [Source 3](https://www.vogella.com/tutorials/JavaDatastructures/article.html) and the custom ArrayList implementation in [Source 2](https://www.geeksforgeeks.org/custom-arraylist-java/).
 
 ## Then, how do I replace the code here in my other class, accordingly?
-public class ProductInventory {
+public class GUI.ProductInventory {
 
-    private final Map<String, Product> inventory;
+    private final Map<String, GUI.Product> inventory;
 
     // Constructor
-    public ProductInventory() {
+    public GUI.ProductInventory() {
         this.inventory = new HashMap<>();
     }
 
-    public Map<String, Product> getInventory() {
+    public Map<String, GUI.Product> getInventory() {
         return inventory;
     }
-To replace the `Map` in your `ProductInventory` class with the custom `CustomMap` class, you would need to make a few changes. 
+To replace the `Map` in your `GUI.ProductInventory` class with the custom `GUI.CustomMap` class, you would need to make a few changes.
 
-First, replace the `Map<String, Product>` declaration with `CustomMap`. Then, in the constructor, initialize the `CustomMap` instead of a `HashMap`. 
+First, replace the `Map<String, GUI.Product>` declaration with `GUI.CustomMap`. Then, in the constructor, initialize the `GUI.CustomMap` instead of a `HashMap`.
 
-Here's how you can modify your `ProductInventory` class:
+Here's how you can modify your `GUI.ProductInventory` class:
 
 ```java
-public class ProductInventory {
+public class GUI.ProductInventory {
 
-    private final CustomMap inventory;
+    private final GUI.CustomMap inventory;
 
     // Constructor
-    public ProductInventory() {
-        this.inventory = new CustomMap();
+    public GUI.ProductInventory() {
+        this.inventory = new GUI.CustomMap();
     }
 
-    public CustomMap getInventory() {
+    public GUI.CustomMap getInventory() {
         return inventory;
     }
 }
 ```
 
-In this modified version of your class, the `inventory` field is now of type `CustomMap` and is initialized in the constructor. The `getInventory` method now returns a `CustomMap` instead of a `Map`.
+In this modified version of your class, the `inventory` field is now of type `GUI.CustomMap` and is initialized in the constructor. The `getInventory` method now returns a `GUI.CustomMap` instead of a `Map`.
 
-Remember that the `CustomMap` class should be in the same package as your `ProductInventory` class, or imported if it's in a different package.
+Remember that the `GUI.CustomMap` class should be in the same package as your `GUI.ProductInventory` class, or imported if it's in a different package.
 
 This modification is based on the general principles of replacing one type with another in Java, as described in [Source 1](https://www.javatpoint.com/java-replace-one-type-with-another).
 
 ## make the custommap class's remove method return the removed product instead of returning null
-To make the `remove` method in the `CustomMap` class return the removed product instead of null, you can modify the method to return a `Product` type. If the key is not found in the map, the method will return null.
+To make the `remove` method in the `GUI.CustomMap` class return the removed product instead of null, you can modify the method to return a `GUI.Product` type. If the key is not found in the map, the method will return null.
 
 Here's how you can modify the `remove` method:
 
 ```java
-public Product remove(String key) {
+public GUI.Product remove(String key) {
     int index = keys.indexOf(key);
     if (index != -1) {
         keys.remove(index);
@@ -1701,30 +1701,30 @@ public Product remove(String key) {
 }
 ```
 
-In this modified version of the `remove` method, the method now returns a `Product` type. If the key is found in the map, the method removes the key-value pair from the map and returns the removed product. If the key is not found, the method returns null.
+In this modified version of the `remove` method, the method now returns a `GUI.Product` type. If the key is found in the map, the method removes the key-value pair from the map and returns the removed product. If the key is not found, the method returns null.
 
 This modification is based on the general principles of modifying methods to return different types in Java, as described in [Source 1](https://www.javatpoint.com/java-method-return-type).
 
 ## then, create a fn., printProducts() that iterates over the products in the inventory object
-To create a `printProducts()` function that iterates over the products in the `inventory` object, you can use a for-each loop to iterate over the values in the `CustomMap`. 
+To create a `printProducts()` function that iterates over the products in the `inventory` object, you can use a for-each loop to iterate over the values in the `GUI.CustomMap`.
 
 Here's how you can implement the `printProducts()` function:
 
 ```java
 public void printProducts() {
-    for (Product product : inventory.values()) {
+    for (GUI.Product product : inventory.values()) {
         System.out.println(product);
     }
 }
 ```
 
-In this function, the for-each loop iterates over each `Product` in the `values` ArrayList of the `CustomMap`. The `System.out.println(product)` statement prints the details of each product.
+In this function, the for-each loop iterates over each `GUI.Product` in the `values` ArrayList of the `GUI.CustomMap`. The `System.out.println(product)` statement prints the details of each product.
 
 This approach is based on the general principles of iterating over collections in Java, as described in [Source 1](https://www.baeldung.com/java-iterate-map) and [Source 3](https://www.javadevjournal.com/java/iterate-map-java/).
 
-## Create me the same exact CustomMap class, CustomMapCart, that handles two pairs as such:
-    public Map<Product, BigDecimal> getCartItems() {
-To create a `CustomMapCart` class that handles two pairs as `Product` and `BigDecimal`, you can follow a similar approach to the `CustomMap` class. The `CustomMapCart` class will use two ArrayLists, one for keys and another for values. Each key-value pair will be stored at the same index in their respective lists. 
+## Create me the same exact GUI.CustomMap class, GUI.CustomMapCart, that handles two pairs as such:
+    public Map<GUI.Product, BigDecimal> getCartItems() {
+To create a `GUI.CustomMapCart` class that handles two pairs as `GUI.Product` and `BigDecimal`, you can follow a similar approach to the `GUI.CustomMap` class. The `GUI.CustomMapCart` class will use two ArrayLists, one for keys and another for values. Each key-value pair will be stored at the same index in their respective lists.
 
 Here's the implementation:
 
@@ -1732,21 +1732,21 @@ Here's the implementation:
 import java.math.BigDecimal;
 import java.util.ArrayList;
 
-public class CustomMapCart {
-    private ArrayList<Product> keys;
+public class GUI.CustomMapCart {
+    private ArrayList<GUI.Product> keys;
     private ArrayList<BigDecimal> values;
 
-    public CustomMapCart() {
+    public GUI.CustomMapCart() {
         keys = new ArrayList<>();
         values = new ArrayList<>();
     }
 
-    public void put(Product key, BigDecimal value) {
+    public void put(GUI.Product key, BigDecimal value) {
         keys.add(key);
         values.add(value);
     }
 
-    public BigDecimal get(Product key) {
+    public BigDecimal get(GUI.Product key) {
         int index = keys.indexOf(key);
         if (index != -1) {
             return values.get(index);
@@ -1754,7 +1754,7 @@ public class CustomMapCart {
         return null;
     }
 
-    public BigDecimal remove(Product key) {
+    public BigDecimal remove(GUI.Product key) {
         int index = keys.indexOf(key);
         if (index != -1) {
             keys.remove(index);
@@ -1770,28 +1770,28 @@ In this class, the `put` method takes a key and a value, then adds them to their
 This solution is based on the general principles of implementing a custom map in Java, as described in [Source 1](https://www.baeldung.com/java-custom-class-map-key) and [Source 3](https://www.devglan.com/java8/hashmap-custom-implementation-java).
 
 ## Here is a class that relied on the standard map object. I want you to adjust it such that it uses the new CustomMapClass instead.
-To adjust the `ShoppingCart` class to use the `CustomMapCart` class instead of the standard `Map` object, you need to replace the `Map<Product, BigDecimal>` declaration with `CustomMapCart`. Then, in the constructor, initialize the `CustomMapCart` instead of a `HashMap`. 
+To adjust the `GUI.ShoppingCart` class to use the `GUI.CustomMapCart` class instead of the standard `Map` object, you need to replace the `Map<GUI.Product, BigDecimal>` declaration with `GUI.CustomMapCart`. Then, in the constructor, initialize the `GUI.CustomMapCart` instead of a `HashMap`.
 
-Here's how you can modify your `ShoppingCart` class:
+Here's how you can modify your `GUI.ShoppingCart` class:
 
 ```java
 import java.math.BigDecimal;
 
-public class ShoppingCart {
+public class GUI.ShoppingCart {
 
-    private CustomMapCart cartItems;
+    private GUI.CustomMapCart cartItems;
 
     // Constructor
-    public ShoppingCart() {
-        this.cartItems = new CustomMapCart();
+    public GUI.ShoppingCart() {
+        this.cartItems = new GUI.CustomMapCart();
     }
 
-    public CustomMapCart getCartItems() {
+    public GUI.CustomMapCart getCartItems() {
         return cartItems;
     }
 
     // Method to add a product to the cart
-    public void addProduct(Product product, BigDecimal quantity) {
+    public void addProduct(GUI.Product product, BigDecimal quantity) {
         BigDecimal existingQuantity = this.cartItems.get(product);
         if (existingQuantity != null) {
             quantity = quantity.add(existingQuantity);
@@ -1800,14 +1800,14 @@ public class ShoppingCart {
     }
 
     // Method to remove a product from the cart
-    public void removeProduct(Product product) {
+    public void removeProduct(GUI.Product product) {
         this.cartItems.remove(product);
     }
 
     // Method to calculate the total cost of items in the cart
     public BigDecimal calculateTotal() {
         BigDecimal total = BigDecimal.ZERO;
-        for (Product product : this.cartItems.keys()) {
+        for (GUI.Product product : this.cartItems.keys()) {
             BigDecimal price = product.getPrice();
             BigDecimal quantity = this.cartItems.get(product);
             total = total.add(price.multiply(quantity));
@@ -1817,35 +1817,35 @@ public class ShoppingCart {
 }
 ```
 
-In this modified version of your class, the `cartItems` field is now of type `CustomMapCart` and is initialized in the constructor. The `getCartItems` method now returns a `CustomMapCart` instead of a `Map`.
+In this modified version of your class, the `cartItems` field is now of type `GUI.CustomMapCart` and is initialized in the constructor. The `getCartItems` method now returns a `GUI.CustomMapCart` instead of a `Map`.
 
-Remember that the `CustomMapCart` class should be in the same package as your `ShoppingCart` class, or imported if it's in a different package.
+Remember that the `GUI.CustomMapCart` class should be in the same package as your `GUI.ShoppingCart` class, or imported if it's in a different package.
 
 This modification is based on the general principles of replacing one type with another in Java, as described in [Source 1](https://www.javatpoint.com/java-replace-one-type-with-another).
 
 ## can you add error handling to this.
-To add error handling to the `ShoppingCart` class, you can use try-catch blocks to handle potential exceptions that may occur during the execution of the methods. 
+To add error handling to the `GUI.ShoppingCart` class, you can use try-catch blocks to handle potential exceptions that may occur during the execution of the methods.
 
-Here's how you can modify your `ShoppingCart` class:
+Here's how you can modify your `GUI.ShoppingCart` class:
 
 ```java
 import java.math.BigDecimal;
 
-public class ShoppingCart {
+public class GUI.ShoppingCart {
 
-    private CustomMapCart cartItems;
+    private GUI.CustomMapCart cartItems;
 
     // Constructor
-    public ShoppingCart() {
-        this.cartItems = new CustomMapCart();
+    public GUI.ShoppingCart() {
+        this.cartItems = new GUI.CustomMapCart();
     }
 
-    public CustomMapCart getCartItems() {
+    public GUI.CustomMapCart getCartItems() {
         return cartItems;
     }
 
     // Method to add a product to the cart
-    public void addProduct(Product product, BigDecimal quantity) {
+    public void addProduct(GUI.Product product, BigDecimal quantity) {
         try {
             BigDecimal existingQuantity = this.cartItems.get(product);
             if (existingQuantity != null) {
@@ -1858,7 +1858,7 @@ public class ShoppingCart {
     }
 
     // Method to remove a product from the cart
-    public void removeProduct(Product product) {
+    public void removeProduct(GUI.Product product) {
         try {
             this.cartItems.remove(product);
         } catch (Exception e) {
@@ -1870,7 +1870,7 @@ public class ShoppingCart {
     public BigDecimal calculateTotal() {
         BigDecimal total = BigDecimal.ZERO;
         try {
-            for (Product product : this.cartItems.keys()) {
+            for (GUI.Product product : this.cartItems.keys()) {
                 BigDecimal price = product.getPrice();
                 BigDecimal quantity = this.cartItems.get(product);
                 total = total.add(price.multiply(quantity));
@@ -1888,21 +1888,21 @@ In this modified version of your class, each method is wrapped in a try-catch bl
 This approach is based on the general principles of handling exceptions in Java, as described in [Source 1](https://howtodoinjava.com/best-practices/java-exception-handling-best-practices/), [Source 2](https://www.baeldung.com/java-exceptions), and [Source 3](https://stackabuse.com/exception-handling-in-java-a-complete-guide-with-best-and-worst-practices/).
 
 ## can you adjust the following for-loop accordingly to interact with this last custommapcart object instead of the old standard map:
-for (Map.Entry<Product, BigDecimal> entry : this.cart.getCartItems().entrySet()) {
+for (Map.Entry<GUI.Product, BigDecimal> entry : this.cart.getCartItems().entrySet()) {
             System.out.printf("%-20s%-15s%n", entry.getKey().getName(), entry.getValue());
         }
-To adjust the for-loop to interact with the `CustomMapCart` object instead of the old standard map, you need to replace the `Map.Entry<Product, BigDecimal>` with a for-each loop that iterates over the keys of the `CustomMapCart` object. 
+To adjust the for-loop to interact with the `GUI.CustomMapCart` object instead of the old standard map, you need to replace the `Map.Entry<GUI.Product, BigDecimal>` with a for-each loop that iterates over the keys of the `GUI.CustomMapCart` object.
 
 Here's how you can modify your for-loop:
 
 ```java
-for (Product product : this.cart.getCartItems().keys()) {
+for (GUI.Product product : this.cart.getCartItems().keys()) {
     BigDecimal quantity = this.cart.getCartItems().get(product);
     System.out.printf("%-20s%-15s%n", product.getName(), quantity);
 }
 ```
 
-In this modified version of your for-loop, the loop iterates over each `Product` in the `keys` ArrayList of the `CustomMapCart`. The `System.out.printf("%-20s%-15s%n", product.getName(), quantity)` statement prints the name of each product and its quantity.
+In this modified version of your for-loop, the loop iterates over each `GUI.Product` in the `keys` ArrayList of the `GUI.CustomMapCart`. The `System.out.printf("%-20s%-15s%n", product.getName(), quantity)` statement prints the name of each product and its quantity.
 
 This approach is based on the general principles of iterating over collections in Java, as described in [Source 1](https://www.baeldung.com/java-iterate-map) and [Source 3](https://www.javadevjournal.com/java/iterate-map-java/).
 
@@ -1920,23 +1920,23 @@ In this line, `subtract()` is a method of the `BigDecimal` class that subtracts 
 
 This correction is based on the `BigDecimal.subtract()` method documentation in [Source 0](https://www.geeksforgeeks.org/bigdecimal-subtract-method-in-java-with-examples/) and [Source 3](https://www.tutorialspoint.com/java/math/bigdecimal_subtract.htm).
 
-## I want a method that, for each product entry in the CustomMapCart class, calls the
+## I want a method that, for each product entry in the GUI.CustomMapCart class, calls the
                         productInventory.decrementProductStock(product.getId(),productQuantityInCustomMapCart);
 such that I decrement the respective stock by it in the inventory
-To decrement the stock for each product in the `CustomMapCart` class, you can iterate over the keys and values in the `CustomMapCart` and call the `decrementProductStock` method for each product.
+To decrement the stock for each product in the `GUI.CustomMapCart` class, you can iterate over the keys and values in the `GUI.CustomMapCart` and call the `decrementProductStock` method for each product.
 
 Here's how you can implement this:
 
 ```java
 public void decrementInventoryStock() {
-    for (Product product : this.cartItems.keys()) {
+    for (GUI.Product product : this.cartItems.keys()) {
         BigDecimal quantityInCustomMapCart = this.cartItems.get(product);
         productInventory.decrementProductStock(product.getId(), quantityInCustomMapCart);
     }
 }
 ```
 
-In this method, the for-each loop iterates over each `Product` in the `keys` ArrayList of the `CustomMapCart`. The `decrementProductStock` method is called for each product, decrementing the stock in the inventory by the quantity of the product in the cart.
+In this method, the for-each loop iterates over each `GUI.Product` in the `keys` ArrayList of the `GUI.CustomMapCart`. The `decrementProductStock` method is called for each product, decrementing the stock in the inventory by the quantity of the product in the cart.
 
 This approach is based on the general principles of iterating over collections in Java, as described in [Source 0](https://stackoverflow.com/questions/32264773/foreach-loop-java-8-for-map-entry-set), [Source 2](https://stackoverflow.com/questions/8689725/map-entry-how-to-use-it), and [Source 3](https://www.baeldung.com/java-map-entry).
 
@@ -2037,18 +2037,18 @@ case 2:
                     while (cont.equalsIgnoreCase("y" )) {
 //                        System.out.println("Inventory:");
                         try {
- if(Product.getProductCount() < 1){
+ if(GUI.Product.getProductCount() < 1){
                             throw new
-                                InsufficientQuantityException("No products exist. Please, add products first.");
+                                GUI.InsufficientQuantityException("No products exist. Please, add products first.");
                         }
 // ... rest of code here
-catch(InsufficientQuantityException e){
+catch(GUI.InsufficientQuantityException e){
                             System.out.println("Error: " + e);
 //                            System.out.println(": " + e);
                             
 //                            continue;
                         }
-To break from the switch case when an `InsufficientQuantityException` is caught, you can add a `break` statement in the catch block. 
+To break from the switch case when an `GUI.InsufficientQuantityException` is caught, you can add a `break` statement in the catch block.
 
 Here's how you can modify your switch case:
 
@@ -2057,11 +2057,11 @@ case 2:
     cont = "y";
     while (cont.equalsIgnoreCase("y" )) {
         try {
-            if(Product.getProductCount() < 1){
-                throw new InsufficientQuantityException("No products exist. Please, add products first.");
+            if(GUI.Product.getProductCount() < 1){
+                throw new GUI.InsufficientQuantityException("No products exist. Please, add products first.");
             }
             // ... rest of code here
-        } catch(InsufficientQuantityException e){
+        } catch(GUI.InsufficientQuantityException e){
             System.out.println("Error: " + e);
             break; // break from the switch case
         }
@@ -2069,28 +2069,28 @@ case 2:
     break; // break from the while loop
 ```
 
-In this modified version of your switch case, the `break` statement in the catch block breaks from the switch case when an `InsufficientQuantityException` is caught. The `break` statement in the while loop breaks from the while loop when the `InsufficientQuantityException` is caught.
+In this modified version of your switch case, the `break` statement in the catch block breaks from the switch case when an `GUI.InsufficientQuantityException` is caught. The `break` statement in the while loop breaks from the while loop when the `GUI.InsufficientQuantityException` is caught.
 
 This approach is based on the general principles of using `break` in a switch-case statement in Java, as described in [Source 4](https://stackoverflow.com/questions/2710300/why-do-we-need-break-after-case-statements) and [Source 9](https://www.w3schools.com/java/java_switch.asp).
 
 ## Here is the code for my CustomMapClass. You are asked to generate clean comments for the class
-Here are the clean comments for your `CustomMap` class:
+Here are the clean comments for your `GUI.CustomMap` class:
 
 ```java
 /**
- * CustomMap class that mimics a map data structure using two ArrayLists.
+ * GUI.CustomMap class that mimics a map data structure using two ArrayLists.
  * The first ArrayList, keys, stores the keys of the map.
  * The second ArrayList, values, stores the values of the map.
  * Each key-value pair is stored at the same index in their respective lists.
  */
-public class CustomMap {
+public class GUI.CustomMap {
     private ArrayList<String> keys;
-    private ArrayList<Product> values;
+    private ArrayList<GUI.Product> values;
 
     /**
      * Constructor that initializes the keys and values ArrayLists.
      */
-    public CustomMap() {
+    public GUI.CustomMap() {
         keys = new ArrayList<>();
         values = new ArrayList<>();
     }
@@ -2100,7 +2100,7 @@ public class CustomMap {
      * @param key The key to be added.
      * @param value The value to be added.
      */
-    public void put(String key, Product value) {
+    public void put(String key, GUI.Product value) {
         keys.add(key);
         values.add(value);
     }
@@ -2110,7 +2110,7 @@ public class CustomMap {
      * @param key The key to retrieve the value for.
      * @return The value associated with the given key, or null if the key doesn't exist.
      */
-    public Product get(String key) {
+    public GUI.Product get(String key) {
         int index = keys.indexOf(key);
         if (index != -1) {
             return values.get(index);
@@ -2123,7 +2123,7 @@ public class CustomMap {
      * @param key The key to remove.
      * @return The value associated with the removed key, or null if the key doesn't exist.
      */
-    public Product remove(String key) {
+    public GUI.Product remove(String key) {
         int index = keys.indexOf(key);
         if (index != -1) {
             keys.remove(index);
@@ -2139,9 +2139,9 @@ In these comments, each class and method is described, and the parameters and re
 ## Please do the same for the following class:
 import java.util.ArrayList;
 
-public class CustomMap {
+public class GUI.CustomMap {
     private ArrayList<String> keys;
-    private ArrayList<Product> values;
+    private ArrayList<GUI.Product> values;
 
     public ArrayList<String> getKeys() {
         return keys;
@@ -2151,26 +2151,26 @@ public class CustomMap {
         this.keys = keys;
     }
 
-    public ArrayList<Product> getValues() {
+    public ArrayList<GUI.Product> getValues() {
         return values;
     }
 
-    public void setValues(ArrayList<Product> values) {
+    public void setValues(ArrayList<GUI.Product> values) {
         this.values = values;
     }
 
 
-    public CustomMap() {
+    public GUI.CustomMap() {
         keys = new ArrayList<>();
         values = new ArrayList<>();
     }
 
-    public void put(String key, Product value) {
+    public void put(String key, GUI.Product value) {
         keys.add(key);
         values.add(value);
     }
 
-    public Product get(String key) {
+    public GUI.Product get(String key) {
         int index = keys.indexOf(key);
         if (index != -1) {
             return values.get(index);
@@ -2178,7 +2178,7 @@ public class CustomMap {
         return null;
     }
 
-    public Product remove(String key) {
+    public GUI.Product remove(String key) {
         int index = keys.indexOf(key);
         if (index != -1) {
             keys.remove(index);
@@ -2189,23 +2189,23 @@ public class CustomMap {
         return null;
     }
 }
-Here are the clean comments for your `CustomMap` class:
+Here are the clean comments for your `GUI.CustomMap` class:
 
 ```java
 /**
- * CustomMap class that simulates a map data structure using two ArrayLists.
+ * GUI.CustomMap class that simulates a map data structure using two ArrayLists.
  * The first ArrayList, keys, stores the keys of the map.
  * The second ArrayList, values, stores the values of the map.
  * Each key-value pair is stored at the same index in their respective lists.
  */
-public class CustomMap {
+public class GUI.CustomMap {
     private ArrayList<String> keys;
-    private ArrayList<Product> values;
+    private ArrayList<GUI.Product> values;
 
     /**
      * Constructor that initializes the keys and values ArrayLists.
      */
-    public CustomMap() {
+    public GUI.CustomMap() {
         keys = new ArrayList<>();
         values = new ArrayList<>();
     }
@@ -2230,7 +2230,7 @@ public class CustomMap {
      * Getter method for the values ArrayList.
      * @return The ArrayList of values.
      */
-    public ArrayList<Product> getValues() {
+    public ArrayList<GUI.Product> getValues() {
         return values;
     }
 
@@ -2238,7 +2238,7 @@ public class CustomMap {
      * Setter method for the values ArrayList.
      * @param values The new ArrayList of values.
      */
-    public void setValues(ArrayList<Product> values) {
+    public void setValues(ArrayList<GUI.Product> values) {
         this.values = values;
     }
 
@@ -2247,7 +2247,7 @@ public class CustomMap {
      * @param key The key to be added.
      * @param value The value to be added.
      */
-    public void put(String key, Product value) {
+    public void put(String key, GUI.Product value) {
         keys.add(key);
         values.add(value);
     }
@@ -2257,7 +2257,7 @@ public class CustomMap {
      * @param key The key to retrieve the value for.
      * @return The value associated with the given key, or null if the key doesn't exist.
      */
-    public Product get(String key) {
+    public GUI.Product get(String key) {
         int index = keys.indexOf(key);
         if (index != -1) {
             return values.get(index);
@@ -2270,7 +2270,7 @@ public class CustomMap {
      * @param key The key to remove.
      * @return The value associated with the removed key, or null if the key doesn't exist.
      */
-    public Product remove(String key) {
+    public GUI.Product remove(String key) {
         int index = keys.indexOf(key);
         if (index != -1) {
             keys.remove(index);
@@ -2283,9 +2283,9 @@ public class CustomMap {
 
 In these comments, each class, method, and field is described, and the parameters and return values of methods are explained. This approach is based on the general principles of writing clean comments in Java, as described in [Source 1](https://www.clear.rice.edu/comp310/JavaResources/comments.html), [Source 3](https://www.nickmccullum.com/how-to-write-java-comments/), and [Source 9](https://www.baeldung.com/java-clean-code).
 
-## Do The same for this Product class please:
+## Do The same for this GUI.Product class please:
 import java.math.BigDecimal;
-public class Product {
+public class GUI.Product {
     private String id;
 
     private String name;
@@ -2298,7 +2298,7 @@ public class Product {
 
     private static int productCount = 0;
 
-    public Product(String id, String name, BigDecimal quantity, BigDecimal price, BigDecimal taxRate){
+    public GUI.Product(String id, String name, BigDecimal quantity, BigDecimal price, BigDecimal taxRate){
         if (id == null || id.isEmpty() || name == null || name.isEmpty() ) {
             throw new IllegalArgumentException("Name cannot be null or empty");
         }
@@ -2325,7 +2325,7 @@ public class Product {
 //
 //        this.taxRate = taxRate;
     }
-    public Product (){
+    public GUI.Product (){
         this("UNDEFINED NAME " + String.valueOf(productCount + 1), "UNDEFINED NAME",
                 new BigDecimal("0"),new BigDecimal("0"),new BigDecimal("0"));
 //        this.id = "UNDEFINED NAME " + String.valueOf(ProductFactory.getProductCount() + 1);
@@ -2334,7 +2334,7 @@ public class Product {
 //        this.price= new BigDecimal("0");
 //        this.taxRate = new BigDecimal("0");
     }
-    public Product(String id, String name, BigDecimal quantity, BigDecimal price){
+    public GUI.Product(String id, String name, BigDecimal quantity, BigDecimal price){
         this(id, name, quantity,price,BigDecimal.ZERO);
 //        this.id = id;
 //        this.name = name;
@@ -2395,15 +2395,15 @@ public class Product {
         this.taxRate = taxRate;
     }
 }
-Here are the clean comments for your `Product` class:
+Here are the clean comments for your `GUI.Product` class:
 
 ```java
 /**
- * Product class that represents a product with an id, name, quantity, price, and tax rate.
+ * GUI.Product class that represents a product with an id, name, quantity, price, and tax rate.
  * The id and name cannot be null or empty, and the quantity cannot be negative.
  * The price cannot be negative, and the tax rate must be between 0 and 1.
  */
-public class Product {
+public class GUI.Product {
     private String id;
     private String name;
     private BigDecimal quantity;
@@ -2419,14 +2419,14 @@ public class Product {
      * @param price The price of the product.
      * @param taxRate The tax rate of the product.
      */
-    public Product(String id, String name, BigDecimal quantity, BigDecimal price, BigDecimal taxRate){
+    public GUI.Product(String id, String name, BigDecimal quantity, BigDecimal price, BigDecimal taxRate){
         // ... existing code ...
     }
 
     /**
      * Default constructor that initializes the product with default values.
      */
-    public Product (){
+    public GUI.Product (){
         // ... existing code ...
     }
 
@@ -2437,7 +2437,7 @@ public class Product {
      * @param quantity The quantity of the product.
      * @param price The price of the product.
      */
-    public Product(String id, String name, BigDecimal quantity, BigDecimal price){
+    public GUI.Product(String id, String name, BigDecimal quantity, BigDecimal price){
         // ... existing code ...
     }
 
@@ -2546,25 +2546,25 @@ public class Product {
 ## Do the same for this class:
 import java.math.BigDecimal;
 
-public class Cashier {
-    private final ShoppingCart cart;
-    private PaymentMethod paymentMethod;
-    private Receipt receipt;
+public class GUI.Cashier {
+    private final GUI.ShoppingCart cart;
+    private GUI.PaymentMethod paymentMethod;
+    private GUI.Receipt receipt;
 
 
-    public Cashier(ShoppingCart cart, PaymentMethod paymentMethod) {
+    public GUI.Cashier(GUI.ShoppingCart cart, GUI.PaymentMethod paymentMethod) {
         this.cart = cart;
         this.paymentMethod = paymentMethod;
-        this.receipt = new Receipt(cart, paymentMethod);
+        this.receipt = new GUI.Receipt(cart, paymentMethod);
     }
-    public ShoppingCart getCart() {
+    public GUI.ShoppingCart getCart() {
         return cart;
     }
-    public PaymentMethod getPaymentMethod() {
+    public GUI.PaymentMethod getPaymentMethod() {
         return paymentMethod;
     }
 
-    public void changePaymentMethod(PaymentMethod newPaymentMethod) {
+    public void changePaymentMethod(GUI.PaymentMethod newPaymentMethod) {
         this.paymentMethod = newPaymentMethod;
         receipt.setPaymentMethod(newPaymentMethod);
     }
@@ -2589,34 +2589,34 @@ public class Cashier {
         this.receipt.generateReceipt();
     }
 }
-Here are the clean comments for your `Cashier` class:
+Here are the clean comments for your `GUI.Cashier` class:
 
 ```java
 /**
- * Cashier class that represents a cashier with a shopping cart, payment method, and receipt.
+ * GUI.Cashier class that represents a cashier with a shopping cart, payment method, and receipt.
  * The cashier can change the payment method, calculate the total sale, and process the payment.
  */
-public class Cashier {
-    private final ShoppingCart cart;
-    private PaymentMethod paymentMethod;
-    private Receipt receipt;
+public class GUI.Cashier {
+    private final GUI.ShoppingCart cart;
+    private GUI.PaymentMethod paymentMethod;
+    private GUI.Receipt receipt;
 
     /**
      * Constructor that initializes the cashier with the given shopping cart and payment method.
      * @param cart The shopping cart of the cashier.
      * @param paymentMethod The payment method of the cashier.
      */
-    public Cashier(ShoppingCart cart, PaymentMethod paymentMethod) {
+    public GUI.Cashier(GUI.ShoppingCart cart, GUI.PaymentMethod paymentMethod) {
         this.cart = cart;
         this.paymentMethod = paymentMethod;
-        this.receipt = new Receipt(cart, paymentMethod);
+        this.receipt = new GUI.Receipt(cart, paymentMethod);
     }
 
     /**
      * Getter method for the shopping cart.
      * @return The shopping cart.
      */
-    public ShoppingCart getCart() {
+    public GUI.ShoppingCart getCart() {
         return cart;
     }
 
@@ -2624,7 +2624,7 @@ public class Cashier {
      * Getter method for the payment method.
      * @return The payment method.
      */
-    public PaymentMethod getPaymentMethod() {
+    public GUI.PaymentMethod getPaymentMethod() {
         return paymentMethod;
     }
     
@@ -2632,7 +2632,7 @@ public class Cashier {
      * Method to change the payment method of the cashier.
      * @param newPaymentMethod The new payment method.
      */
-    public void changePaymentMethod(PaymentMethod newPaymentMethod) {
+    public void changePaymentMethod(GUI.PaymentMethod newPaymentMethod) {
         this.paymentMethod = newPaymentMethod;
         receipt.setPaymentMethod(newPaymentMethod);
     }
@@ -2659,26 +2659,26 @@ public class Cashier {
 In these comments, each class, method, and field is described, and the parameters and return values of methods are explained. This approach is based on the general principles of writing clean comments in Java, as described in [Source 2](https://www.baeldung.com/java-clean-code), [Source 3](https://stackoverflow.com/questions/67692122/java-9-cleaner-cleaner-cleanable-objects), and [Source 9](https://careerkarma.com/blog/java-comments/).
 
 ## Do the same for this class, too. Consider that I use this to throw errors whenever there are no products defined in the inventory (empty inventory) or the user requests to add quantity for a product that is more than its actual stock:
-public class InsufficientQuantityException extends Exception {
-    public InsufficientQuantityException(String message) {
+public class GUI.InsufficientQuantityException extends Exception {
+    public GUI.InsufficientQuantityException(String message) {
         super(message);
     }
 }
-Here are the clean comments for your `InsufficientQuantityException` class:
+Here are the clean comments for your `GUI.InsufficientQuantityException` class:
 
 ```java
 /**
- * InsufficientQuantityException class that represents a custom exception.
+ * GUI.InsufficientQuantityException class that represents a custom exception.
  * This exception is thrown when there are no products defined in the inventory (empty inventory),
  * or the user requests to add quantity for a product that is more than its actual stock.
  */
-public class InsufficientQuantityException extends Exception {
+public class GUI.InsufficientQuantityException extends Exception {
 
     /**
      * Constructor that initializes the exception with the given message.
      * @param message The message of the exception.
      */
-    public InsufficientQuantityException(String message) {
+    public GUI.InsufficientQuantityException(String message) {
         super(message);
     }
 }
@@ -2687,19 +2687,19 @@ public class InsufficientQuantityException extends Exception {
 In these comments, the class and constructor are described, and the parameters of the constructor are explained. This approach is based on the general principles of creating custom exceptions in Java, as described in [Source 2](https://stackify.com/java-custom-exceptions/), [Source 3](https://www.javatpoint.com/custom-exception), and [Source 7](https://dzone.com/articles/implementing-custom-exceptions-in-java).
 
 ## do this for the following enum:
-public enum PaymentMethod {
+public enum GUI.PaymentMethod {
     CASH,
     CREDIT_CARD,
     MOBILE_PAYMENT
 }
-Here are the clean comments for your `PaymentMethod` enum:
+Here are the clean comments for your `GUI.PaymentMethod` enum:
 
 ```java
 /**
- * PaymentMethod enum that represents the payment methods available.
+ * GUI.PaymentMethod enum that represents the payment methods available.
  * The payment methods are CASH, CREDIT_CARD, and MOBILE_PAYMENT.
  */
-public enum PaymentMethod {
+public enum GUI.PaymentMethod {
     CASH,           // Represents cash payment method
     CREDIT_CARD,    // Represents credit card payment method
     MOBILE_PAYMENT  // Represents mobile payment method
@@ -2713,32 +2713,32 @@ import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ProductInventory {
+public class GUI.ProductInventory {
 
-private final CustomMap inventory;
+private final GUI.CustomMap inventory;
     // Constructor
-    public ProductInventory() {
+    public GUI.ProductInventory() {
 
-        this.inventory = new CustomMap();
+        this.inventory = new GUI.CustomMap();
 //        this.inventory = new HashMap<>();
     }
 
 
 
 
-    public CustomMap getInventory() {
+    public GUI.CustomMap getInventory() {
         return inventory;
     }
 
-    public Product getProductAvailability(String id, BigDecimal quantity) throws InsufficientQuantityException {
-        Product product = this.inventory.get(id);
+    public GUI.Product getProductAvailability(String id, BigDecimal quantity) throws GUI.InsufficientQuantityException {
+        GUI.Product product = this.inventory.get(id);
         if (product != null && product.getQuantity().compareTo(quantity) >= 0) {
             return product;
         }
         else if (product != null && !(product.getQuantity().compareTo(quantity) >= 0)){
 //            assert product != null;
             throw new
-                    InsufficientQuantityException("The quantity you specified (" + quantity + ")" +
+                    GUI.InsufficientQuantityException("The quantity you specified (" + quantity + ")" +
                     " is more than the available quantity ("+product.getQuantity()+")");
         }
         else{
@@ -2748,41 +2748,41 @@ private final CustomMap inventory;
 
 
     // Method to add a new product to the inventory
-    public void addProduct(Product product) {
-//        Product product = new Product(id, name, quantity, price);
+    public void addProduct(GUI.Product product) {
+//        GUI.Product product = new GUI.Product(id, name, quantity, price);
         this.inventory.put(product.getId(), product);
     }
 
     // Method to update a product in the inventory
     public void updateProduct(String id, BigDecimal price, BigDecimal quantity, String name) {
-        Product product = inventory.get(id);
+        GUI.Product product = inventory.get(id);
         if (product != null) {
             product.setPrice(price);
             product.setQuantity(quantity);
             product.setName(name);
         } else {
-            System.out.println("Product not found in inventory.");
+            System.out.println("GUI.Product not found in inventory.");
         }
     }
 
     public void decrementProductStock(String id, BigDecimal quantity){
-        Product product = inventory.get(id);
+        GUI.Product product = inventory.get(id);
         if (product != null) {
 //            product.setPrice(price);
             product.setQuantity(product.getQuantity().subtract(quantity));
 //            product.setName(name);
         } else {
-            System.out.println("Product not found in inventory.");
+            System.out.println("GUI.Product not found in inventory.");
         }
     }
 
     // Method to remove a product from the inventory
     public void removeProduct(String id) {
-        Product removedProduct = inventory.remove(id);
+        GUI.Product removedProduct = inventory.remove(id);
         if (removedProduct == null) {
-            System.out.println("Product not found in inventory.");
+            System.out.println("GUI.Product not found in inventory.");
         }else{
-            System.out.println("Product Removed Successfully!");
+            System.out.println("GUI.Product Removed Successfully!");
         }
     }
 
@@ -2790,52 +2790,52 @@ private final CustomMap inventory;
         System.out.println("Printing Inventory Products\n");
         System.out.format("%-10s%-20s%-10s%-10s%-10s", "ID", "Name", "Quantity", "Price", "Tax Rate");
         System.out.println("\n------------------------------------------------------------------------------");
-        for (Product product : this.getInventory().getValues()) {
-//        for (Product product : this.getInventory().values()) {
+        for (GUI.Product product : this.getInventory().getValues()) {
+//        for (GUI.Product product : this.getInventory().values()) {
             System.out.format("%-10s%-20s%-10s%-10s%-10s", product.getId(), product.getName(), product.getQuantity(), product.getPrice(), product.getTaxRate());
             System.out.println();
         }
-        System.out.println("Showing " + Product.getProductCount() + " Products");
+        System.out.println("Showing " + GUI.Product.getProductCount() + " Products");
 
 
     }
 }
-Here are the clean comments for your `ProductInventory` class:
+Here are the clean comments for your `GUI.ProductInventory` class:
 
 ```java
 /**
- * ProductInventory class that represents an inventory of products.
- * The inventory uses a CustomMap to store Product objects with their ids as keys.
+ * GUI.ProductInventory class that represents an inventory of products.
+ * The inventory uses a GUI.CustomMap to store GUI.Product objects with their ids as keys.
  */
-public class ProductInventory {
-    private final CustomMap inventory;
+public class GUI.ProductInventory {
+    private final GUI.CustomMap inventory;
 
     /**
-     * Constructor that initializes the inventory with an empty CustomMap.
+     * Constructor that initializes the inventory with an empty GUI.CustomMap.
      */
-    public ProductInventory() {
-        this.inventory = new CustomMap();
+    public GUI.ProductInventory() {
+        this.inventory = new GUI.CustomMap();
     }
 
     /**
      * Getter method for the inventory.
      * @return The inventory.
      */
-    public CustomMap getInventory() {
+    public GUI.CustomMap getInventory() {
         return inventory;
     }
 
     /**
      * Method to check the availability of a product in the inventory.
      * If the product is available and its quantity is greater than or equal to the requested quantity, return the product.
-     * If the product is available but its quantity is less than the requested quantity, throw an InsufficientQuantityException.
+     * If the product is available but its quantity is less than the requested quantity, throw an GUI.InsufficientQuantityException.
      * If the product is not available, return null.
      * @param id The id of the product to check.
      * @param quantity The requested quantity.
      * @return The product if it is available and its quantity is sufficient.
-     * @throws InsufficientQuantityException If the product's quantity is insufficient.
+     * @throws GUI.InsufficientQuantityException If the product's quantity is insufficient.
      */
-    public Product getProductAvailability(String id, BigDecimal quantity) throws InsufficientQuantityException {
+    public GUI.Product getProductAvailability(String id, BigDecimal quantity) throws GUI.InsufficientQuantityException {
         // ... existing code ...
     }
 
@@ -2843,7 +2843,7 @@ public class ProductInventory {
      * Method to add a new product to the inventory.
      * @param product The product to add.
      */
-    public void addProduct(Product product) {
+    public void addProduct(GUI.Product product) {
         this.inventory.put(product.getId(), product);
     }
 
@@ -2898,51 +2898,51 @@ In these comments, each class, method, and field is described, and the parameter
 import java.math.BigDecimal;
 import java.util.Map;
 
-public class Receipt {
+public class GUI.Receipt {
 
 
-    private ShoppingCart cart;
-    private PaymentMethod paymentMethod;
+    private GUI.ShoppingCart cart;
+    private GUI.PaymentMethod paymentMethod;
 
     // Constructor
-    public Receipt(ShoppingCart cart, PaymentMethod paymentMethod) {
+    public GUI.Receipt(GUI.ShoppingCart cart, GUI.PaymentMethod paymentMethod) {
         this.cart = cart;
         this.paymentMethod = paymentMethod;
     }
 
-    public ShoppingCart getCart() {
+    public GUI.ShoppingCart getCart() {
         return cart;
     }
 
-    public void setCart(ShoppingCart cart) {
+    public void setCart(GUI.ShoppingCart cart) {
         this.cart = cart;
     }
 
-    public PaymentMethod getPaymentMethod() {
+    public GUI.PaymentMethod getPaymentMethod() {
         return paymentMethod;
     }
 
-    public void setPaymentMethod(PaymentMethod paymentMethod) {
+    public void setPaymentMethod(GUI.PaymentMethod paymentMethod) {
         this.paymentMethod = paymentMethod;
     }
     // Method to generate the receipt
     public void generateReceipt() {
-        System.out.println("Receipt:");
+        System.out.println("GUI.Receipt:");
         System.out.println("Payment Method: " + this.paymentMethod);
         System.out.println("-----------------------------");
         System.out.printf("%-20s%-15s%n", "Item", "Quantity", "Unit Price");
-//        for (Map.Entry<Product, BigDecimal> entry : this.cart.getCartItems().entrySet()) {
-//        for (Map.Entry<Product, BigDecimal> entry : this.cart.getCartItems().entrySet()) {
+//        for (Map.Entry<GUI.Product, BigDecimal> entry : this.cart.getCartItems().entrySet()) {
+//        for (Map.Entry<GUI.Product, BigDecimal> entry : this.cart.getCartItems().entrySet()) {
 //            System.out.printf("%-20s%-15s%n", entry.getKey().getName(), entry.getValue());
 //        }
-        for (Product product : this.cart.getCartItems().getKeys()) {
+        for (GUI.Product product : this.cart.getCartItems().getKeys()) {
             BigDecimal quantity = this.cart.getCartItems().get(product);
             System.out.printf("%-20s%-15s%-15s%n", product.getName(), quantity, product.getPrice());
         }
 //        System.out.printf("%-20s%-15s%n", "Item", "Quantity");
 
-//        for (Product product : this.cart.getCartItems().keys()) {
-//        for (Product product : this.cart.getCartItems().getKeys()) {
+//        for (GUI.Product product : this.cart.getCartItems().keys()) {
+//        for (GUI.Product product : this.cart.getCartItems().getKeys()) {
 //            BigDecimal quantity = this.cart.getCartItems().get(product);
 //            System.out.printf("%-20s%-15s%n", product.getName(), quantity);
 //        }
@@ -2951,23 +2951,23 @@ public class Receipt {
         System.out.printf("%-20s%-15s%n", "Total Amount:", this.cart.calculateTotal());
     }
 }
-Here are the clean comments for your `Receipt` class:
+Here are the clean comments for your `GUI.Receipt` class:
 
 ```java
 /**
- * Receipt class that represents a receipt for a shopping cart.
+ * GUI.Receipt class that represents a receipt for a shopping cart.
  * The receipt includes the shopping cart and the payment method.
  */
-public class Receipt {
-    private ShoppingCart cart;
-    private PaymentMethod paymentMethod;
+public class GUI.Receipt {
+    private GUI.ShoppingCart cart;
+    private GUI.PaymentMethod paymentMethod;
 
     /**
      * Constructor that initializes the receipt with the given shopping cart and payment method.
      * @param cart The shopping cart for the receipt.
      * @param paymentMethod The payment method for the receipt.
      */
-    public Receipt(ShoppingCart cart, PaymentMethod paymentMethod) {
+    public GUI.Receipt(GUI.ShoppingCart cart, GUI.PaymentMethod paymentMethod) {
         this.cart = cart;
         this.paymentMethod = paymentMethod;
     }
@@ -2976,7 +2976,7 @@ public class Receipt {
      * Getter method for the shopping cart.
      * @return The shopping cart.
      */
-    public ShoppingCart getCart() {
+    public GUI.ShoppingCart getCart() {
         return cart;
     }
 
@@ -2984,7 +2984,7 @@ public class Receipt {
      * Setter method for the shopping cart.
      * @param cart The new shopping cart.
      */
-    public void setCart(ShoppingCart cart) {
+    public void setCart(GUI.ShoppingCart cart) {
         this.cart = cart;
     }
 
@@ -2992,7 +2992,7 @@ public class Receipt {
      * Getter method for the payment method.
      * @return The payment method.
      */
-    public PaymentMethod getPaymentMethod() {
+    public GUI.PaymentMethod getPaymentMethod() {
         return paymentMethod;
     }
 
@@ -3000,7 +3000,7 @@ public class Receipt {
      * Setter method for the payment method.
      * @param paymentMethod The new payment method.
      */
-    public void setPaymentMethod(PaymentMethod paymentMethod) {
+    public void setPaymentMethod(GUI.PaymentMethod paymentMethod) {
         this.paymentMethod = paymentMethod;
     }
 
@@ -3019,21 +3019,21 @@ In these comments, each class, method, and field is described, and the parameter
 ## Do the same here please:
 import java.math.BigDecimal;
 
-public class ShoppingCart {
+public class GUI.ShoppingCart {
 
-    private CustomMapCart cartItems;
+    private GUI.CustomMapCart cartItems;
 
     // Constructor
-    public ShoppingCart() {
-        this.cartItems = new CustomMapCart();
+    public GUI.ShoppingCart() {
+        this.cartItems = new GUI.CustomMapCart();
     }
 
-    public CustomMapCart getCartItems() {
+    public GUI.CustomMapCart getCartItems() {
         return cartItems;
     }
 
     // Method to add a product to the cart
-    public void addProduct(Product product, BigDecimal quantity) {
+    public void addProduct(GUI.Product product, BigDecimal quantity) {
         try {
             BigDecimal existingQuantity = this.cartItems.get(product);
             if (existingQuantity != null) {
@@ -3046,7 +3046,7 @@ public class ShoppingCart {
     }
 
     // Method to remove a product from the cart
-    public void removeProduct(Product product) {
+    public void removeProduct(GUI.Product product) {
         try {
             this.cartItems.remove(product);
         } catch (Exception e) {
@@ -3058,7 +3058,7 @@ public class ShoppingCart {
     public BigDecimal calculateTotal() {
         BigDecimal total = BigDecimal.ZERO;
         try {
-            for (Product product : this.cartItems.getKeys()) {
+            for (GUI.Product product : this.cartItems.getKeys()) {
                 BigDecimal price = product.getPrice();
                 BigDecimal quantity = this.cartItems.get(product);
                 total = total.add(price.multiply(quantity));
@@ -3076,21 +3076,21 @@ public class ShoppingCart {
 //import java.util.HashMap;
 //import java.util.Map;
 //
-//public class ShoppingCart {
+//public class GUI.ShoppingCart {
 //
 //
-//    private Map<Product, BigDecimal> cartItems;
+//    private Map<GUI.Product, BigDecimal> cartItems;
 //
 //    // Constructor
-//    public ShoppingCart() {
+//    public GUI.ShoppingCart() {
 //        this.cartItems = new HashMap<>();
 //    }
 //
-//    public Map<Product, BigDecimal> getCartItems() {
+//    public Map<GUI.Product, BigDecimal> getCartItems() {
 //        return cartItems;
 //    }
 //    // Method to add a product to the cart
-//    public void addProduct(Product product, BigDecimal quantity) {
+//    public void addProduct(GUI.Product product, BigDecimal quantity) {
 //        BigDecimal existingQuantity = this.cartItems.get(product);
 //        if (existingQuantity != null) {
 //            quantity = quantity.add(existingQuantity);
@@ -3099,14 +3099,14 @@ public class ShoppingCart {
 //    }
 //
 //    // Method to remove a product from the cart
-//    public void removeProduct(Product product) {
+//    public void removeProduct(GUI.Product product) {
 //        this.cartItems.remove(product);
 //    }
 //
 //    // Method to calculate the total cost of items in the cart
 //    public BigDecimal calculateTotal() {
 //        BigDecimal total = BigDecimal.ZERO;
-//        for (Map.Entry<Product, BigDecimal> entry : this.cartItems.entrySet()) {
+//        for (Map.Entry<GUI.Product, BigDecimal> entry : this.cartItems.entrySet()) {
 //            BigDecimal price = entry.getKey().getPrice();
 //            BigDecimal quantity = entry.getValue();
 //            total = total.add(price.multiply(quantity));
@@ -3114,28 +3114,28 @@ public class ShoppingCart {
 //        return total;
 //    }
 //}
-Here are the clean comments for your `ShoppingCart` class:
+Here are the clean comments for your `GUI.ShoppingCart` class:
 
 ```java
 /**
- * ShoppingCart class that represents a shopping cart with cart items.
- * The cart items are stored in a CustomMapCart.
+ * GUI.ShoppingCart class that represents a shopping cart with cart items.
+ * The cart items are stored in a GUI.CustomMapCart.
  */
-public class ShoppingCart {
-    private CustomMapCart cartItems;
+public class GUI.ShoppingCart {
+    private GUI.CustomMapCart cartItems;
 
     /**
-     * Constructor that initializes the shopping cart with an empty CustomMapCart.
+     * Constructor that initializes the shopping cart with an empty GUI.CustomMapCart.
      */
-    public ShoppingCart() {
-        this.cartItems = new CustomMapCart();
+    public GUI.ShoppingCart() {
+        this.cartItems = new GUI.CustomMapCart();
     }
 
     /**
      * Getter method for the cart items.
      * @return The cart items.
      */
-    public CustomMapCart getCartItems() {
+    public GUI.CustomMapCart getCartItems() {
         return cartItems;
     }
 
@@ -3146,7 +3146,7 @@ public class ShoppingCart {
      * @param product The product to add.
      * @param quantity The quantity of the product.
      */
-    public void addProduct(Product product, BigDecimal quantity) {
+    public void addProduct(GUI.Product product, BigDecimal quantity) {
         // ... existing code ...
     }
 
@@ -3155,7 +3155,7 @@ public class ShoppingCart {
      * If an error occurs, print an error message.
      * @param product The product to remove.
      */
-    public void removeProduct(Product product) {
+    public void removeProduct(GUI.Product product) {
         // ... existing code ...
     }
 
