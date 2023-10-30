@@ -1,8 +1,12 @@
+package GUI;
+
+import GUI.Product;
+
 import java.util.ArrayList;
 
 
 /**
- * CustomMap class that simulates a map data structure using two ArrayLists.
+ * GUI.CustomMap class that simulates a map data structure using two ArrayLists.
  * The first ArrayList, keys, stores the keys of the map.
  * The second ArrayList, values, stores the values of the map.
  * Each key-value pair is stored at the same index in their respective lists.

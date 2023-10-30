@@ -1,7 +1,9 @@
+package GUI;
+
 import java.math.BigDecimal;
 import java.util.ArrayList;
 /**
- * CustomMap class that mimics a map data structure using two ArrayLists.
+ * GUI.CustomMap class that mimics a map data structure using two ArrayLists.
  * The first ArrayList, keys, stores the keys of the map.
  * The second ArrayList, values, stores the values of the map.
  * Each key-value pair is stored at the same index in their respective lists.
@@ -60,15 +62,22 @@ public class CustomMapCart {
 
     /**
      * Method that removes a key-value pair from the map and returns the removed value.
+     *
      * @param key The key to remove.
-     * @return The value associated with the removed key, or null if the key doesn't exist.
      */
-    public BigDecimal remove(Product key) {
+    public void remove(Product key) {
+        System.out.println("Removing Product: " + key.getId() + " " + key.getName() +" " + key.getQuantity() + " " + key.getPrice() +  " " + key.getTaxRate());
+
         int index = keys.indexOf(key);
+
         if (index != -1) {
             keys.remove(index);
-            return values.remove(index);
+            values.remove(index);
+            System.out.println("Successfully removed product!");
         }
-        return null;
+        else{
+            System.out.println("Product not found!");
+
+        }
     }
 }

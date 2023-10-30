@@ -1,7 +1,10 @@
+package GUI;
+
 import java.math.BigDecimal;
+import java.util.Objects;
 
 /**
- * Product class that represents a product with an id, name, quantity, price, and tax rate.
+ * GUI.Product class that represents a product with an id, name, quantity, price, and tax rate.
  * The id and name cannot be null or empty, and the quantity cannot be negative.
  * The price cannot be negative, and the tax rate must be between 0 and 1.
  * The class has One static variable, productCount, to maintain the number of created products
@@ -16,6 +19,24 @@ public class Product {
 
     private static int productCount = 0;
 
+
+    // Overrides the equality such that the ShoppingCart.remove(Product) method works (as it does equality check)
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+        Product product = (Product) obj;
+        return id.equals(product.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
     /**
      * Constructor that initializes the product with the given id, name, quantity, price, and tax rate.
      * @param id The id of the product.
@@ -64,6 +85,7 @@ public class Product {
     public Product(String id, String name, BigDecimal quantity, BigDecimal price){
         this(id, name, quantity,price, new BigDecimal("0"));
     }
+
     public static int getProductCount() {
         return productCount;
     }

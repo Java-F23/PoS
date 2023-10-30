@@ -1,12 +1,18 @@
+package GUI;
+
+import GUI.ShoppingCart;
+
 import java.math.BigDecimal;
+
+import static GUI.PaymentMethod.*;
 
 
 /**
- * Cashier class that represents a cashier with a shopping cart, payment method, and receipt.
+ * GUI.Cashier class that represents a cashier with a shopping cart, payment method, and receipt.
  * The cashier can change the payment method, calculate the total sale, and process the payment.
  */
 public class Cashier {
-    private final ShoppingCart cart;
+//    private final ShoppingCart cart;
     private PaymentMethod paymentMethod;
     private Receipt receipt;
 
@@ -17,17 +23,19 @@ public class Cashier {
      * @param cart          The shopping cart of the cashier.
      * @param paymentMethod The payment method of the cashier.
      */
-    public Cashier(ShoppingCart cart, PaymentMethod paymentMethod) {
-        this.cart = cart;
+    public Cashier( PaymentMethod paymentMethod) {
+//        this.cart = cart;
         this.paymentMethod = paymentMethod;
-        this.receipt = new Receipt(cart, paymentMethod);
+        this.receipt = new Receipt(paymentMethod);
     }
 
-    public ShoppingCart getCart() {
-        return cart;
-    }
+//    public ShoppingCart getCart() {
+//
+//        return cart;
+//    }
 
     public PaymentMethod getPaymentMethod() {
+
         return paymentMethod;
     }
 
@@ -47,7 +55,7 @@ public class Cashier {
      * @return The total cost of the sale transaction.
      */
     public BigDecimal calculateTotalSale() {
-        return this.cart.calculateTotal();
+        return ShoppingCart.calculateTotal();
     }
 
     /**
@@ -60,13 +68,15 @@ public class Cashier {
             case CASH:
                 System.out.println("Processing cash payment...");
                 break;
-            case CREDIT_CARD:
+            case VISA:
                 System.out.println("Processing credit card payment...");
                 break;
-            case MOBILE_PAYMENT:
+            case MOBILE:
                 System.out.println("Processing mobile payment...");
                 break;
         }
-        this.receipt.generateReceipt();
+//        this.receipt.generateReceipt();
+        String receipt = Receipt.generateStringReceipt();
+        SaveMsgToCsv.writeMessageToCsv("client_receipt.csv", receipt);
     }
 }

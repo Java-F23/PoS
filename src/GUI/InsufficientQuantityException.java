@@ -1,5 +1,7 @@
+package GUI;
+
 /**
- * InsufficientQuantityException class that represents a custom exception.
+ * GUI.InsufficientQuantityException class that represents a custom exception.
  * This exception is thrown when there are no products defined in the inventory (empty inventory),
  * or the user requests to add quantity for a product that is more than its actual stock.
  */
