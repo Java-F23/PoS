@@ -29,7 +29,6 @@ public class MainFrame extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 // Switch to the next screen when the "Continue" button is clicked
                 cardLayout.show(getContentPane(), "HomeScreen");
-                // cardLayout.next(getContentPane(), "HomeScreen");
             }
         });
 

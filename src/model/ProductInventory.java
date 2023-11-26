@@ -125,36 +125,6 @@ public class ProductInventory {
         inventory.put(product.getId(), product);
     }
 
-    public static void writeProductToCSV(Product product) {
-        String productRecord = CSVHandler.convertToCSV(
-                product.getId(),
-                product.getName(),
-                product.getQuantity().toString(),
-                product.getPrice().toString(),
-                product.getTaxRate().toString());
-
-        CSVHandler.writeMessageToCsv("productInventory.csv", productRecord, true);
-
-    }
-
-    // Method to add a new product to the inventory
-    /*
-     * Method to add a new product to the inventory.
-     *
-     * @param product The product to add.
-     *
-     */
-    public static void updateProduct(String id, BigDecimal price, BigDecimal quantity, String name) {
-        Product product = inventory.get(id);
-        if (product != null) {
-            product.setPrice(price);
-            product.setQuantity(quantity);
-            product.setName(name);
-        } else {
-            System.out.println("GUI.Product not found in inventory.");
-        }
-    }
-
     public static boolean doesProductIDExist(String productID) throws DuplicateProductException {
         Product product = inventory.get(productID);
         if (product == null) {
@@ -162,8 +132,6 @@ public class ProductInventory {
         } else
             throw new DuplicateProductException(
                     "Product with id " + product.getId() + " already exists. Please change the ID.");
-
-        // return inventory.get(productID);
     }
 
     /**
@@ -184,42 +152,5 @@ public class ProductInventory {
         } else {
             System.out.println("GUI.Product not found in inventory.");
         }
-    }
-
-    /**
-     * Method to remove a product from the inventory.
-     * If the product exists, remove it and print a success message.
-     * If the product does not exist, print a message indicating that the product
-     * was not found.
-     *
-     * @param id The id of the product to remove.
-     */
-    public static void removeProduct(String id) {
-        Product removedProduct = inventory.remove(id);
-        if (removedProduct == null) {
-            System.out.println("GUI.Product not found in inventory.");
-        } else {
-            System.out.println("GUI.Product Removed Successfully!");
-        }
-    }
-
-    /**
-     * Method to print all the products in the inventory.
-     * Prints the id, name, quantity, price, and tax rate of each product.
-     * Also prints the total number of products.
-     */
-    public static void printProducts() {
-        System.out.println("Printing Inventory Products\n");
-        System.out.format("%-10s%-20s%-10s%-10s%-10s", "ID", "Name", "Quantity", "Price", "Tax Rate");
-        System.out.println("\n------------------------------------------------------------------------------");
-        // for (Product product : getInventory().getValues()) {
-        for (Product product : getInventory().values()) {
-            // for (GUI.Product product : this.getInventory().values()) {
-            System.out.format("%-10s%-20s%-10s%-10s%-10s", product.getId(), product.getName(), product.getQuantity(),
-                    product.getPrice(), product.getTaxRate());
-            System.out.println();
-        }
-        System.out.println("Showing " + Product.getProductCount() + " Products");
-
     }
 }

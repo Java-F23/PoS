@@ -50,13 +50,6 @@ public class ShoppingCart {
         return cartItems;
     }
 
-    public static void printCartItems() {
-        cartItems.entrySet().stream().forEach(entry -> {
-            Product product = entry.getKey();
-            BigDecimal quantity = entry.getValue();
-            System.out.println(product.getName() + "\t" + quantity);
-        });
-    }
 
     public static Object[][] getCartItemsForTable() {
         List<Object[]> list = cartItems

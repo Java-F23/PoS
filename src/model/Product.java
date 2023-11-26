@@ -159,23 +159,4 @@ public class Product {
         this.taxRate = taxRate;
     }
 
-    /**
-     * Method that decrements the quantity of the product by the given quantity.
-     * 
-     * @param quantity The quantity to decrement by.
-     */
-    public void decrementQuantity(BigDecimal quantity) {
-        this.quantity = this.quantity.subtract(quantity);
-
-    }
-
-    /**
-     * Method that increments the quantity of the product by the given quantity.
-     * 
-     * @param quantity The quantity to increment by.
-     */
-    public void incrementQuantity(BigDecimal quantity) {
-        this.quantity = this.quantity.add(quantity);
-
-    }
 }
