@@ -20,7 +20,6 @@ public class ShoppingCart {
 
     // Constructor
     public ShoppingCart() {
-        // cartItems = new CustomMapCart();
         cartItems = new HashMap<>();
         cartTotal = BigDecimal.ZERO;
     }
@@ -40,6 +39,9 @@ public class ShoppingCart {
         return cartItems.isEmpty();
     }
 
+    /**
+     * @param cartTotal
+     */
     public static void setCartTotal(BigDecimal cartTotal) {
         ShoppingCart.cartTotal = cartTotal;
     }

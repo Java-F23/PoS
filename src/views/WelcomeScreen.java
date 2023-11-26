@@ -6,9 +6,18 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+/**
+ * This class represents the welcome screen of the application.
+ * It extends JPanel, which means it's a container that can hold other
+ * components.
+ */
 class WelcomeScreen extends JPanel {
     JButton continueButton;
 
+    /**
+     * Constructor for the WelcomeScreen class.
+     * It sets up the layout and components of the welcome screen.
+     */
     public WelcomeScreen() {
         // Set the layout manager for this panel
         setLayout(new GridBagLayout());
@@ -25,7 +34,6 @@ class WelcomeScreen extends JPanel {
 
         // Add a "Continue" button
         continueButton = new JButton("Continue");
-
 
         gbc.gridy = 1; // Set the y grid position
         gbc.weighty = 0; // Reset the vertical space

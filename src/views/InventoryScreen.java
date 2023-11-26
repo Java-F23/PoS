@@ -78,6 +78,17 @@ public class InventoryScreen extends JPanel {
         add(addButton, gbc); // Add the Add button to this panel
     }
 
+    /**
+     * Updates the inventory table with new data.
+     * This method is used to dynamically update the inventory table with new data.
+     * It takes an array of arrays (2D array) as a parameter, where each inner array
+     * represents a row in the table.
+     * The method uses the setDataVector method of the DefaultTableModel class to
+     * set the new data for the table.
+     *
+     * @param inventoryItems the new data for the inventory table. Each inner array
+     *                       represents a row in the table.
+     */
     public static void updateInventoryTableModel(Object[][] inventoryItems) {
         tableModel.setDataVector(inventoryItems, COLUMN_NAMES);
 

@@ -205,30 +205,56 @@ public class SalesScreen extends JPanel {
 
     }
 
+    /**
+     * Getter for the payment method.
+     * 
+     * @return the selected payment method.
+     */
     public static PaymentMethod getPaymentMethod() {
         return paymentMethod;
     }
 
+    /**
+     * Setter for the payment method.
+     * 
+     * @param _paymentMethod the new payment method.
+     */
     public static void setPaymentMethod(PaymentMethod _paymentMethod) {
         paymentMethod = _paymentMethod;
     }
 
+    /**
+     * Getter for the total order amount.
+     * 
+     * @return the total order amount.
+     */
     public static BigDecimal getOrderTotal() {
         return orderTotal;
     }
 
-    // updates the catalogueTable with the new items; ensures dynamic reloading
+    /**
+     * Updates the catalogue table with new data.
+     * 
+     * @param catalogueData the new data for the catalogue table.
+     */
     public static void updateCatalogueTableData(Object[][] catalogueData) {
         catalogueTableModel.setDataVector(catalogueData, COLUMN_NAMES);
     }
 
-    // updates the cartTable with the new items; ensures dynamic reloading
+    /**
+     * Updates the cart table with new data.
+     * 
+     * @param cartItems the new data for the cart table.
+     */
     public static void updateCartTableModel(Object[][] cartItems) {
         cartTableModel.setDataVector(cartItems, COLUMN_NAMES);
     }
 
-    // updates the orderTotalLabel whenever a product is added, removed, or a
-    // transaction completes
+    /**
+     * Updates the order total label with a new total amount.
+     * 
+     * @param orderTotal the new total amount.
+     */
     public static void updateOrderTotalLabel(String orderTotal) {
         orderTotalLabel.setText("Total: " + orderTotal + " EGP");
     }

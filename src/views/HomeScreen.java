@@ -16,13 +16,11 @@ public class HomeScreen extends JPanel {
                 JTabbedPane tabbedPane = new JTabbedPane();
 
                 // Create a Sales panel
-                // JPanel salesPanel = new SalesScreen();
                 JPanel salesPanel = new SalesScreen();
                 // salesPanel.add(new JLabel("Sales Screen"));
 
                 // Create an Inventory panel
                 JPanel inventoryPanel = new InventoryScreen();
-                // inventoryPanel.add(new JLabel("Inventory Screen"));
 
                 // Add the panels to the tabbed pane
                 tabbedPane.addTab("Sales", salesPanel);
