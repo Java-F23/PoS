@@ -2,10 +2,14 @@ package GUI;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import exceptions.DuplicateProductException;
+import exceptions.InvalidFormatException;
+import helpers.CSVHandler;
 
 /**
  * GUI.ProductInventory class that represents an inventory of products.
@@ -16,6 +20,26 @@ public class ProductInventory {
 
     private static CustomMap inventory = new CustomMap();
 
+    public ProductInventory() throws InvalidFormatException {
+        List<String> returnedProducts = CSVHandler.readFromCsv("productInventory.csv");
+
+        for (String product : returnedProducts) {
+
+            List<String> splitProduct = Arrays.asList(product.split(","));
+            String id = splitProduct.get(0);
+            String name = splitProduct.get(1);
+            BigDecimal quantity = new BigDecimal(splitProduct.get(2));
+            BigDecimal price = new BigDecimal(splitProduct.get(3));
+            BigDecimal taxRate = new BigDecimal(splitProduct.get(4));
+
+            Product newProduct = new Product(id, name, quantity, price, taxRate);
+
+            inventory.put(newProduct.getId(), newProduct);
+
+        }
+
+    }
+
     /**
      * GUI.ProductInventory class that represents an inventory of products.
      * The inventory uses a GUI.CustomMap to store GUI.Product objects with their
@@ -23,8 +47,27 @@ public class ProductInventory {
      */
 
     public static CustomMap getInventory() {
-
         return inventory;
+    }
+
+    public static void overwriteInventoryToCsv() {
+        // NEW PRODUCTS ARRAY
+        List<String> newProductsArray = new ArrayList<>();
+
+        for (Product product : inventory.getValues()) {
+            String productRecord = CSVHandler.convertToCSV(
+                    product.getId(),
+                    product.getName(),
+                    product.getQuantity().toString(),
+                    product.getPrice().toString(),
+                    product.getTaxRate().toString());
+            // append entry to NEW PRODUCTS ARRAY
+            newProductsArray.add(productRecord);
+        }
+
+        CSVHandler.clearFile("productInventory.csv");
+        // write the new products array to the CSV file
+        CSVHandler.writeMessageToCsv("productInventory.csv", newProductsArray, true);
     }
 
     // Returns the inventory products as 2-D Object array which is compatible with
@@ -78,7 +121,33 @@ public class ProductInventory {
         // GUI.Product product = new GUI.Product(id, name, quantity, price);
 
         inventory.put(product.getId(), product);
+
     }
+
+    public static void writeProductToCSV(Product product) {
+        String productRecord = CSVHandler.convertToCSV(
+                product.getId(),
+                product.getName(),
+                product.getQuantity().toString(),
+                product.getPrice().toString(),
+                product.getTaxRate().toString());
+
+        CSVHandler.writeMessageToCsv("productInventory.csv", productRecord, true);
+
+    }
+
+    // Method to add a new product to the inventory
+    // public static void addProduct(String product) {
+    // // GUI.Product product = new GUI.Product(id, name, quantity, price);
+
+    // inventory.put(product.getId(), product);
+    // String productRecord = CSVHandler.convertToCSV(product.getId(),
+    // product.getName(),
+    // product.getQuantity().toString(),
+    // product.getPrice().toString(),
+    // product.getTaxRate().toString());
+    // CSVHandler.writeMessageToCsv("productInventory.csv", productRecord);
+    // }
 
     /*
      * Method to add a new product to the inventory.
@@ -102,7 +171,8 @@ public class ProductInventory {
         if (product == null) {
             return false;
         } else
-            throw new DuplicateProductException("Product with id " + product.getId() + " already exists. Please change the ID.");
+            throw new DuplicateProductException(
+                    "Product with id " + product.getId() + " already exists. Please change the ID.");
 
         // return inventory.get(productID);
     }

@@ -14,6 +14,7 @@ import javax.swing.table.DefaultTableModel;
 
 import GUI.Product;
 import GUI.ProductInventory;
+// import GUI.SalesScreen;
 import exceptions.DuplicateProductException;
 import exceptions.InvalidFormatException;
 import views.SalesScreen;
@@ -40,7 +41,16 @@ public class InventoryButtonsController implements ActionListener {
                 break;
             case "createNewProduct":
                 System.out.println("Handle Add New Product here!");
+                // textFields.forEach(field -> System.out.println("Field Value: ", field));
+                // Arrays
+                // .stream(textFields)
+                // .forEach(textField -> {
+                // System.out.println("Field Value: " + textField.getText());
+                // });
+
                 createNewProduct();
+
+                // addProductToCart();
                 break;
             // add more cases for other buttons
         }
@@ -54,12 +64,15 @@ public class InventoryButtonsController implements ActionListener {
         }
         try {
             ProductInventory.doesProductIDExist(textFields[0].getText());
-            // Add the new row to the table model
-            ProductInventory.addProduct(new Product(textFields[0].getText(),
+
+            Product newProduct = new Product(textFields[0].getText(),
                     textFields[1].getText(),
                     new BigDecimal(textFields[2].getText()),
                     new BigDecimal(textFields[3].getText()),
-                    new BigDecimal(textFields[4].getText())));
+                    new BigDecimal(textFields[4].getText()));
+            // Add the new row to the table model
+            ProductInventory.addProduct(newProduct);
+            // ProductInventory.writeProductToCSV(newProduct);
             // System.out.println("row var " + row);
             tableModel.addRow(row);
             // Update the table

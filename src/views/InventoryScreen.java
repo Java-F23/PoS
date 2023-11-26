@@ -2,16 +2,19 @@ package views;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+
+import GUI.ProductInventory;
+
 import java.awt.*;
-// import java.awt.event.ActionEvent;
-// import java.awt.event.ActionListener;
-// import java.math.BigDecimal;
-// import java.util.InputMismatchException;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.math.BigDecimal;
+import java.util.InputMismatchException;
 import controllers.InventoryButtonsController;
 
 //import "../src/GUI.ProductInventory.java";
 //import point_of_sale.src.GUI.ProductInventory;
-class InventoryScreen extends JPanel {
+public class InventoryScreen extends JPanel {
     public static final String[] COLUMN_NAMES = { "PID", "Name", "Quantity", "Price", "Tax Rate" };
     private JTextField[] textFields = new JTextField[5]; // Array to store the textfields
     private DefaultTableModel tableModel;
@@ -35,10 +38,6 @@ class InventoryScreen extends JPanel {
             textFields[i] = new JTextField(20);
             pairPanel.add(textFields[i], BorderLayout.CENTER);
             textboxPanel.add(pairPanel);
-
-            // textboxPanel.add(new JLabel(COLUMN_NAMES[i]));
-            // textboxPanel.add(new JTextField(20)); // Set the preferred width of the
-            // textboxes
         }
 
         // Add the textboxPanel to this panel
@@ -51,7 +50,7 @@ class InventoryScreen extends JPanel {
 
         // Create a JTable for the inventory
         // String[] columnNames = {"ID", "Name", "Price", "Quantity", "Tax Rate"};
-        Object[][] data = {}; // Replace with your data
+        Object[][] data = ProductInventory.getInventoryForTable(); // Replace with your data
         // JTable inventoryTable = new JTable(data, COLUMN_NAMES);
 
         tableModel = new DefaultTableModel(data, COLUMN_NAMES) {
@@ -78,7 +77,7 @@ class InventoryScreen extends JPanel {
         addButton.setActionCommand("createNewProduct");
         addButton.addActionListener(
                 new InventoryButtonsController(textFields, tableModel, inventoryTable));
-        
+
         // Add the Add button to this panel
         gbc.gridx = 0; // Set the x grid position
         gbc.gridy = 1; // Set the y grid position

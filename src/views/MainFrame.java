@@ -2,10 +2,10 @@ package views;
 
 import javax.swing.*;
 
-
-
 import java.awt.*;
 import java.awt.event.*;
+// import GUI.HomeScreen;
+import views.WelcomeScreen;
 
 public class MainFrame extends JFrame {
     CardLayout cardLayout;
@@ -15,6 +15,7 @@ public class MainFrame extends JFrame {
         // Create a CardLayout for the main frame
         cardLayout = new CardLayout();
         setLayout(cardLayout);
+
         // Create and add the welcome screen
         WelcomeScreen welcomeScreen = new WelcomeScreen();
         add(welcomeScreen, "WelcomeScreen");
@@ -31,6 +32,10 @@ public class MainFrame extends JFrame {
                 // cardLayout.next(getContentPane(), "HomeScreen");
             }
         });
+
+        // Create and add other screens
+        // OtherScreen otherScreen = new OtherScreen();
+        // add(otherScreen, "OtherScreen");
 
         // Set the default close operation
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

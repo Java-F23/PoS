@@ -1,34 +1,40 @@
 package GUI;
 
 import GUI.ShoppingCart;
+import helpers.CSVHandler;
 
 import java.math.BigDecimal;
 
 import static GUI.PaymentMethod.*;
 
-
 /**
- * GUI.Cashier class that represents a cashier with a shopping cart, payment method, and receipt.
- * The cashier can change the payment method, calculate the total sale, and process the payment.
+ * GUI.Cashier class that represents a cashier with a shopping cart, payment
+ * method, and receipt.
+ * The cashier can change the payment method, calculate the total sale, and
+ * process the payment.
  */
 public class Cashier {
-//    private final ShoppingCart cart;
+    // private final ShoppingCart cart;
     private PaymentMethod paymentMethod;
     private Receipt receipt;
 
-
     /**
-     * Constructor that initializes the cashier with the given shopping cart and payment method.
+     * Constructor that initializes the cashier with the given shopping cart and
+     * payment method.
      *
      * @param cart          The shopping cart of the cashier.
      * @param paymentMethod The payment method of the cashier.
      */
-    public Cashier( PaymentMethod paymentMethod) {
-//        this.cart = cart;
+    public Cashier(PaymentMethod paymentMethod) {
+        // this.cart = cart;
         this.paymentMethod = paymentMethod;
         this.receipt = new Receipt(paymentMethod);
     }
 
+    // public ShoppingCart getCart() {
+    //
+    // return cart;
+    // }
 
     public PaymentMethod getPaymentMethod() {
 
@@ -71,8 +77,8 @@ public class Cashier {
                 System.out.println("Processing mobile payment...");
                 break;
         }
-//        this.receipt.generateReceipt();
+        // this.receipt.generateReceipt();
         String receipt = Receipt.generateStringReceipt();
-        SaveMsgToCsv.writeMessageToCsv("client_receipt.csv", receipt);
+        CSVHandler.writeMessageToCsv("client_receipt.csv", receipt, true);
     }
 }

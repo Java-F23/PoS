@@ -12,6 +12,7 @@ import javax.swing.table.DefaultTableModel;
 import GUI.InsufficientQuantityException;
 import GUI.Product;
 import GUI.ProductInventory;
+// import GUI.SalesScreen;
 import GUI.ShoppingCart;
 import exceptions.InvalidFormatException;
 import views.SalesScreen;
@@ -109,7 +110,7 @@ public class SalesButtonsController implements ActionListener {
 
                 // Add the product to the cart
                 ShoppingCart.addProduct(product, quantity);
-
+                // ShoppingCart.writeProductToCSV(product);
                 // Calculate the total amount of the cart
                 ShoppingCart.calculateTotal();
 
@@ -126,7 +127,7 @@ public class SalesButtonsController implements ActionListener {
                 SalesScreen.updateCartTableModel(ShoppingCart.getCartItemsForTable());
                 // SalesScreen.updatetableModel(ShoppingCart.getCartItemsForTable());
 
-            } catch (InsufficientQuantityException | InputMismatchException | NumberFormatException err) {
+            } catch (InsufficientQuantityException | InputMismatchException err) {
                 // If there's an error (e.g., insufficient quantity or input mismatch), show the
                 // error message
                 JOptionPane.showMessageDialog(null, err.getMessage());

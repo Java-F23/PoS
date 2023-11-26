@@ -1,11 +1,14 @@
+import views.MainFrame;
 import GUI.ProductInventory;
 import GUI.ShoppingCart;
-import views.MainFrame;
+import exceptions.InvalidFormatException;
 
 import javax.swing.*;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InvalidFormatException {
+        ProductInventory productInventory = new ProductInventory();
+        ShoppingCart cart = new ShoppingCart();
         // Schedule a job for the event-dispatching thread:
         // creating and showing this application's GUI.
         SwingUtilities.invokeLater(new Runnable() {

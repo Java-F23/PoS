@@ -9,6 +9,7 @@ import javax.swing.JOptionPane;
 import GUI.Cashier;
 import GUI.PaymentMethod;
 import GUI.ProductInventory;
+// import GUI.SalesScreen;
 import GUI.ShoppingCart;
 import views.SalesScreen;
 
@@ -40,6 +41,8 @@ public class MakePaymentController implements ActionListener {
                 BigDecimal quantityInCart = ShoppingCart.getCartItems().get(product);
                 ProductInventory.decrementProductStock(product.getId(), quantityInCart);
             }
+            
+            ProductInventory.overwriteInventoryToCsv();
             // Update the data in the catalogue table with the new stock
             // updateCatalogueTableData();
             // setCatalogueTableData(ProductInventory.getInventoryForTable());

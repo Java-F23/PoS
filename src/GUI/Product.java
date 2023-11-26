@@ -2,11 +2,9 @@ package GUI;
 
 import java.math.BigDecimal;
 import java.util.Objects;
-// import java.util.regex.Matcher;
-// import java.util.regex.Pattern;
 
 import exceptions.InvalidFormatException;
-import helpers.regularExpressionCheckers;
+import helpers.RegExChecker;
 
 /**
  * GUI.Product class that represents a product with an id, name, quantity,
@@ -17,6 +15,7 @@ import helpers.regularExpressionCheckers;
  * created products
  */
 public class Product {
+    
     private String id;
     private String name;
     private BigDecimal quantity;
@@ -55,17 +54,21 @@ public class Product {
      * @param taxRate  The tax rate of the product.
      * @throws InvalidFormatException
      */
-    public Product(String id, String name, BigDecimal quantity, BigDecimal price, BigDecimal taxRate) throws InvalidFormatException {
+    public Product(String id, String name, BigDecimal quantity, BigDecimal price, BigDecimal taxRate)
+            throws InvalidFormatException {
         if (id == null || id.isEmpty() || name == null || name.isEmpty()) {
             throw new IllegalArgumentException("Name cannot be null or empty");
         }
 
         String regex = "^[^!@$%&]*$";
 
-        if (!regularExpressionCheckers.isInputValid(regex, id)) {
+        // RegEx checking is important in the context of Product IDs as it is
+        // conventional to avoid using the below characters for primary keys and IDs
+        // as per https://www.w3schools.com/sql/sql_primarykey.ASP
+
+        if (!RegExChecker.isInputValid(regex, id)) {
             throw new InvalidFormatException("Invalid Product ID, " + id + "\n !, @, $, %, & are not allowed.");
         }
-        
 
         this.id = id;
         this.name = name;
@@ -90,6 +93,7 @@ public class Product {
 
     /**
      * Default constructor that initializes the product with default values.
+     * 
      * @throws InvalidFormatException
      */
     public Product() throws InvalidFormatException {

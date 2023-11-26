@@ -2,8 +2,10 @@ package views;
 
 import javax.swing.*;
 
-import java.awt.*;
+// import GUI.SalesScreen;
+// import GUI.InventoryScreen;
 
+import java.awt.*;
 
 public class HomeScreen extends JPanel {
 

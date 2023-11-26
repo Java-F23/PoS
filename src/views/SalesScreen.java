@@ -1,23 +1,6 @@
 package views;
 
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.FlowLayout;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-// import java.awt.event.ActionEvent;
-// import java.awt.event.ActionListener;
-import java.math.BigDecimal;
-import java.util.InputMismatchException;
-
-import javax.swing.ButtonGroup;
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JRadioButton;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
+import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
 import GUI.PaymentMethod;
@@ -28,6 +11,12 @@ import controllers.MakePaymentController;
 import controllers.PaymentButtonsController;
 import controllers.SalesButtonsController;
 import exceptions.InvalidFormatException;
+
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.math.BigDecimal;
+import java.util.InputMismatchException;
 
 /*
 The SalesScreen class is a custom panel that represents the sales screen of a retail application.

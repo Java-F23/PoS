@@ -1,6 +1,7 @@
 package GUI;
 
 import GUI.Product;
+import helpers.CSVHandler;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -21,11 +22,13 @@ public class ShoppingCart {
         cartTotal = BigDecimal.ZERO;
     }
 
-    // clears the cart; invoked upon successful completion of a transaction, terminating the current user session
+    // clears the cart; invoked upon successful completion of a transaction,
+    // terminating the current user session
     public static void clearCart() {
         cartItems.getKeys().clear();
         cartItems.getValues().clear();
     }
+
     public static BigDecimal getCartTotal() {
         return cartTotal;
     }
@@ -38,9 +41,11 @@ public class ShoppingCart {
     public static void setCartTotal(BigDecimal cartTotal) {
         ShoppingCart.cartTotal = cartTotal;
     }
+
     public static CustomMapCart getCartItems() {
         return cartItems;
     }
+
     public static void printCartItems() {
         ArrayList<Product> keys = cartItems.getKeys();
         ArrayList<BigDecimal> values = cartItems.getValues();
@@ -65,10 +70,10 @@ public class ShoppingCart {
             tableData[i][0] = product.getId();
             tableData[i][1] = product.getName();
             tableData[i][2] = quantity;
-//            tableData[i][2] = product.getQuantity();
+            // tableData[i][2] = product.getQuantity();
             tableData[i][3] = product.getPrice();
             tableData[i][4] = product.getTaxRate();
-//            tableData[i][5] = quantity;
+            // tableData[i][5] = quantity;
         }
 
         return tableData;
@@ -94,6 +99,18 @@ public class ShoppingCart {
         }
     }
 
+    // public static void writeProductToCSV(Product product, BigDecimal quantity) {
+    // String productRecord = CSVHandler.convertToCSV(
+    // product.getId(),
+    // product.getName(),
+    // product.getQuantity().toString(),
+    // product.getPrice().toString(),
+    // product.getTaxRate().toString());
+
+    // CSVHandler.writeMessageToCsv("abandonedCart.csv", productRecord, false);
+
+    // }
+
     /**
      * Method to remove a product from the shopping cart.
      * If an error occurs, print an error message.
@@ -107,8 +124,6 @@ public class ShoppingCart {
             System.out.println("Error removing product from cart: " + e.getMessage());
         }
     }
-
-
 
     /**
      * Method to calculate the total cost of items in the shopping cart.
@@ -129,7 +144,7 @@ public class ShoppingCart {
 
                 total = total.add(lineTotal);
 
-//                total = total.add(price.multiply(quantity));
+                // total = total.add(price.multiply(quantity));
             }
         } catch (Exception e) {
             System.out.println("Error calculating total: " + e.getMessage());

@@ -1,8 +1,49 @@
 GUI.Receipt:
+Payment Method: CASH
+-----------------------------
+Item                Quantity       Unit Price     
+Nike Air Force      3              1000           
+-----------------------------
+Total Amount:       3300.00        
+
+GUI.Receipt:
+Payment Method: MOBILE
+-----------------------------
+Item                Quantity       Unit Price     
+Adidas Perfume      10             1000           
+-----------------------------
+Total Amount:       11000.00       
+
+GUI.Receipt:
 Payment Method: VISA
 -----------------------------
 Item                Quantity       Unit Price     
-Cocoa               5              100            
+New Balance         3              1000           
 -----------------------------
-Total Amount:       500            
+Total Amount:       3420.00        
+
+GUI.Receipt:
+Payment Method: MOBILE
+-----------------------------
+Item                Quantity       Unit Price     
+New Balance         3              1000           
+-----------------------------
+Total Amount:       3420.00        
+
+GUI.Receipt:
+Payment Method: VISA
+-----------------------------
+Item                Quantity       Unit Price     
+New Balance         3              1000           
+Oreo                7              100            
+-----------------------------
+Total Amount:       4190.00        
+
+GUI.Receipt:
+Payment Method: MOBILE
+-----------------------------
+Item                Quantity       Unit Price     
+iPhone 15           1              200            
+-----------------------------
+Total Amount:       220.00         
 
