@@ -17,7 +17,7 @@ import controllers.InventoryButtonsController;
 public class InventoryScreen extends JPanel {
     public static final String[] COLUMN_NAMES = { "PID", "Name", "Quantity", "Price", "Tax Rate" };
     private JTextField[] textFields = new JTextField[5]; // Array to store the textfields
-    private DefaultTableModel tableModel;
+    private static DefaultTableModel tableModel;
     private JTable inventoryTable;
 
     public InventoryScreen() {
@@ -86,5 +86,11 @@ public class InventoryScreen extends JPanel {
         gbc.gridwidth = 2; // Make the Add button span both columns
 
         add(addButton, gbc); // Add the Add button to this panel
+    }
+
+    public static void updateInventoryTableModel(Object[][] inventoryItems) {
+        // setCartTableData(ShoppingCart.getCartItemsForTable());
+        tableModel.setDataVector(inventoryItems, COLUMN_NAMES);
+
     }
 }

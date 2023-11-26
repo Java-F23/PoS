@@ -47,3 +47,35 @@ iPhone 15           1              200
 -----------------------------
 Total Amount:       220.00         
 
+GUI.Receipt:
+Payment Method: MOBILE
+-----------------------------
+Item                Quantity       Unit Price     
+iPhone 15           5              200            
+-----------------------------
+Total Amount:       1100.00        
+
+GUI.Receipt:
+Payment Method: VISA
+-----------------------------
+Item                Quantity       Unit Price     
+New Balance         2              1000           
+-----------------------------
+Total Amount:       2280.00        
+
+GUI.Receipt:
+Payment Method: VISA
+-----------------------------
+Item                Quantity       Unit Price     
+iPhone 15 Pro       1              60000          
+-----------------------------
+Total Amount:       66000.00       
+
+GUI.Receipt:
+Payment Method: CASH
+-----------------------------
+Item                Quantity       Unit Price     
+Big Mac             5              100.30         
+-----------------------------
+Total Amount:       501.50         
+

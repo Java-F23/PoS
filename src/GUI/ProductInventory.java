@@ -18,7 +18,8 @@ import helpers.CSVHandler;
  */
 public class ProductInventory {
 
-    private static CustomMap inventory = new CustomMap();
+    // private static CustomMap inventory = new CustomMap();
+    private static Map<String, Product> inventory = new HashMap<>();
 
     public ProductInventory() throws InvalidFormatException {
         List<String> returnedProducts = CSVHandler.readFromCsv("productInventory.csv");
@@ -46,15 +47,19 @@ public class ProductInventory {
      * ids as keys.
      */
 
-    public static CustomMap getInventory() {
+    public static Map<String, Product> getInventory() {
         return inventory;
     }
+    // public static CustomMap getInventory() {
+    // return inventory;
+    // }
 
     public static void overwriteInventoryToCsv() {
         // NEW PRODUCTS ARRAY
         List<String> newProductsArray = new ArrayList<>();
 
-        for (Product product : inventory.getValues()) {
+        // for (Product product : inventory.getValues()) {
+        for (Product product : inventory.values()) {
             String productRecord = CSVHandler.convertToCSV(
                     product.getId(),
                     product.getName(),
@@ -73,21 +78,37 @@ public class ProductInventory {
     // Returns the inventory products as 2-D Object array which is compatible with
     // JTable
     public static Object[][] getInventoryForTable() {
-        ArrayList<String> keys = inventory.getKeys();
-        ArrayList<Product> values = inventory.getValues();
-
-        Object[][] tableData = new Object[keys.size()][5];
-        for (int i = 0; i < keys.size(); i++) {
-            Product product = values.get(i);
+        int size = inventory.size();
+        Object[][] tableData = new Object[size][5];
+        int i = 0;
+        for (Map.Entry<String, Product> entry : inventory.entrySet()) {
+            Product product = entry.getValue();
             tableData[i][0] = product.getId();
             tableData[i][1] = product.getName();
             tableData[i][2] = product.getQuantity();
             tableData[i][3] = product.getPrice();
             tableData[i][4] = product.getTaxRate();
+            i++;
         }
-
         return tableData;
     }
+
+    // public static Object[][] getInventoryForTable() {
+    // ArrayList<String> keys = inventory.getKeys();
+    // ArrayList<Product> values = inventory.getValues();
+
+    // Object[][] tableData = new Object[keys.size()][5];
+    // for (int i = 0; i < keys.size(); i++) {
+    // Product product = values.get(i);
+    // tableData[i][0] = product.getId();
+    // tableData[i][1] = product.getName();
+    // tableData[i][2] = product.getQuantity();
+    // tableData[i][3] = product.getPrice();
+    // tableData[i][4] = product.getTaxRate();
+    // }
+
+    // return tableData;
+    // }
 
     /**
      * Method to check the availability of a product in the inventory.
@@ -223,7 +244,8 @@ public class ProductInventory {
         System.out.println("Printing Inventory Products\n");
         System.out.format("%-10s%-20s%-10s%-10s%-10s", "ID", "Name", "Quantity", "Price", "Tax Rate");
         System.out.println("\n------------------------------------------------------------------------------");
-        for (Product product : getInventory().getValues()) {
+        // for (Product product : getInventory().getValues()) {
+        for (Product product : getInventory().values()) {
             // for (GUI.Product product : this.getInventory().values()) {
             System.out.format("%-10s%-20s%-10s%-10s%-10s", product.getId(), product.getName(), product.getQuantity(),
                     product.getPrice(), product.getTaxRate());

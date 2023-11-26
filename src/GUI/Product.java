@@ -15,7 +15,7 @@ import helpers.RegExChecker;
  * created products
  */
 public class Product {
-    
+
     private String id;
     private String name;
     private BigDecimal quantity;

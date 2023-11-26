@@ -8,9 +8,11 @@ import javax.swing.JOptionPane;
 
 import GUI.Cashier;
 import GUI.PaymentMethod;
+import GUI.Product;
 import GUI.ProductInventory;
 // import GUI.SalesScreen;
 import GUI.ShoppingCart;
+import views.InventoryScreen;
 import views.SalesScreen;
 
 public class MakePaymentController implements ActionListener {
@@ -37,17 +39,19 @@ public class MakePaymentController implements ActionListener {
             cashier.processPaymentAndGenerateReceipt();
 
             // Decrement the stock of the product(s) in the inventory
-            for (GUI.Product product : ShoppingCart.getCartItems().getKeys()) {
+            // for (GUI.Product product : ShoppingCart.getCartItems().getKeys()) {
+            for (GUI.Product product : ShoppingCart.getCartItems().keySet()) {
                 BigDecimal quantityInCart = ShoppingCart.getCartItems().get(product);
                 ProductInventory.decrementProductStock(product.getId(), quantityInCart);
             }
-            
+
             ProductInventory.overwriteInventoryToCsv();
             // Update the data in the catalogue table with the new stock
             // updateCatalogueTableData();
             // setCatalogueTableData(ProductInventory.getInventoryForTable());
 
-            SalesScreen.updateCatalogueTableData(ProductInventory.getInventoryForTable());
+            Object[][] updatedInventory =  ProductInventory.getInventoryForTable();
+            SalesScreen.updateCatalogueTableData(updatedInventory);
 
             // Clear the cart, starting a new session
             // ShoppingCart.clearCart();
@@ -56,6 +60,7 @@ public class MakePaymentController implements ActionListener {
             // update cart view
             // Object[][] reserCartTableModel = new Object[][];
             SalesScreen.updateCartTableModel(new Object[0][0]);
+            InventoryScreen.updateInventoryTableModel(updatedInventory);
 
             // Set the order total to zero
             // setOrderTotal(BigDecimal.ZERO);
