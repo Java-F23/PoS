@@ -29,10 +29,6 @@ public class Cashier {
         this.receipt = new Receipt(paymentMethod);
     }
 
-//    public ShoppingCart getCart() {
-//
-//        return cart;
-//    }
 
     public PaymentMethod getPaymentMethod() {
 

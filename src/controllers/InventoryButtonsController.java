@@ -14,8 +14,9 @@ import javax.swing.table.DefaultTableModel;
 
 import GUI.Product;
 import GUI.ProductInventory;
-import GUI.SalesScreen;
 import exceptions.DuplicateProductException;
+import exceptions.InvalidFormatException;
+import views.SalesScreen;
 
 public class InventoryButtonsController implements ActionListener {
     private JTextField[] textFields;
@@ -39,16 +40,7 @@ public class InventoryButtonsController implements ActionListener {
                 break;
             case "createNewProduct":
                 System.out.println("Handle Add New Product here!");
-                // textFields.forEach(field -> System.out.println("Field Value: ", field));
-                // Arrays
-                // .stream(textFields)
-                // .forEach(textField -> {
-                // System.out.println("Field Value: " + textField.getText());
-                // });
-
                 createNewProduct();
-
-                // addProductToCart();
                 break;
             // add more cases for other buttons
         }
@@ -74,7 +66,8 @@ public class InventoryButtonsController implements ActionListener {
             inventoryTable.setModel(tableModel);
             // update the PoS catalogue Table
             SalesScreen.updateCatalogueTableData(ProductInventory.getInventoryForTable());
-        } catch (IllegalArgumentException | InputMismatchException | DuplicateProductException err) {
+        } catch (IllegalArgumentException | InputMismatchException | DuplicateProductException
+                | InvalidFormatException err) {
             // Output the row in a dialogue
             JOptionPane.showMessageDialog(null, err.getMessage());
             // JOptionPane.showMessageDialog(null, String.join(", ", row));

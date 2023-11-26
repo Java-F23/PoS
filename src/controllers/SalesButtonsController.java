@@ -12,8 +12,9 @@ import javax.swing.table.DefaultTableModel;
 import GUI.InsufficientQuantityException;
 import GUI.Product;
 import GUI.ProductInventory;
-import GUI.SalesScreen;
 import GUI.ShoppingCart;
+import exceptions.InvalidFormatException;
+import views.SalesScreen;
 
 public class SalesButtonsController implements ActionListener {
     // JTable to display the products in the catalogue
@@ -80,7 +81,7 @@ public class SalesButtonsController implements ActionListener {
 
                 JOptionPane.showMessageDialog(null, "Removed product Successfully");
 
-            } catch (InputMismatchException | IllegalArgumentException err) {
+            } catch (InputMismatchException | IllegalArgumentException | InvalidFormatException err) {
                 // If there's an error (e.g., input mismatch or illegal argument), show the
                 // error message
                 JOptionPane.showMessageDialog(null, err.getMessage());
@@ -125,7 +126,7 @@ public class SalesButtonsController implements ActionListener {
                 SalesScreen.updateCartTableModel(ShoppingCart.getCartItemsForTable());
                 // SalesScreen.updatetableModel(ShoppingCart.getCartItemsForTable());
 
-            } catch (InsufficientQuantityException | InputMismatchException err) {
+            } catch (InsufficientQuantityException | InputMismatchException | NumberFormatException err) {
                 // If there's an error (e.g., insufficient quantity or input mismatch), show the
                 // error message
                 JOptionPane.showMessageDialog(null, err.getMessage());

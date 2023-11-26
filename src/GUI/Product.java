@@ -2,12 +2,19 @@ package GUI;
 
 import java.math.BigDecimal;
 import java.util.Objects;
+// import java.util.regex.Matcher;
+// import java.util.regex.Pattern;
+
+import exceptions.InvalidFormatException;
+import helpers.regularExpressionCheckers;
 
 /**
- * GUI.Product class that represents a product with an id, name, quantity, price, and tax rate.
+ * GUI.Product class that represents a product with an id, name, quantity,
+ * price, and tax rate.
  * The id and name cannot be null or empty, and the quantity cannot be negative.
  * The price cannot be negative, and the tax rate must be between 0 and 1.
- * The class has One static variable, productCount, to maintain the number of created products
+ * The class has One static variable, productCount, to maintain the number of
+ * created products
  */
 public class Product {
     private String id;
@@ -16,11 +23,10 @@ public class Product {
     private BigDecimal price;
     private BigDecimal taxRate;
 
-
     private static int productCount = 0;
 
-
-    // Overrides the equality such that the ShoppingCart.remove(Product) method works (as it does equality check)
+    // Overrides the equality such that the ShoppingCart.remove(Product) method
+    // works (as it does equality check)
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -37,18 +43,30 @@ public class Product {
     public int hashCode() {
         return Objects.hash(id);
     }
+
     /**
-     * Constructor that initializes the product with the given id, name, quantity, price, and tax rate.
-     * @param id The id of the product.
-     * @param name The name of the product.
+     * Constructor that initializes the product with the given id, name, quantity,
+     * price, and tax rate.
+     * 
+     * @param id       The id of the product.
+     * @param name     The name of the product.
      * @param quantity The quantity of the product.
-     * @param price The price of the product.
-     * @param taxRate The tax rate of the product.
+     * @param price    The price of the product.
+     * @param taxRate  The tax rate of the product.
+     * @throws InvalidFormatException
      */
-    public Product(String id, String name, BigDecimal quantity, BigDecimal price, BigDecimal taxRate){
-        if (id == null || id.isEmpty() || name == null || name.isEmpty() ) {
+    public Product(String id, String name, BigDecimal quantity, BigDecimal price, BigDecimal taxRate) throws InvalidFormatException {
+        if (id == null || id.isEmpty() || name == null || name.isEmpty()) {
             throw new IllegalArgumentException("Name cannot be null or empty");
         }
+
+        String regex = "^[^!@$%&]*$";
+
+        if (!regularExpressionCheckers.isInputValid(regex, id)) {
+            throw new InvalidFormatException("Invalid Product ID, " + id + "\n !, @, $, %, & are not allowed.");
+        }
+        
+
         this.id = id;
         this.name = name;
 
@@ -62,28 +80,35 @@ public class Product {
         }
         this.price = price;
 
-        if (taxRate.compareTo(BigDecimal.ZERO) < 0 || taxRate.compareTo(BigDecimal.ONE) > 0 || taxRate.toString().isEmpty()) {
+        if (taxRate.compareTo(BigDecimal.ZERO) < 0 || taxRate.compareTo(BigDecimal.ONE) > 0
+                || taxRate.toString().isEmpty()) {
             throw new IllegalArgumentException("Tax rate must be between 0 and 1: " + taxRate);
         }
         this.taxRate = taxRate;
         productCount++;
     }
+
     /**
      * Default constructor that initializes the product with default values.
+     * @throws InvalidFormatException
      */
-    public Product (){
+    public Product() throws InvalidFormatException {
         this("UNDEFINED NAME " + String.valueOf(productCount + 1), "UNDEFINED NAME",
-                new BigDecimal("0"),new BigDecimal("0"),new BigDecimal("0"));
+                new BigDecimal("0"), new BigDecimal("0"), new BigDecimal("0"));
     }
+
     /**
-     * Constructor that initializes the product with the given id, name, quantity, and price, and a tax rate of 0.
-     * @param id The id of the product.
-     * @param name The name of the product.
+     * Constructor that initializes the product with the given id, name, quantity,
+     * and price, and a tax rate of 0.
+     * 
+     * @param id       The id of the product.
+     * @param name     The name of the product.
      * @param quantity The quantity of the product.
-     * @param price The price of the product.
+     * @param price    The price of the product.
+     * @throws InvalidFormatException
      */
-    public Product(String id, String name, BigDecimal quantity, BigDecimal price){
-        this(id, name, quantity,price, new BigDecimal("0"));
+    public Product(String id, String name, BigDecimal quantity, BigDecimal price) throws InvalidFormatException {
+        this(id, name, quantity, price, new BigDecimal("0"));
     }
 
     public static int getProductCount() {
@@ -97,6 +122,7 @@ public class Product {
     public void setId(String id) {
         this.id = id;
     }
+
     public String getName() {
         return name;
     }
@@ -131,18 +157,20 @@ public class Product {
 
     /**
      * Method that decrements the quantity of the product by the given quantity.
+     * 
      * @param quantity The quantity to decrement by.
      */
-    public void decrementQuantity(BigDecimal quantity){
+    public void decrementQuantity(BigDecimal quantity) {
         this.quantity = this.quantity.subtract(quantity);
 
     }
 
     /**
      * Method that increments the quantity of the product by the given quantity.
+     * 
      * @param quantity The quantity to increment by.
      */
-    public void incrementQuantity(BigDecimal quantity){
+    public void incrementQuantity(BigDecimal quantity) {
         this.quantity = this.quantity.add(quantity);
 
     }

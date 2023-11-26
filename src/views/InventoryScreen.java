@@ -1,12 +1,12 @@
-package GUI;
+package views;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.math.BigDecimal;
-import java.util.InputMismatchException;
+// import java.awt.event.ActionEvent;
+// import java.awt.event.ActionListener;
+// import java.math.BigDecimal;
+// import java.util.InputMismatchException;
 import controllers.InventoryButtonsController;
 
 //import "../src/GUI.ProductInventory.java";

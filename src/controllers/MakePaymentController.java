@@ -9,8 +9,8 @@ import javax.swing.JOptionPane;
 import GUI.Cashier;
 import GUI.PaymentMethod;
 import GUI.ProductInventory;
-import GUI.SalesScreen;
 import GUI.ShoppingCart;
+import views.SalesScreen;
 
 public class MakePaymentController implements ActionListener {
     PaymentMethod paymentMethod;

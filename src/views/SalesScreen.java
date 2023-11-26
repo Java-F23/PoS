@@ -1,17 +1,33 @@
-package GUI;
+package views;
 
-import javax.swing.*;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+// import java.awt.event.ActionEvent;
+// import java.awt.event.ActionListener;
+import java.math.BigDecimal;
+import java.util.InputMismatchException;
+
+import javax.swing.ButtonGroup;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JRadioButton;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
+import GUI.PaymentMethod;
+import GUI.Product;
+import GUI.ProductInventory;
+import GUI.ShoppingCart;
 import controllers.MakePaymentController;
 import controllers.PaymentButtonsController;
 import controllers.SalesButtonsController;
-
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.math.BigDecimal;
-import java.util.InputMismatchException;
+import exceptions.InvalidFormatException;
 
 /*
 The SalesScreen class is a custom panel that represents the sales screen of a retail application.
@@ -203,43 +219,45 @@ public class SalesScreen extends JPanel {
         makePaymentButton.setToolTipText("Finalize Transaction and Generate Receipt");
         makePaymentButton.setActionCommand("makePayment");
         makePaymentButton.addActionListener(
-            new MakePaymentController(paymentMethod)
-            // new ActionListener() {
-            // @Override
-            // public void actionPerformed(ActionEvent e) {
-            //     if (ShoppingCart.isCartEmpty()) {
-            //         // if Cart is empty
-            //         JOptionPane.showMessageDialog(null, "Cart cannot be empty", "Error", JOptionPane.ERROR_MESSAGE);
-            //     } else {
-            //         // Cart is not empty and payment method is selected
-            //         Cashier cashier = new Cashier(getPaymentMethod());
+                new MakePaymentController(paymentMethod)
+        // new ActionListener() {
+        // @Override
+        // public void actionPerformed(ActionEvent e) {
+        // if (ShoppingCart.isCartEmpty()) {
+        // // if Cart is empty
+        // JOptionPane.showMessageDialog(null, "Cart cannot be empty", "Error",
+        // JOptionPane.ERROR_MESSAGE);
+        // } else {
+        // // Cart is not empty and payment method is selected
+        // Cashier cashier = new Cashier(getPaymentMethod());
 
-            //         // generate receipt (write to csv)
-            //         cashier.processPaymentAndGenerateReceipt();
+        // // generate receipt (write to csv)
+        // cashier.processPaymentAndGenerateReceipt();
 
-            //         // Decrement the stock of the product(s) in the inventory
-            //         for (GUI.Product product : ShoppingCart.getCartItems().getKeys()) {
-            //             BigDecimal quantityInCart = ShoppingCart.getCartItems().get(product);
-            //             ProductInventory.decrementProductStock(product.getId(), quantityInCart);
-            //         }
-            //         // Update the data in the catalogue table with the new stock
-            //         updateCatalogueTableData();
+        // // Decrement the stock of the product(s) in the inventory
+        // for (GUI.Product product : ShoppingCart.getCartItems().getKeys()) {
+        // BigDecimal quantityInCart = ShoppingCart.getCartItems().get(product);
+        // ProductInventory.decrementProductStock(product.getId(), quantityInCart);
+        // }
+        // // Update the data in the catalogue table with the new stock
+        // updateCatalogueTableData();
 
-            //         // Clear the cart, starting a new session
-            //         ShoppingCart.clearCart();
+        // // Clear the cart, starting a new session
+        // ShoppingCart.clearCart();
 
-            //         // update cart view
-            //         // updateCartTableModel();
+        // // update cart view
+        // // updateCartTableModel();
 
-            //         // Set the order total to zero
-            //         setOrderTotal(BigDecimal.ZERO);
-            //         updateOrderTotalLabel(orderTotalLabel);
+        // // Set the order total to zero
+        // setOrderTotal(BigDecimal.ZERO);
+        // updateOrderTotalLabel(orderTotalLabel);
 
-            //         JOptionPane.showMessageDialog(null,
-            //                 "Thanks! You can view your receipt in the proj. directory (client_receipt.csv)", "Success",
-            //                 JOptionPane.INFORMATION_MESSAGE);
-            //     }
-            // }
+        // JOptionPane.showMessageDialog(null,
+        // "Thanks! You can view your receipt in the proj. directory
+        // (client_receipt.csv)", "Success",
+        // JOptionPane.INFORMATION_MESSAGE);
+        // }
+        // }
         // }
         );
         add(makePaymentButton, gbc);
@@ -394,7 +412,7 @@ public class SalesScreen extends JPanel {
 
                 JOptionPane.showMessageDialog(null, "Removed product Successfully");
 
-            } catch (InputMismatchException | IllegalArgumentException err) {
+            } catch (InputMismatchException | IllegalArgumentException | InvalidFormatException err) {
                 // If there's an error (e.g., input mismatch or illegal argument), show the
                 // error message
                 JOptionPane.showMessageDialog(null, err.getMessage());
