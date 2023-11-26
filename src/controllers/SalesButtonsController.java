@@ -9,27 +9,26 @@ import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
-import GUI.InsufficientQuantityException;
-import GUI.Product;
-import GUI.ProductInventory;
-// import GUI.SalesScreen;
-import GUI.ShoppingCart;
 import exceptions.InvalidFormatException;
+import model.InsufficientQuantityException;
+import model.Product;
+import model.ProductInventory;
+import model.ShoppingCart;
 import views.SalesScreen;
 
 public class SalesButtonsController implements ActionListener {
     // JTable to display the products in the catalogue
     private JTable table;
     // responsible for handling the data and column definition for the table
-    private DefaultTableModel tableModel;
+    // private DefaultTableModel tableModel;
     // represents input data to the table
-    private Object[][] tableData;
+    // private Object[][] tableData;
 
     public SalesButtonsController(JTable table, DefaultTableModel tableModel,
             Object[][] tableData) {
         this.table = table;
-        this.tableModel = tableModel;
-        this.tableData = tableData;
+        // this.tableModel = tableModel;
+        // this.tableData = tableData;
     }
 
     @Override
@@ -70,15 +69,12 @@ public class SalesButtonsController implements ActionListener {
                 // Calculate the total amount of the cart
                 ShoppingCart.calculateTotal();
 
-                // Update the order total
-                // setOrderTotal(ShoppingCart.getCartTotal());
 
                 // Update the order total label
                 SalesScreen.updateOrderTotalLabel(ShoppingCart.getCartTotal().toString());
 
                 // Update the cart table model and view to the user
                 SalesScreen.updateCartTableModel(ShoppingCart.getCartItemsForTable());
-                // updatetableModel();
 
                 JOptionPane.showMessageDialog(null, "Removed product Successfully");
 
@@ -110,26 +106,19 @@ public class SalesButtonsController implements ActionListener {
 
                 // Add the product to the cart
                 ShoppingCart.addProduct(product, quantity);
-                // ShoppingCart.writeProductToCSV(product);
                 // Calculate the total amount of the cart
                 ShoppingCart.calculateTotal();
 
                 // Show a success message
                 JOptionPane.showMessageDialog(null, "Added product Successfully");
 
-                // Update the order total
-                // SalesScreen.setOrderTotal(ShoppingCart.getCartTotal());
-
                 // Update the order total label
                 SalesScreen.updateOrderTotalLabel(ShoppingCart.getCartTotal().toString());
 
                 // Update the cart table model
                 SalesScreen.updateCartTableModel(ShoppingCart.getCartItemsForTable());
-                // SalesScreen.updatetableModel(ShoppingCart.getCartItemsForTable());
 
-            } catch (InsufficientQuantityException | InputMismatchException err) {
-                // If there's an error (e.g., insufficient quantity or input mismatch), show the
-                // error message
+            } catch (InsufficientQuantityException | InputMismatchException | NumberFormatException err) {
                 JOptionPane.showMessageDialog(null, err.getMessage());
             }
 

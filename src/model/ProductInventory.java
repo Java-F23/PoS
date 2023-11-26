@@ -1,4 +1,4 @@
-package GUI;
+package model;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -7,12 +7,14 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.swing.JOptionPane;
+
 import exceptions.DuplicateProductException;
 import exceptions.InvalidFormatException;
 import helpers.CSVHandler;
 
 /**
- * GUI.ProductInventory class that represents an inventory of products.
+ * model.ProductInventory class that represents an inventory of products.
  * The inventory uses a GUI.CustomMap to store GUI.Product objects with their
  * ids as keys.
  */
@@ -23,22 +25,23 @@ public class ProductInventory {
 
     public ProductInventory() throws InvalidFormatException {
         List<String> returnedProducts = CSVHandler.readFromCsv("productInventory.csv");
+        returnedProducts.stream()
+                .map(product -> {
+                    List<String> splitProduct = Arrays.asList(product.split(","));
+                    String id = splitProduct.get(0);
+                    String name = splitProduct.get(1);
+                    BigDecimal quantity = new BigDecimal(splitProduct.get(2));
+                    BigDecimal price = new BigDecimal(splitProduct.get(3));
+                    BigDecimal taxRate = new BigDecimal(splitProduct.get(4));
 
-        for (String product : returnedProducts) {
-
-            List<String> splitProduct = Arrays.asList(product.split(","));
-            String id = splitProduct.get(0);
-            String name = splitProduct.get(1);
-            BigDecimal quantity = new BigDecimal(splitProduct.get(2));
-            BigDecimal price = new BigDecimal(splitProduct.get(3));
-            BigDecimal taxRate = new BigDecimal(splitProduct.get(4));
-
-            Product newProduct = new Product(id, name, quantity, price, taxRate);
-
-            inventory.put(newProduct.getId(), newProduct);
-
-        }
-
+                    try {
+                        return new Product(id, name, quantity, price, taxRate);
+                    } catch (InvalidFormatException e) {
+                        JOptionPane.showMessageDialog(null, "Error loading data from file.");
+                    }
+                    return null;
+                })
+                .forEach(product -> inventory.put(product.getId(), product));
     }
 
     /**
@@ -50,15 +53,11 @@ public class ProductInventory {
     public static Map<String, Product> getInventory() {
         return inventory;
     }
-    // public static CustomMap getInventory() {
-    // return inventory;
-    // }
 
     public static void overwriteInventoryToCsv() {
         // NEW PRODUCTS ARRAY
         List<String> newProductsArray = new ArrayList<>();
 
-        // for (Product product : inventory.getValues()) {
         for (Product product : inventory.values()) {
             String productRecord = CSVHandler.convertToCSV(
                     product.getId(),
@@ -78,37 +77,21 @@ public class ProductInventory {
     // Returns the inventory products as 2-D Object array which is compatible with
     // JTable
     public static Object[][] getInventoryForTable() {
-        int size = inventory.size();
-        Object[][] tableData = new Object[size][5];
-        int i = 0;
-        for (Map.Entry<String, Product> entry : inventory.entrySet()) {
-            Product product = entry.getValue();
-            tableData[i][0] = product.getId();
-            tableData[i][1] = product.getName();
-            tableData[i][2] = product.getQuantity();
-            tableData[i][3] = product.getPrice();
-            tableData[i][4] = product.getTaxRate();
-            i++;
-        }
+        // int size = inventory.size();
+        Object[][] tableData = inventory.entrySet().stream()
+                .map(entry -> {
+                    Product product = entry.getValue();
+                    return new Object[] {
+                            product.getId(),
+                            product.getName(),
+                            product.getQuantity(),
+                            product.getPrice(),
+                            product.getTaxRate()
+                    };
+                })
+                .toArray(Object[][]::new);
         return tableData;
     }
-
-    // public static Object[][] getInventoryForTable() {
-    // ArrayList<String> keys = inventory.getKeys();
-    // ArrayList<Product> values = inventory.getValues();
-
-    // Object[][] tableData = new Object[keys.size()][5];
-    // for (int i = 0; i < keys.size(); i++) {
-    // Product product = values.get(i);
-    // tableData[i][0] = product.getId();
-    // tableData[i][1] = product.getName();
-    // tableData[i][2] = product.getQuantity();
-    // tableData[i][3] = product.getPrice();
-    // tableData[i][4] = product.getTaxRate();
-    // }
-
-    // return tableData;
-    // }
 
     /**
      * Method to check the availability of a product in the inventory.
@@ -139,10 +122,7 @@ public class ProductInventory {
 
     // Method to add a new product to the inventory
     public static void addProduct(Product product) {
-        // GUI.Product product = new GUI.Product(id, name, quantity, price);
-
         inventory.put(product.getId(), product);
-
     }
 
     public static void writeProductToCSV(Product product) {
@@ -158,18 +138,6 @@ public class ProductInventory {
     }
 
     // Method to add a new product to the inventory
-    // public static void addProduct(String product) {
-    // // GUI.Product product = new GUI.Product(id, name, quantity, price);
-
-    // inventory.put(product.getId(), product);
-    // String productRecord = CSVHandler.convertToCSV(product.getId(),
-    // product.getName(),
-    // product.getQuantity().toString(),
-    // product.getPrice().toString(),
-    // product.getTaxRate().toString());
-    // CSVHandler.writeMessageToCsv("productInventory.csv", productRecord);
-    // }
-
     /*
      * Method to add a new product to the inventory.
      *

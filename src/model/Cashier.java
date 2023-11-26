@@ -1,11 +1,7 @@
-package GUI;
+package model;
 
-import GUI.ShoppingCart;
 import helpers.CSVHandler;
-
 import java.math.BigDecimal;
-
-import static GUI.PaymentMethod.*;
 
 /**
  * GUI.Cashier class that represents a cashier with a shopping cart, payment
@@ -31,13 +27,7 @@ public class Cashier {
         this.receipt = new Receipt(paymentMethod);
     }
 
-    // public ShoppingCart getCart() {
-    //
-    // return cart;
-    // }
-
     public PaymentMethod getPaymentMethod() {
-
         return paymentMethod;
     }
 

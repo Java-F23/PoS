@@ -1,4 +1,4 @@
-package GUI;
+package model;
 
 import java.math.BigDecimal;
 import java.util.Objects;
@@ -7,7 +7,7 @@ import exceptions.InvalidFormatException;
 import helpers.RegExChecker;
 
 /**
- * GUI.Product class that represents a product with an id, name, quantity,
+ * model.Product class that represents a product with an id, name, quantity,
  * price, and tax rate.
  * The id and name cannot be null or empty, and the quantity cannot be negative.
  * The price cannot be negative, and the tax rate must be between 0 and 1.

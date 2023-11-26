@@ -1,13 +1,10 @@
-package GUI;
-
-import GUI.PaymentMethod;
-import GUI.Product;
-import GUI.ShoppingCart;
+package model;
 
 import java.math.BigDecimal;
+import java.util.stream.Collectors;
 
 /**
- * GUI.Receipt class that represents a receipt for a shopping cart.
+ * model.Receipt class that represents a receipt for a shopping cart.
  * The receipt includes the shopping cart and the payment method.
  */
 
@@ -28,14 +25,6 @@ public class Receipt {
         this.paymentMethod = paymentMethod;
     }
 
-    // public ShoppingCart getCart() {
-    // return cart;
-    // }
-
-    // public void setCart(ShoppingCart cart) {
-    // this.cart = cart;
-    // }
-
     public PaymentMethod getPaymentMethod() {
         return paymentMethod;
     }
@@ -43,7 +32,6 @@ public class Receipt {
     public void setPaymentMethod(PaymentMethod paymentMethod) {
         this.paymentMethod = paymentMethod;
     }
-    // Method to generate the receipt
 
     /**
      * Method to generate the receipt.
@@ -56,11 +44,15 @@ public class Receipt {
         receipt.append("Payment Method: ").append(paymentMethod).append("\n");
         receipt.append("-----------------------------\n");
         receipt.append(String.format("%-20s%-15s%-15s%n", "Item", "Quantity", "Unit Price"));
-        // for (Product product : ShoppingCart.getCartItems().getKeys()) {
-        for (Product product : ShoppingCart.getCartItems().keySet()) {
-            BigDecimal quantity = ShoppingCart.getCartItems().get(product);
-            receipt.append(String.format("%-20s%-15s%-15s%n", product.getName(), quantity, product.getPrice()));
-        }
+
+        String cartItemsReceipt = ShoppingCart.getCartItems().keySet().stream()
+                .map(product -> {
+                    BigDecimal quantity = ShoppingCart.getCartItems().get(product);
+                    return String.format("%-20s%-15s%-15s%n", product.getName(), quantity, product.getPrice());
+                })
+                .collect(Collectors.joining());
+
+        receipt.append(cartItemsReceipt);
         receipt.append("-----------------------------\n");
         receipt.append(String.format("%-20s%-15s%n", "Total Amount:", ShoppingCart.calculateTotal()));
         return receipt.toString();
@@ -71,27 +63,14 @@ public class Receipt {
         System.out.println("Payment Method: " + paymentMethod);
         System.out.println("-----------------------------");
         System.out.printf("%-20s%-15s%n", "Item", "Quantity", "Unit Price");
-        // for (Map.Entry<GUI.Product, BigDecimal> entry :
-        // this.cart.getCartItems().entrySet()) {
-        // for (Map.Entry<GUI.Product, BigDecimal> entry :
-        // this.cart.getCartItems().entrySet()) {
-        // System.out.printf("%-20s%-15s%n", entry.getKey().getName(),
-        // entry.getValue());
-        // }
-        // for (Product product : ShoppingCart.getCartItems().getKeys()) {
-        for (Product product : ShoppingCart.getCartItems().keySet()) {
+
+        ShoppingCart.getCartItems().keySet().stream().forEach(product -> {
             BigDecimal quantity = ShoppingCart.getCartItems().get(product);
             System.out.printf("%-20s%-15s%-15s%n", product.getName(), quantity, product.getPrice());
-        }
-        // System.out.printf("%-20s%-15s%n", "Item", "Quantity");
-
-        // for (GUI.Product product : this.cart.getCartItems().keys()) {
-        // for (GUI.Product product : this.cart.getCartItems().getKeys()) {
-        // BigDecimal quantity = this.cart.getCartItems().get(product);
-        // System.out.printf("%-20s%-15s%n", product.getName(), quantity);
-        // }
+        });
 
         System.out.println("-----------------------------");
         System.out.printf("%-20s%-15s%n", "Total Amount:", ShoppingCart.calculateTotal());
     }
+
 }

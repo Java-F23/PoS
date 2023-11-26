@@ -79,3 +79,160 @@ Big Mac             5              100.30
 -----------------------------
 Total Amount:       501.50         
 
+GUI.Receipt:
+Payment Method: CASH
+-----------------------------
+Item                Quantity       Unit Price     
+New Balance         1              1000           
+-----------------------------
+Total Amount:       1140.00        
+
+GUI.Receipt:
+Payment Method: MOBILE
+-----------------------------
+Item                Quantity       Unit Price     
+New Balance         1              1000           
+-----------------------------
+Total Amount:       1140.00        
+
+GUI.Receipt:
+Payment Method: VISA
+-----------------------------
+Item                Quantity       Unit Price     
+Big Mac             1              100.30         
+-----------------------------
+Total Amount:       100.30         
+
+GUI.Receipt:
+Payment Method: MOBILE
+-----------------------------
+Item                Quantity       Unit Price     
+AirPods             2              15000          
+-----------------------------
+Total Amount:       30000          
+
+GUI.Receipt:
+Payment Method: MOBILE
+-----------------------------
+Item                Quantity       Unit Price     
+AirPods             1              15000          
+Big Mac             1              100.30         
+-----------------------------
+Total Amount:       15100.30       
+
+GUI.Receipt:
+Payment Method: VISA
+-----------------------------
+Item                Quantity       Unit Price     
+Samsung S23         1              140            
+-----------------------------
+Total Amount:       140            
+
+GUI.Receipt:
+Payment Method: MOBILE
+-----------------------------
+Item                Quantity       Unit Price     
+Samsung S23         3              140            
+Big Mac             2              100.30         
+-----------------------------
+Total Amount:       620.60         
+
+GUI.Receipt:
+Payment Method: VISA
+-----------------------------
+Item                Quantity       Unit Price     
+AirPods             2              15000          
+Big Mac             6              100.30         
+-----------------------------
+Total Amount:       30601.80       
+
+GUI.Receipt:
+Payment Method: MOBILE
+-----------------------------
+Item                Quantity       Unit Price     
+AirPods             1              15000          
+-----------------------------
+Total Amount:       15000          
+
+GUI.Receipt:
+Payment Method: VISA
+-----------------------------
+Item                Quantity       Unit Price     
+Big Mac             5              100.30         
+-----------------------------
+Total Amount:       501.50         
+
+GUI.Receipt:
+Payment Method: VISA
+-----------------------------
+Item                Quantity       Unit Price     
+Big Mac             2              100.30         
+-----------------------------
+Total Amount:       200.60         
+
+GUI.Receipt:
+Payment Method: CASH
+-----------------------------
+Item                Quantity       Unit Price     
+Big Mac             3              100.30         
+-----------------------------
+Total Amount:       300.90         
+
+GUI.Receipt:
+Payment Method: MOBILE
+-----------------------------
+Item                Quantity       Unit Price     
+Big Mac             3              100.30         
+-----------------------------
+Total Amount:       300.90         
+
+GUI.Receipt:
+Payment Method: MOBILE
+-----------------------------
+Item                Quantity       Unit Price     
+Big Mac             1              100.30         
+-----------------------------
+Total Amount:       100.30         
+
+GUI.Receipt:
+Payment Method: MOBILE
+-----------------------------
+Item                Quantity       Unit Price     
+AirPods             3              15000          
+Big Mac             1              100.30         
+-----------------------------
+Total Amount:       45100.30       
+
+GUI.Receipt:
+Payment Method: MOBILE
+-----------------------------
+Item                Quantity       Unit Price     
+Samsung S23         5              140            
+AirPods             1              15000          
+-----------------------------
+Total Amount:       15700          
+
+GUI.Receipt:
+Payment Method: MOBILE
+-----------------------------
+Item                Quantity       Unit Price     
+Samsung S23         1              140            
+-----------------------------
+Total Amount:       140            
+
+GUI.Receipt:
+Payment Method: MOBILE
+-----------------------------
+Item                Quantity       Unit Price     
+Samsung S23         2              140            
+-----------------------------
+Total Amount:       280            
+
+GUI.Receipt:
+Payment Method: MOBILE
+-----------------------------
+Item                Quantity       Unit Price     
+iPhone 15 Pro       3              60000          
+-----------------------------
+Total Amount:       198000.00      
+

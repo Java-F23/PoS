@@ -12,11 +12,11 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
-import GUI.Product;
-import GUI.ProductInventory;
 // import GUI.SalesScreen;
 import exceptions.DuplicateProductException;
 import exceptions.InvalidFormatException;
+import model.Product;
+import model.ProductInventory;
 import views.SalesScreen;
 
 public class InventoryButtonsController implements ActionListener {
@@ -35,33 +35,24 @@ public class InventoryButtonsController implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         String command = e.getActionCommand();
         switch (command) {
-            case "removeProduct":
-                System.out.println("Handle Remove Product from Cart here!");
-                // removeProductFromCart();
-                break;
             case "createNewProduct":
                 System.out.println("Handle Add New Product here!");
-                // textFields.forEach(field -> System.out.println("Field Value: ", field));
-                // Arrays
-                // .stream(textFields)
-                // .forEach(textField -> {
-                // System.out.println("Field Value: " + textField.getText());
-                // });
 
                 createNewProduct();
 
                 // addProductToCart();
                 break;
-            // add more cases for other buttons
+            default:
+                break;
         }
     }
 
     private void createNewProduct() {
         // Get the text from each textfield
-        String[] row = new String[textFields.length];
-        for (int i = 0; i < textFields.length; i++) {
-            row[i] = textFields[i].getText();
-        }
+        String[] row = Arrays.stream(textFields)
+                .map(JTextField::getText)
+                .toArray(String[]::new);
+
         try {
             ProductInventory.doesProductIDExist(textFields[0].getText());
 
@@ -72,8 +63,7 @@ public class InventoryButtonsController implements ActionListener {
                     new BigDecimal(textFields[4].getText()));
             // Add the new row to the table model
             ProductInventory.addProduct(newProduct);
-            // ProductInventory.writeProductToCSV(newProduct);
-            // System.out.println("row var " + row);
+
             tableModel.addRow(row);
             // Update the table
             inventoryTable.setModel(tableModel);
@@ -83,7 +73,6 @@ public class InventoryButtonsController implements ActionListener {
                 | InvalidFormatException err) {
             // Output the row in a dialogue
             JOptionPane.showMessageDialog(null, err.getMessage());
-            // JOptionPane.showMessageDialog(null, String.join(", ", row));
         }
     }
 }

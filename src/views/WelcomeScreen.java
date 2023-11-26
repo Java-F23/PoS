@@ -26,7 +26,6 @@ class WelcomeScreen extends JPanel {
         // Add a "Continue" button
         continueButton = new JButton("Continue");
 
-        // continueButton.setMargin(new Insets(0, 0, 20, 0)); // Add bottom margin
 
         gbc.gridy = 1; // Set the y grid position
         gbc.weighty = 0; // Reset the vertical space

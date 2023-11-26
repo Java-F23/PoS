@@ -1,4 +1,6 @@
-package GUI;
+package model;
+
+import java.util.Arrays;
 
 /**
  * GUI.PaymentMethod enum that represents the payment methods available.
@@ -11,13 +13,10 @@ public enum PaymentMethod {
 
     public static PaymentMethod fromString(String value) {
         System.out.println("Given value: " + value);
-        for (PaymentMethod method : PaymentMethod.values()) {
-            if (method.name().equalsIgnoreCase(value)) {
-                System.out.println("matched Payment Method: " + method.name());
-                return method;
-            }
-        }
-        throw new IllegalArgumentException("Invalid payment method: " + value);
+        return Arrays.stream(PaymentMethod.values())
+                .filter(method -> method.name().equalsIgnoreCase(value))
+                .findFirst()
+                .orElseThrow(() -> new IllegalArgumentException("Invalid payment method: " + value));
     }
 
 }

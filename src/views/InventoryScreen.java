@@ -3,17 +3,10 @@ package views;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
-import GUI.ProductInventory;
-
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.math.BigDecimal;
-import java.util.InputMismatchException;
 import controllers.InventoryButtonsController;
+import model.ProductInventory;
 
-//import "../src/GUI.ProductInventory.java";
-//import point_of_sale.src.GUI.ProductInventory;
 public class InventoryScreen extends JPanel {
     public static final String[] COLUMN_NAMES = { "PID", "Name", "Quantity", "Price", "Tax Rate" };
     private JTextField[] textFields = new JTextField[5]; // Array to store the textfields
@@ -29,8 +22,7 @@ public class InventoryScreen extends JPanel {
         JPanel textboxPanel = new JPanel();
         textboxPanel.setLayout(new GridLayout(5, 1, 24, 0)); // 5 rows, 1 column, 24px vertical spacing
         textboxPanel.setToolTipText("Define a New Product");
-        // textboxPanel.add(new JLabel("Add a Product",BorderLayout.NORTH).add(new
-        // JPanel(new BorderLayout())));
+
         // Add 5 textboxes to the textboxPanel
         for (int i = 0; i < COLUMN_NAMES.length; i++) {
             JPanel pairPanel = new JPanel(new BorderLayout());
@@ -49,9 +41,7 @@ public class InventoryScreen extends JPanel {
         add(textboxPanel, gbc);
 
         // Create a JTable for the inventory
-        // String[] columnNames = {"ID", "Name", "Price", "Quantity", "Tax Rate"};
         Object[][] data = ProductInventory.getInventoryForTable(); // Replace with your data
-        // JTable inventoryTable = new JTable(data, COLUMN_NAMES);
 
         tableModel = new DefaultTableModel(data, COLUMN_NAMES) {
             @Override
@@ -89,7 +79,6 @@ public class InventoryScreen extends JPanel {
     }
 
     public static void updateInventoryTableModel(Object[][] inventoryItems) {
-        // setCartTableData(ShoppingCart.getCartItemsForTable());
         tableModel.setDataVector(inventoryItems, COLUMN_NAMES);
 
     }
