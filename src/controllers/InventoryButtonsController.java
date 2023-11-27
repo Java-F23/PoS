@@ -111,7 +111,8 @@ public class InventoryButtonsController implements ActionListener {
                     new BigDecimal(textFields[4].getText()));
             // Add the new row to the table model
             ProductInventory.addProduct(newProduct);
-
+            ProductInventory.overwriteInventoryToCsv();
+            
             tableModel.addRow(row);
             // Update the table
             inventoryTable.setModel(tableModel);
